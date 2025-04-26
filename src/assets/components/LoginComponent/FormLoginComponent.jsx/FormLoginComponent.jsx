@@ -18,7 +18,8 @@ const FormLoginComponent = () => {
       .then(data => {
         setMessage(data.message || "Login Exitoso");
         if (data.success) {
-          alert("bien")
+          localStorage.setItem('usuario',JSON.stringify(data.usuario))
+          window.location.href = "/";
         }
       })
       .catch(() => setMessage("Hubo un error al registrar el usuario"));

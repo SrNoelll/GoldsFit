@@ -18,7 +18,7 @@ const FormRegisterComponent = () => {
     .then(data => {
       setMessage(data.message || "Registro exitoso");
       if (data.success) {
-        window.location.href = "/";
+        window.location.href = "/login";
       }
     })
     .catch(() => setMessage("Hubo un error al registrar el usuario"));

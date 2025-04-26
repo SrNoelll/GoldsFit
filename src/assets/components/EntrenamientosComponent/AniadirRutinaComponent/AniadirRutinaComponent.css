@@ -1,0 +1,14 @@
+.agregar{
+    color: #fcc601;
+    border: solid 1px #fcc601;
+    text-decoration: none;
+    cursor: pointer;
+}
+.tituloR{
+    font-size: 1.5rem;
+    background-color: transparent;
+    border:none;
+    border-bottom: solid 1px #fcc601 !important;
+    border-left: solid 1px #fcc601;
+    outline: none;    
+}

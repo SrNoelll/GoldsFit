@@ -8,6 +8,8 @@
     height: 100vh;
 }
 .cuadrado{
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
     background-color: #fcc601;
 }
 .fomrLogin{
@@ -15,6 +17,7 @@
     height: 100vh;
 }
 .enviar{
+    border-radius: 10px;
     border: solid 1px transparent;
     color: #181818;
     width: 100%;
@@ -30,6 +33,7 @@
     height: 50px;
 }
 .textoIn{
+    border-radius: 10px;
     padding: 10px;
     border: solid 1px #fcc601;
     background-color: transparent;

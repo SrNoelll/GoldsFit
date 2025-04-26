@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginComponent from './assets/components/LoginComponent/LoginComponent';
 import RegisterComponent from './assets/components/LoginComponent/RegisterComponent';
 import IndexComponent from './assets/components/IndexComponent/IndexComponent';
+import EntrenamientoComponent from './assets/components/EntrenamientosComponent/EntrenamientoComponent';
+import AniadirRutinaComponent from './assets/components/EntrenamientosComponent/AniadirRutinaComponent/AniadirRutinaComponent';
+import SeleccionarEjercicioComponent from './assets/components/EntrenamientosComponent/AniadirRutinaComponent/SeleccionarEjercicioComponent/SeleccionarEjercicioComponent';
+import VistaRutinaComponent from './assets/components/EntrenamientosComponent/VistaRutinaComponent/VistaRutinaComponent';
 
 function App() {
   return (
@@ -11,6 +15,10 @@ function App() {
       <Route path="/" element={<IndexComponent></IndexComponent>} />
         <Route path="/login" element={<LoginComponent></LoginComponent>} />
         <Route path="/register" element={<RegisterComponent></RegisterComponent>} />
+        <Route path="/entrenamiento" element={<EntrenamientoComponent></EntrenamientoComponent>} />
+        <Route path="/aniadirRutina" element={<AniadirRutinaComponent></AniadirRutinaComponent>} />
+        <Route path="/seleccionarEjercicio" element={<SeleccionarEjercicioComponent/>} />
+        <Route path="/rutina" element={<VistaRutinaComponent/>} />
       </Routes>
     </Router>
   )

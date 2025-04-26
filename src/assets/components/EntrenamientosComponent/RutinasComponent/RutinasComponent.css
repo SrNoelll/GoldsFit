@@ -1,0 +1,16 @@
+.rutinas{
+    padding-top: 100px;
+}
+.rutina{
+    color: #fcc601;
+    border: solid 1px #fcc601;
+    text-decoration: none;
+}
+.rutina:hover{
+    color: #181818;
+    background-color: #fcc601;
+    transition: all 0.2s;
+}
+.noEnlace{
+    text-decoration: none;
+}
