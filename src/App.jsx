@@ -18,7 +18,7 @@ function App() {
         <Route path="/entrenamiento" element={<EntrenamientoComponent></EntrenamientoComponent>} />
         <Route path="/aniadirRutina" element={<AniadirRutinaComponent></AniadirRutinaComponent>} />
         <Route path="/seleccionarEjercicio" element={<SeleccionarEjercicioComponent/>} />
-        <Route path="/rutina" element={<VistaRutinaComponent/>} />
+        <Route path="/rutina/:idRV" element={<VistaRutinaComponent/>} />
       </Routes>
     </Router>
   )

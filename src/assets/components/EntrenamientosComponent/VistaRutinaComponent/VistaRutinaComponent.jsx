@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import html2pdf from "html2pdf.js";
+import { useParams } from 'react-router-dom';
 import './VistaRutinaComponent.css'
 import HeaderComponent from "../../HeaderComponent/HeaderComponent";
 
 const VistaRutinaComponent = () => {
-
+  const { idRV } = useParams();
   const descargarRutinaPDF = () => {
     const element = document.getElementById('contenido-rutina');
   
@@ -22,6 +23,7 @@ const VistaRutinaComponent = () => {
 
   const renderMedia = (src) => {
     if (!src) return null;
+  
     const extension = src.split(".").pop().toLowerCase();
   
     const commonStyles = {
@@ -30,6 +32,8 @@ const VistaRutinaComponent = () => {
       height: "auto",
       objectFit: "cover",
     };
+  
+    let publicPath = src.replace('./src/assets/img/ejercicios/', '/ejercicios/');
   
     if (extension === "mp4") {
       return (
@@ -40,20 +44,23 @@ const VistaRutinaComponent = () => {
           playsInline
           style={commonStyles}
         >
-          <source src={src} type="video/mp4" />
+          <source src={publicPath} type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
       );
     } else {
       return (
         <img
-          src={src}
+          src={publicPath}
           alt="ejercicio"
           style={commonStyles}
         />
       );
     }
   };
+  
+  
+  
   
 
   const [rutina, setRutina] = useState("Cargando...");
@@ -66,7 +73,7 @@ const VistaRutinaComponent = () => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `verRutinaId=${encodeURIComponent(17)}`,
+        body: `verRutinaId=${encodeURIComponent(idRV)}`,
       })
         .then((response) => response.json())
         .then((data) => {
@@ -83,7 +90,7 @@ const VistaRutinaComponent = () => {
         });
     };
     fetchEntrenamientos();
-  }, []);
+  }, [idRV]);
 
   // Agrupar las series por ejercicio
   const agruparEjercicios = () => {
@@ -112,7 +119,15 @@ const VistaRutinaComponent = () => {
       <HeaderComponent />
       <div id="contenido-rutina" className="contenido container">
         {/* <div className="btn btn-primary" onClick={descargarRutinaPDF}>Descargar rutina</div> */}
-        <h1 className="titulo">{rutina}</h1>
+        <div className="row">
+          <h1 className="titulo col">{rutina}</h1>
+          <a className="col noEnlace" href="">
+            <div className="rounded serie p-2 text-center d-flex justify-content-center align-items-center">
+              Iniciar Entrenamiento
+            </div>
+          </a>
+        </div>
+        
 
         {ejercicios.length === 0 ? (
           <p className="text-center">No hay ejercicios cargados.</p>
@@ -120,12 +135,12 @@ const VistaRutinaComponent = () => {
           ejerciciosAgrupados.map((ejercicio) => (
             <div key={ejercicio.id} className="mb-4 row ejercicioM">
               <h4 className="titulo col-12">{ejercicio?.nombre}</h4>
-              <div className="col-6">
+              <div className="col-4">
                 {renderMedia(ejercicio?.foto)}
               </div>
-              <div className="col-6">
+              <div className="col-8">
                 {ejercicio.series.map((serie, idx) => (
-                  <div key={idx} className="row rounded bg-primary p-2 text-center d-flex justify-content-center align-items-center mb-2">
+                  <div key={idx} className="row rounded serie p-2 text-center d-flex justify-content-center align-items-center mb-2">
                     <p className="col"><strong>SERIE:</strong> {idx + 1}</p>
                     <p className="col"><strong>REPS:</strong> {serie.reps}</p>
                     <p className="col"><strong>KG:</strong> {serie.peso || '--'}</p>

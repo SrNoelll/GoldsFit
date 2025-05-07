@@ -56,14 +56,19 @@ const SeleccionarEjercicioComponent = () => {
             key={ejercicio.id}
             id={ejercicio.id}
             className="row d-flex justify-content-center text-center align-items-center agregar my-4 p-3 rounded"
-            onClick={() => {
-                const seleccionados = JSON.parse(sessionStorage.getItem('seleccionados')) || [];
-                if (!seleccionados.includes(ejercicio.id)) {
-                  seleccionados.push(ejercicio.id);
-                  sessionStorage.setItem('seleccionados', JSON.stringify(seleccionados));
-                  console.log(seleccionados)
-                }
-              }}
+            onClick={(e) => {
+              const id = ejercicio.id;
+              const seleccionados = JSON.parse(sessionStorage.getItem('seleccionados')) || [];
+              const index = seleccionados.indexOf(id);
+              e.currentTarget.classList.toggle('ejercicioSe');
+              if (index === -1) {
+                seleccionados.push(id);
+              } else {
+                seleccionados.splice(index, 1);
+              }
+              sessionStorage.setItem('seleccionados', JSON.stringify(seleccionados));
+              console.log(seleccionados);
+            }}            
           >
             <div className="col">
               <p>{ejercicio.nombre}</p>
