@@ -7,7 +7,7 @@ const FormRegisterComponent = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    fetch("https://api.allorigins.win/get?url=https://goldsfit.infinityfreeapp.com", {
+    fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://goldsfit.infinityfreeapp.com/index.php'), {
         method: "POST",
         body: formData
     })
