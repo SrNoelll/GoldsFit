@@ -7,7 +7,7 @@ const FormLoginComponent = () => {
       event.preventDefault();
       const formData = new FormData(event.target);
   
-      fetch("http://goldsfit.infinityfreeapp.com/index.php", {
+      fetch("https://goldsfit.infinityfreeapp.com/index.php", {
           method: "POST",
           body: formData
       })
