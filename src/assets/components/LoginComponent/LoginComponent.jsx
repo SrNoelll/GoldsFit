@@ -15,7 +15,7 @@ const LoginComponent = () => {
         }
     }
     const cargarEjercicios = () =>{
-        fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://goldsfit.infinityfreeapp.com/index.php'), {
+        fetch('https://proxy.cors.sh/https://goldsfit.infinityfreeapp.com/index.php', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
