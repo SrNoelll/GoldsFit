@@ -6,7 +6,7 @@ import { TfiStatsUp } from "react-icons/tfi";
 import { RiTeamLine } from "react-icons/ri";
 import './HeaderComponent.css'
 const HeaderComponent = () => {
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
   return (
     <header className='container-fluid'>
         <div className='container'>
