@@ -7,7 +7,7 @@ const FormRegisterComponent = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    fetch("https://goldsfit.infinityfreeapp.com/index.php", {
+    fetch("https://goldsfit.infinityfreeapp.com", {
         method: "POST",
         body: formData
     })

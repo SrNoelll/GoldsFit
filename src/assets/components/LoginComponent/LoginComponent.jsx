@@ -15,7 +15,7 @@ const LoginComponent = () => {
         }
     }
     const cargarEjercicios = () =>{
-        fetch("https://goldsfit.infinityfreeapp.com/index.php", {
+        fetch("https://goldsfit.infinityfreeapp.com", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
