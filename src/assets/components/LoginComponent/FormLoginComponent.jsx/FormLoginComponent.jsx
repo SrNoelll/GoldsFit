@@ -7,7 +7,7 @@ const FormLoginComponent = () => {
       event.preventDefault();
       const formData = new FormData(event.target);
   
-      fetch('https://proxy.cors.sh/https://goldsfit.infinityfreeapp.com/index.php', {
+      fetch("http://localhost/php/peticiones.php", {
           method: "POST",
           body: formData
       })

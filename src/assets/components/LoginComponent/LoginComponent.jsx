@@ -15,7 +15,7 @@ const LoginComponent = () => {
         }
     }
     const cargarEjercicios = () =>{
-        fetch('https://proxy.cors.sh/https://goldsfit.infinityfreeapp.com/index.php', {
+        fetch("http://localhost/php/peticiones.php", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
