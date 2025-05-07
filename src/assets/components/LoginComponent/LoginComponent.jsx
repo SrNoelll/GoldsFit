@@ -15,7 +15,7 @@ const LoginComponent = () => {
         }
     }
     const cargarEjercicios = () =>{
-        fetch("https://goldsfit.infinityfreeapp.com", {
+        fetch("https://api.allorigins.win/get?url=https://goldsfit.infinityfreeapp.com", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
