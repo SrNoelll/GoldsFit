@@ -1,7 +1,5 @@
 import React from 'react';
 import './HeroComponent.css';
-import logo from '../../../img/GoldFitEs.webp'
-import hombre from '../../../img/hero.webp'
 
 const HeroComponent = () => {
   return (

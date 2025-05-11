@@ -1,6 +1,6 @@
 import React from 'react'
 import './LoginComponent.css'
-import logo from '../../img/GoldFitEs.webp'
+import logo from '../../../../public/GoldFitEs.webp'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import FormLoginComponent from './FormLoginComponent.jsx/FormLoginComponent';

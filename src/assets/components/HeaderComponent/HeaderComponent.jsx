@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../../img/GoldFitEs.webp'
 import { CgGym } from "react-icons/cg";
 import { TbMeat } from "react-icons/tb";
 import { TfiStatsUp } from "react-icons/tfi";
@@ -11,7 +10,7 @@ const HeaderComponent = () => {
     <header className='container-fluid'>
         <div className='container'>
             <div className="row p-2 d-flex align-items-center text-center justify-content-center">
-                <div className='col'><a href="/"><img src={logo} alt="" /></a></div>
+                <div className='col'><a href="/"><img src="/GoldFitEs.webp" alt="" /></a></div>
                 <div className='col'><a className='hen' href="/entrenamiento"><CgGym size={25}/> Entrenamiento</a></div>
                 <div className='col'><a className='hen' href=""><TbMeat size={25} /> Nutricion</a></div>
                 <div className='col'><a className='hen' href=""><TfiStatsUp size={25} /> Tus Marcas</a></div>

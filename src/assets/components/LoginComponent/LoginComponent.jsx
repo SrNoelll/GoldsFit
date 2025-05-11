@@ -1,6 +1,6 @@
 import React from 'react'
 import './LoginComponent.css'
-import logo from '../../img/GoldFitEs.webp'
+import logo from '../../../../public/GoldFitEs.webp'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import FormLoginComponent from './FormLoginComponent.jsx/FormLoginComponent';
@@ -15,7 +15,7 @@ const LoginComponent = () => {
         }
     }
     const cargarEjercicios = () =>{
-        fetch("http://localhost/php/peticiones.php", {
+        fetch("https://2daw14.iesalonsocano.org/php/peticiones.php", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'

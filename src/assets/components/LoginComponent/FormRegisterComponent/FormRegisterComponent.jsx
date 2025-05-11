@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import cultu from '../../../img/cultu.webp'
+import cultu from '../../../../../public/cultu.webp'
 
 const FormRegisterComponent = () => {
   const [message, setMessage] = useState("");

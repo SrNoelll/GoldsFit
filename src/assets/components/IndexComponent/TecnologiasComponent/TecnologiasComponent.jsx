@@ -1,5 +1,5 @@
 import React from 'react'
-import reloj from "../../../img/reloj.webp"
+import reloj from "../../../../../public/reloj.webp"
 import './TecnologiasComponent.css'
 const TecnologiasComponent = () => {
   return (

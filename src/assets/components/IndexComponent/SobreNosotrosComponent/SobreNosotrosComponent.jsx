@@ -1,6 +1,6 @@
 import React from 'react'
 import './SobreNosotrosComponent.css'
-import imgSobre from '../../../img/pareja.webp'
+import imgSobre from '../../../../../public/pareja.webp'
 const SobreNosotrosComponent = () => {
   return (
     <div>
