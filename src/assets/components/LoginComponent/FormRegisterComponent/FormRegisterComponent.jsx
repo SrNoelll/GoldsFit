@@ -7,7 +7,7 @@ const FormRegisterComponent = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    fetch("http://localhost/php/peticiones.php", {
+    fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
         method: "POST",
         body: formData
     })
