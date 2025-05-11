@@ -68,7 +68,7 @@ const VistaRutinaComponent = () => {
 
   useEffect(() => {
     const fetchEntrenamientos = () => {
-      fetch("http://localhost/php/peticiones.php", {
+      fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

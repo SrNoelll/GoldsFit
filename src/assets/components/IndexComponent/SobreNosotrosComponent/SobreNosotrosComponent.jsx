@@ -1,6 +1,5 @@
 import React from 'react'
 import './SobreNosotrosComponent.css'
-import imgSobre from '../../../../../public/pareja.webp'
 const SobreNosotrosComponent = () => {
   return (
     <div>
@@ -23,7 +22,7 @@ const SobreNosotrosComponent = () => {
           </div>
 
           <div className='col-6 '>
-            <img className='pareja' src={imgSobre} alt="" />
+            <img className='pareja' src='/pareja.webp' alt="" />
           </div>
         </div>
       </div>

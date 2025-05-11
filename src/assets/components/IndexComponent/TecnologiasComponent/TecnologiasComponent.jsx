@@ -1,5 +1,4 @@
 import React from 'react'
-import reloj from "../../../../../public/reloj.webp"
 import './TecnologiasComponent.css'
 const TecnologiasComponent = () => {
   return (
@@ -17,7 +16,7 @@ const TecnologiasComponent = () => {
                 </div>
       
                 <div className='col-4 px-5'>
-                  <img className='reloj' src={reloj} alt="" />
+                  <img className='reloj' src='/reloj.webp' alt="" />
                 </div>
                 <div className='ct col-4 p-3'><p className=' '>Nos aseguramos de que tu experiencia sea completa, integrando nuestra aplicación con los mejores smartwatches del mercado. Monitoriza tu rendimiento físico, controla tu frecuencia cardíaca y recibe recomendaciones personalizadas sobre ejercicio y alimentación directamente en tu muñeca. Con nuestra tecnología, optimizar tu salud y bienestar está al alcance de tu mano.</p>
                   <div className='container-fluid d-flex justify-content-end'>

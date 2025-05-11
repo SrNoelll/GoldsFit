@@ -1,6 +1,6 @@
 .hero{
     height: 100vh;
-    background-image: url('../../../img/hero.webp');
+    background-image: url('/hero.webp');
     background-size: cover;
     background-position: bottom;
 }

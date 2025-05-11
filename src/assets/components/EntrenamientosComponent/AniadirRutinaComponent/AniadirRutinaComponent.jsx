@@ -55,7 +55,7 @@ const AniadirRutinaComponent = () => {
     const titulo = document.getElementById(`titulo`)?.value || "";
     const body = "nombreRut="+ encodeURIComponent(titulo) +"&id="+ encodeURIComponent(usuario.id) +"&rutina=" + encodeURIComponent(JSON.stringify(datos));
   
-    fetch("http://localhost/php/peticiones.php", {
+    fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
       method: "POST",
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
