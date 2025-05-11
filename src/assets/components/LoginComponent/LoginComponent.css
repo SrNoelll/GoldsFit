@@ -3,7 +3,7 @@
     height: 100vh;
 }
 .fotoLogin{
-    background-image: url('../../img/loginImg.jpg');
+    background-image: url('/loginImg.jpg');
     background-size: cover;
     height: 100vh;
 }
