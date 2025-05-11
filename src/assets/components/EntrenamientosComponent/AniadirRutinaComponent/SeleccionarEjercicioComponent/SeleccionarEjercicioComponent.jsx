@@ -18,14 +18,14 @@ const SeleccionarEjercicioComponent = () => {
           playsInline
           style={{ borderRadius: "8px" }}
         >
-          <source src={"/ejercicios"+src} type="video/mp4" />
+          <source src={src} type="video/mp4" />
           Tu navegador no soporta el video.
         </video>
       );
     } else {
       return (
         <img
-          src={"/ejercicios"+src}
+          src={src}
           alt="ejercicio"
           width="200"
           style={{ borderRadius: "8px" }}
