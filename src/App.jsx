@@ -7,6 +7,7 @@ import EntrenamientoComponent from './assets/components/EntrenamientosComponent/
 import AniadirRutinaComponent from './assets/components/EntrenamientosComponent/AniadirRutinaComponent/AniadirRutinaComponent';
 import SeleccionarEjercicioComponent from './assets/components/EntrenamientosComponent/AniadirRutinaComponent/SeleccionarEjercicioComponent/SeleccionarEjercicioComponent';
 import VistaRutinaComponent from './assets/components/EntrenamientosComponent/VistaRutinaComponent/VistaRutinaComponent';
+import EmpezarRutinaComponent from './assets/components/EntrenamientosComponent/EmpezarRutinaComponent/EmpezarRutinaComponent';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/aniadirRutina" element={<AniadirRutinaComponent></AniadirRutinaComponent>} />
         <Route path="/seleccionarEjercicio" element={<SeleccionarEjercicioComponent/>} />
         <Route path="/rutina/:idRV" element={<VistaRutinaComponent/>} />
+        <Route path="/EmpezarRutina/:idRV" element={<EmpezarRutinaComponent/>} />
       </Routes>
     </Router>
   )

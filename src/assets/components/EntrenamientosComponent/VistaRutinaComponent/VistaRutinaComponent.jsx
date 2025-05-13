@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import html2pdf from "html2pdf.js";
 import { useParams } from 'react-router-dom';
 import './VistaRutinaComponent.css'
@@ -121,11 +122,11 @@ const VistaRutinaComponent = () => {
         {/* <div className="btn btn-primary" onClick={descargarRutinaPDF}>Descargar rutina</div> */}
         <div className="row">
           <h1 className="titulo col">{rutina}</h1>
-          <a className="col noEnlace" href="">
-            <div className="rounded serie p-2 text-center d-flex justify-content-center align-items-center">
+          <Link className="noEnlace" to={`/EmpezarRutina/${idRV}`}>
+           <div className="rounded serie p-2 text-center d-flex justify-content-center align-items-center">
               Iniciar Entrenamiento
             </div>
-          </a>
+          </Link>
         </div>
         
 

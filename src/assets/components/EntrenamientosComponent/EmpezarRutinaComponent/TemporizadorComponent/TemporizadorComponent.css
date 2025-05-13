@@ -1,0 +1,13 @@
+.descanso {
+  background-color: aliceblue;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.oculto {
+  display: none;
+}
