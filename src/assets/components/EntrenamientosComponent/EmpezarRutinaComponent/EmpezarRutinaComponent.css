@@ -1,0 +1,8 @@
+.carac {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    border: solid 1px #fcc601;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './EmpezarRutinaComponent.css'
 import { useParams } from "react-router-dom";
 import HeaderComponent from '../../HeaderComponent/HeaderComponent';
 import Timer from './TimerComponent/TimerComponent';
@@ -107,8 +108,8 @@ const EmpezarRutinaComponent = () => {
                     }
                   >
                     <p className="col"><strong>SERIE:</strong> {idx + 1}</p>
-                    <input className='col' type="text" placeholder={serie.reps}/>REPS
-                    <input className='col' type="text" placeholder={serie.peso || '--'}/>KG
+                    <input className='col-1 p-1 rounded mx-1 carac' type="text" placeholder={serie.reps}/>REPS
+                    <input className='col-1 p-1 rounded mx-1 carac' type="text" placeholder={serie.peso || '--'}/>KG
                   </div>
                 ))}
               </div>
