@@ -1,5 +1,5 @@
 .descanso {
-  background-color: aliceblue;
+  background-color: #fcc601;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -9,5 +9,5 @@
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }

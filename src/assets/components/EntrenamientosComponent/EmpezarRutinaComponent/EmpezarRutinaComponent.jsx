@@ -10,6 +10,24 @@ const EmpezarRutinaComponent = () => {
   const [ejercicios, setEjercicios] = useState([]);
   const [temporizador, setTemporizador] = useState({ duracion: 0, trigger: 0 });
 
+  useEffect(() => {
+    const fetchRutina = async () => {
+      try {
+        const response = await fetch(`https://2daw14.iesalonsocano.org/api/?ruta=rutina&id=${idRV}`);
+        const data = await response.json();
+        if (data.success) {
+          setEjercicios(data.ejercicios || []);
+          setRutina(data.rutina?.[0]?.nombre || "Rutina sin nombre");
+        } else {
+          console.error("Error del servidor:", data.message);
+        }
+      } catch (error) {
+        console.error("Error al obtener rutina:", error);
+      }
+    };
+    fetchRutina();
+  }, [idRV]);
+
   const renderMedia = (src) => {
     if (!src) return null;
 
@@ -20,6 +38,7 @@ const EmpezarRutinaComponent = () => {
       height: "auto",
       objectFit: "cover",
     };
+
     let publicPath = src.replace('./src/assets/img/ejercicios/', '/ejercicios/');
 
     if (extension === "mp4") {
@@ -30,31 +49,9 @@ const EmpezarRutinaComponent = () => {
         </video>
       );
     } else {
-      return (
-        <img src={publicPath} alt="ejercicio" style={commonStyles} />
-      );
+      return <img src={publicPath} alt="ejercicio" style={commonStyles} />;
     }
   };
-
-  useEffect(() => {
-    fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `verRutinaId=${encodeURIComponent(idRV)}`,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          setEjercicios(data.ejercicios || []);
-          setRutina(data.rutina?.[0]?.nombre || "Rutina sin nombre");
-        } else {
-          console.error("Error del servidor:", data.message);
-        }
-      })
-      .catch((error) => {
-        console.error("Error al obtener rutina:", error);
-      });
-  }, [idRV]);
 
   const agruparEjercicios = () => {
     const resultado = [];
@@ -110,8 +107,8 @@ const EmpezarRutinaComponent = () => {
                     }
                   >
                     <p className="col"><strong>SERIE:</strong> {idx + 1}</p>
-                    <p className="col"><strong>REPS:</strong> {serie.reps}</p>
-                    <p className="col"><strong>KG:</strong> {serie.peso || '--'}</p>
+                    <input className='col' type="text" placeholder={serie.reps}/>REPS
+                    <input className='col' type="text" placeholder={serie.peso || '--'}/>KG
                   </div>
                 ))}
               </div>
@@ -119,7 +116,7 @@ const EmpezarRutinaComponent = () => {
           ))
         )}
       </div>
-    <TemporizadorComponent duracion={temporizador.duracion} trigger={temporizador.trigger} />
+      <TemporizadorComponent duracion={temporizador.duracion} trigger={temporizador.trigger} />
     </div>
   );
 };

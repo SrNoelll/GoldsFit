@@ -14,26 +14,25 @@ const LoginComponent = () => {
             return <FormRegisterComponent></FormRegisterComponent>
         }
     }
-    const cargarEjercicios = () =>{
-        fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: "ejercicios=" + encodeURIComponent("ejercicios")
-        })
-        .then(response => {
-            if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-            return response.json();
-        })
-        .then(data => {
-          if (data.success) {
-            localStorage.setItem('ejercicios', JSON.stringify(data.ejercicios))
-          }
-        })
-        .catch(() => alert("Hubo un error en la peticion de ejercicios"));
-    }
-    cargarEjercicios();
+const cargarEjercicios = () => {
+  fetch("https://2daw14.iesalonsocano.org/api/?ruta=ejercicios", {
+    method: "GET"
+  })
+    .then(response => {
+      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        localStorage.setItem("ejercicios", JSON.stringify(data.ejercicios));
+      }
+    })
+    .catch(() => alert("Hubo un error en la petición de ejercicios"));
+};
+
+cargarEjercicios();
+
+
   return (
     <div>
       <div className='container-fluid'>

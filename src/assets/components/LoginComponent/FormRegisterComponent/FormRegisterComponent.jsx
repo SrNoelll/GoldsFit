@@ -3,19 +3,35 @@ import cultu from '../../../../../public/cultu.webp'
 
 const FormRegisterComponent = () => {
   const [message, setMessage] = useState("");
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+const handleSubmit = (event) => {
+  event.preventDefault();
 
-    fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
-        method: "POST",
-        body: formData
+  const form = event.target;
+  const data = {
+    nombre: form.nombre.value,
+    userName: form.userName.value,
+    email: form.email.value,
+    password: form.password.value,
+    confirmPassword: form.confirmPassword.value,
+  };
+
+  if (data.password !== data.confirmPassword) {
+    setMessage("Las contraseñas no coinciden");
+    return;
+  }
+
+  fetch("https://2daw14.iesalonsocano.org/api/?ruta=registro", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+      return response.json();
     })
-    .then(response => {
-        if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-        return response.json();
-    })
-    .then(data => {
+    .then((data) => {
       setMessage(data.message || "Registro exitoso");
       if (data.success) {
         window.location.href = "/login";

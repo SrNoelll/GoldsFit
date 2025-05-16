@@ -8,28 +8,21 @@ import { Link } from "react-router-dom";
 const RutinasComponent = () => {
   const [rutinas, setRutinas] = useState([]);
   const usuario = JSON.parse(localStorage.getItem('usuario'));
+
   useEffect(() => {
-    const fetchEntrenamientos = () => {
-      fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `id=${encodeURIComponent(usuario.id)}&rutinas=${encodeURIComponent(
-          "rutinas"
-        )}`,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            setRutinas(data.rutinas);
-          } else {
-            console.error("Error del servidor:", data.message);
-          }
-        })
-        .catch((error) => {
-          console.error("Error al obtener entrenamientos:", error);
-        });
+    const fetchEntrenamientos = async () => {
+      try {
+        const response = await fetch(`https://2daw14.iesalonsocano.org/api/?ruta=rutinas&idUsuario=${usuario.id}`);
+        const data = await response.json();
+
+        if (data.success) {
+          setRutinas(data.rutinas);
+        } else {
+          console.error("Error del servidor:", data.message);
+        }
+      } catch (error) {
+        console.error("Error al obtener entrenamientos:", error);
+      }
     };
 
     fetchEntrenamientos();
@@ -42,20 +35,22 @@ const RutinasComponent = () => {
         <div className="col-4 row">
           <div className="col-12 rounded">
             <a className="noEnlace" href="aniadirRutina">
-            <div className="col-12 rounded my-2 p-4 rutina">
-             <h4 >Aniadir rutina <FaPlusCircle /></h4>
-            </div>
+              <div className="col-12 rounded my-2 p-4 rutina">
+                <h4>Añadir rutina <FaPlusCircle /></h4>
+              </div>
             </a>
           </div>
         </div>
         <div className="col-8 row">
           {rutinas.map((rutina, index) => (
-            <Link className="noEnlace" to={`/rutina/${rutina.id}`}>
-            <div className="col-12 rounded row m-2 p-4 rutina display-flex" id={index}>
-              <h4 className="col-lg-10">{rutina.nombre || `Rutina ${index + 1}`}</h4>
-              <div className="col-lg-2 row"><FaPencilAlt className="col"/>
-              <RiDeleteBin2Fill className="col"/></div>
-            </div>
+            <Link className="noEnlace" to={`/rutina/${rutina.id}`} key={rutina.id}>
+              <div className="col-12 rounded row m-2 p-4 rutina display-flex">
+                <h4 className="col-lg-10">{rutina.nombre || `Rutina ${index + 1}`}</h4>
+                <div className="col-lg-2 row">
+                  <FaPencilAlt className="col" />
+                  <RiDeleteBin2Fill className="col" />
+                </div>
+              </div>
             </Link>
           ))}
         </div>

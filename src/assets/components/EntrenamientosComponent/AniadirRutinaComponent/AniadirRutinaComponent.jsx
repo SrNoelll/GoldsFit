@@ -37,47 +37,66 @@ const AniadirRutinaComponent = () => {
     }
   };
 
-  const handleGuardar = () => {
-    const datos = seleccionados.map((id) => {
-      const ejercicio = ejercicios.find((e) => e.id === id);
-      const repeticiones = document.getElementById(`reps-${ejercicio.id}`)?.value || 0;
-      const series = document.getElementById(`series-${ejercicio.id}`)?.value || 0;
-      const time = document.getElementById(`time-${ejercicio.id}`)?.value || 0;
-      
-      return {
-        id: ejercicio.id,
-        nombre: ejercicio.nombre,
-        repeticiones: parseInt(repeticiones),
-        series: parseInt(series),
-        time: parseInt(time),
-      };
-    });
-    const titulo = document.getElementById(`titulo`)?.value || "";
-    const body = "nombreRut="+ encodeURIComponent(titulo) +"&id="+ encodeURIComponent(usuario.id) +"&rutina=" + encodeURIComponent(JSON.stringify(datos));
-  
-    fetch("https://2daw14.iesalonsocano.org/peticiones.php", {
+ const handleGuardar = async () => {
+  const tituloInput = document.getElementById("titulo");
+  const titulo = tituloInput?.value.trim();
+
+  if (!titulo) {
+    alert("Por favor, introduce un título para la rutina.");
+    return;
+  }
+
+  const datos = seleccionados.map((id) => {
+    const ejercicio = ejercicios.find((e) => e.id === id);
+    const repeticiones = parseInt(document.getElementById(`reps-${id}`)?.value) || 0;
+    const series = parseInt(document.getElementById(`series-${id}`)?.value) || 0;
+    const time = parseInt(document.getElementById(`time-${id}`)?.value) || 0;
+
+    return {
+      id: ejercicio.id,
+      nombre: ejercicio.nombre,
+      repeticiones,
+      series,
+      time,
+    };
+  });
+
+  try {
+    const response = await fetch("https://2daw14.iesalonsocano.org/api/?ruta=rutina", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        "Content-Type": "application/json",
       },
-      body: body
-    })
-    .then(response => {
-      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-      return response.json();
-    })
-    .then(data => {
-      if (data.success) {
-        sessionStorage.clear()
-        window.location.href = "/entrenamiento";
-      } else {
-        console.log("Error al guardar la rutina");
-      }
-    })
-    .catch(() => {
-      alert("Hubo un error al guardar la rutina");
+      body: JSON.stringify({
+        nombreRut: titulo,
+        id: usuario.id,
+        rutina: datos,
+      }),
     });
-  };
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Error al guardar la rutina:", errorData);
+      alert("Hubo un error al guardar la rutina: " + (errorData.message || response.statusText));
+      return;
+    }
+
+    const data = await response.json();
+
+    if (data.success) {
+      sessionStorage.clear();
+      window.location.href = "/entrenamiento";
+    } else {
+      console.error("Error en la respuesta del servidor:", data);
+      alert("Hubo un error al guardar la rutina.");
+    }
+  } catch (error) {
+    console.error("Error en la solicitud fetch:", error);
+    alert("Hubo un error al guardar la rutina.");
+  }
+};
+
+
   
   const mostrarEjer = () => {
     return seleccionados.map((id, index) => {
