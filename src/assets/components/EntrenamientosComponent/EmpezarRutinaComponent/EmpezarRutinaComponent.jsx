@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './EmpezarRutinaComponent.css'
+import './EmpezarRutinaComponent.css';
 import { useParams } from "react-router-dom";
 import HeaderComponent from '../../HeaderComponent/HeaderComponent';
 import Timer from './TimerComponent/TimerComponent';
@@ -11,6 +11,29 @@ const EmpezarRutinaComponent = () => {
   const [ejercicios, setEjercicios] = useState([]);
   const [temporizador, setTemporizador] = useState({ duracion: 0, trigger: 0 });
 
+  const actualizarSerie = async (id_serie, campo, valor) => {
+    try {
+      const response = await fetch('https://2daw14.iesalonsocano.org/api/?ruta=actualizar_serie', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id_serie,
+          campo,
+          valor,
+        }),
+      });
+
+      const data = await response.json();
+      if (!data.success) {
+        console.error("Error al actualizar:", data.message, data.error);
+      }
+    } catch (error) {
+      console.error("Error en fetch:", error);
+    }
+  };
+
   useEffect(() => {
     const fetchRutina = async () => {
       try {
@@ -18,7 +41,8 @@ const EmpezarRutinaComponent = () => {
         const data = await response.json();
         if (data.success) {
           setEjercicios(data.ejercicios || []);
-          setRutina(data.rutina?.[0]?.nombre || "Rutina sin nombre");
+          setRutina(data.rutina.nombre || "Rutina sin nombre");
+          console.log(data.rutina)
         } else {
           console.error("Error del servidor:", data.message);
         }
@@ -31,7 +55,6 @@ const EmpezarRutinaComponent = () => {
 
   const renderMedia = (src) => {
     if (!src) return null;
-
     const extension = src.split(".").pop().toLowerCase();
     const commonStyles = {
       borderRadius: "8px",
@@ -56,14 +79,22 @@ const EmpezarRutinaComponent = () => {
 
   const agruparEjercicios = () => {
     const resultado = [];
-    let actual = null;
+    let mapa = {};
 
     ejercicios.forEach((ejercicio) => {
-      if (!actual || actual.id !== ejercicio.id) {
-        actual = { ...ejercicio, series: [] };
-        resultado.push(actual);
+      const idEjercicio = ejercicio.ejercicio_id;
+      if (!mapa[idEjercicio]) {
+        mapa[idEjercicio] = {
+          ejercicio_id: idEjercicio,
+          nombre: ejercicio.nombre,
+          foto: ejercicio.foto,
+          series: [],
+        };
+        resultado.push(mapa[idEjercicio]);
       }
-      actual.series.push({
+
+      mapa[idEjercicio].series.push({
+        id_serie: ejercicio.id_serie,
         descanso: ejercicio.descanso,
         reps: ejercicio.repeticiones,
         peso: ejercicio.peso,
@@ -89,16 +120,16 @@ const EmpezarRutinaComponent = () => {
         {ejercicios.length === 0 ? (
           <p className="text-center">No hay ejercicios cargados.</p>
         ) : (
-          ejerciciosAgrupados.map((ejercicio) => (
-            <div key={ejercicio.id} className="mb-4 row ejercicioM">
-              <h4 className="titulo col-12">{ejercicio?.nombre}</h4>
+          ejerciciosAgrupados.map((ejercicio, idxEj) => (
+            <div className="mb-4 row ejercicioM" key={idxEj}>
+              <h4 className="titulo col-12">{ejercicio.nombre}</h4>
               <div className="col-4">
-                {renderMedia(ejercicio?.foto)}
+                {renderMedia(ejercicio.foto)}
               </div>
               <div className="col-8">
-                {ejercicio.series.map((serie, idx) => (
+                {ejercicio.series.map((serie, idxSerie) => (
                   <div
-                    key={idx}
+                    key={idxSerie}
                     className="row rounded serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer"
                     onClick={() =>
                       setTemporizador({
@@ -107,9 +138,23 @@ const EmpezarRutinaComponent = () => {
                       })
                     }
                   >
-                    <p className="col"><strong>SERIE:</strong> {idx + 1}</p>
-                    <input className='col-1 p-1 rounded mx-1 carac' type="text" placeholder={serie.reps}/>REPS
-                    <input className='col-1 p-1 rounded mx-1 carac' type="text" placeholder={serie.peso || '--'}/>KG
+                    <p className="col"><strong>SERIE:</strong> {idxSerie + 1}</p>
+                    <input
+                      className='col-1 p-1 rounded mx-1 carac'
+                      type="number"
+                      defaultValue={serie.reps}
+                      onBlur={(e) =>
+                        actualizarSerie(serie.id_serie, 'repeticiones', e.target.value)
+                      }
+                    />REPS
+                    <input
+                      className='col-1 p-1 rounded mx-1 carac'
+                      type="number"
+                      defaultValue={serie.peso}
+                      onBlur={(e) =>
+                        actualizarSerie(serie.id_serie, 'peso', e.target.value)
+                      }
+                    />KG
                   </div>
                 ))}
               </div>

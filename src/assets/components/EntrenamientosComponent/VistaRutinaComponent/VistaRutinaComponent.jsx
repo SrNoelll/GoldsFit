@@ -16,7 +16,7 @@ const VistaRutinaComponent = () => {
         const data = await response.json();
 
         if (data.success) {
-          setRutina(data.rutina?.[0]?.nombre || "Rutina sin nombre");
+          setRutina(data.rutina.nombre || "Rutina sin nombre");
           setEjercicios(data.ejercicios || []);
         } else {
           console.error("Error del servidor:", data.message);
