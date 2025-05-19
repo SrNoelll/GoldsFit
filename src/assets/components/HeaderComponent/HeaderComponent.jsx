@@ -17,7 +17,7 @@ const HeaderComponent = () => {
           </a>
           {/* Botón hamburguesa solo visible en md hacia abajo */}
           <button
-            className="btn btn-dark d-md-none"
+            className="btn d-md-none"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#mobileMenu"
