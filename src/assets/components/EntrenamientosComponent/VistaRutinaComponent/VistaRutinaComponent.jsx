@@ -61,20 +61,30 @@ const VistaRutinaComponent = () => {
     }
   };
 
-  const agruparEjercicios = () => {
+   const agruparEjercicios = () => {
     const resultado = [];
-    let actual = null;
+    let mapa = {};
+
     ejercicios.forEach((ejercicio) => {
-      if (!actual || actual.id !== ejercicio.id) {
-        actual = { ...ejercicio, series: [] };
-        resultado.push(actual);
+      const idEjercicio = ejercicio.ejercicio_id;
+      if (!mapa[idEjercicio]) {
+        mapa[idEjercicio] = {
+          ejercicio_id: idEjercicio,
+          nombre: ejercicio.nombre,
+          foto: ejercicio.foto,
+          series: [],
+        };
+        resultado.push(mapa[idEjercicio]);
       }
-      actual.series.push({
+
+      mapa[idEjercicio].series.push({
+        id_serie: ejercicio.id_serie,
         descanso: ejercicio.descanso,
         reps: ejercicio.repeticiones,
         peso: ejercicio.peso,
       });
     });
+
     return resultado;
   };
 

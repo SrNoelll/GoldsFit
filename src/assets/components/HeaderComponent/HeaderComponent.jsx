@@ -17,7 +17,7 @@ const HeaderComponent = () => {
           </a>
           {/* Botón hamburguesa solo visible en md hacia abajo */}
           <button
-            className="btn d-md-none"
+            className="btn d-lg-none"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#mobileMenu"
@@ -27,7 +27,7 @@ const HeaderComponent = () => {
           </button>
 
           {/* Menú en pantallas grandes */}
-          <div className="d-none d-md-flex gap-4 align-items-center">
+          <div className="d-none d-lg-flex gap-4 align-items-center">
             <a className="hen" href="/entrenamiento"><CgGym size={20} /> Entrenamiento</a>
             <a className="hen" href="#"><TbMeat size={20} /> Nutrición</a>
             <a className="hen" href="#"><TfiStatsUp size={20} /> Tus Marcas</a>
@@ -49,7 +49,7 @@ const HeaderComponent = () => {
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body d-flex flex-column gap-3">
-          <a className="hen" href="/entrenamiento" data-bs-dismiss="offcanvas"><CgGym size={20} /> Entrenamiento</a>
+          <a className="hen" href="/entrenamiento"><CgGym size={20} /> Entrenamiento</a>
           <a className="hen" href="#" data-bs-dismiss="offcanvas"><TbMeat size={20} /> Nutrición</a>
           <a className="hen" href="#" data-bs-dismiss="offcanvas"><TfiStatsUp size={20} /> Tus Marcas</a>
           <a className="hen" href="#" data-bs-dismiss="offcanvas"><RiTeamLine size={20} /> Nuestro Propósito</a>
