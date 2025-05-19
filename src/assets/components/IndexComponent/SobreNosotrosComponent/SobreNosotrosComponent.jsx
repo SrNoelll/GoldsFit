@@ -14,7 +14,7 @@ const SobreNosotrosComponent = () => {
 
             Si buscas una aplicación que realmente te ayude a transformar tu cuerpo y alcanzar tus metas sin rodeos, esta es la mejor opción. ¡Empieza hoy mismo y lleva tu entrenamiento al siguiente nivel!  </p>
             <div className='container-fluid d-flex justify-content-end'>
-              <button>
+              <button className='x'>
                 <span> EMPIEZA YA
                 </span>
               </button>
