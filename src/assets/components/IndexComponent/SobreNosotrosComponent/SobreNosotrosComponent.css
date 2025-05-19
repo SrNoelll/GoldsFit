@@ -16,7 +16,7 @@
     height: 500px;
 }
 /* From Uiverse.io by Cevorob */ 
-button {
+.x {
     position: relative;
     height: 50px;
     padding: 0 30px;
@@ -28,32 +28,32 @@ button {
     font-family: inherit;
    }
    
-   button:before, button:after {
+   .x:before, .x:after {
     content: "";
     position: absolute;
     background: #fcc601;
     transition: all .2s linear;
    }
    
-   button:before {
+   .x:before {
     width: calc(100% + 6px);
     height: calc(100% - 16px);
     top: 8px;
     left: -3px;
    }
    
-   button:after {
+   .x:after {
     width: calc(100% - 16px);
     height: calc(100% + 6px);
     top: -3px;
     left: 8px;
    }
    
-   button:hover {
+   .x:hover {
     cursor: crosshair;
    }
    
-   button:active {
+   .x:active {
     transform: scale(0.95);
    }
    
@@ -62,12 +62,12 @@ button {
     top: 16px;
    }
    
-   button:hover:after {
+   .x:hover:after {
     width: calc(100% - 32px);
     left: 16px;
    }
    
-   button span {
+   .x span {
     font-size: 15px;
     z-index: 3;
     position: relative;
