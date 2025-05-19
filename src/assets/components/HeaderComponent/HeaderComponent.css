@@ -1,18 +1,23 @@
-header{
-    z-index: 999;
-    position: fixed;
-    background-color: #fcc601;
+header {
+  z-index: 999;
+  position: fixed;
+  background-color: #fcc601;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
-header img{
-    height: 70px;
+
+header img {
+  height: 70px;
 }
+
 .hen {
-    text-decoration: none;
-    color: #181818;
-    display: inline-block;
-    transition: all 0.3s ease;
+  text-decoration: none;
+  color: #181818;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
 .hen:hover {
-    transform: rotate(10deg);
+  transform: rotate(10deg);
 }
