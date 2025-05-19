@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { CgGym } from "react-icons/cg";
 import { TbMeat } from "react-icons/tb";
 import { TfiStatsUp } from "react-icons/tfi";
@@ -10,54 +10,52 @@ const HeaderComponent = () => {
 
   return (
     <header className="container-fluid">
-      <nav className="navbar navbar-expand-md navbar-light">
-        <div className="container">
+      <nav className="navbar navbar-light bg-warning py-2 fixed-top">
+        <div className="container d-flex justify-content-between align-items-center">
           <a className="navbar-brand" href="/">
             <img src="/GoldFitEs.webp" alt="Logo" />
           </a>
+          {/* Botón hamburguesa solo visible en md hacia abajo */}
           <button
-            className="navbar-toggler"
+            className="btn btn-dark d-md-none"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarContent"
-            aria-controls="navbarContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenu"
+            aria-controls="mobileMenu"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse justify-content-end" id="navbarContent">
-            <ul className="navbar-nav text-center">
-              <li className="nav-item">
-                <a className="nav-link hen" href="/entrenamiento">
-                  <CgGym size={20} /> Entrenamiento
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link hen" href="#">
-                  <TbMeat size={20} /> Nutrición
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link hen" href="#">
-                  <TfiStatsUp size={20} /> Tus Marcas
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link hen" href="#">
-                  <RiTeamLine size={20} /> Nuestro Propósito
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link hen" href="#">
-                  {usuario.nombre ?? "User"}
-                </a>
-              </li>
-            </ul>
+          {/* Menú en pantallas grandes */}
+          <div className="d-none d-md-flex gap-4 align-items-center">
+            <a className="hen" href="/entrenamiento"><CgGym size={20} /> Entrenamiento</a>
+            <a className="hen" href="#"><TbMeat size={20} /> Nutrición</a>
+            <a className="hen" href="#"><TfiStatsUp size={20} /> Tus Marcas</a>
+            <a className="hen" href="#"><RiTeamLine size={20} /> Nuestro Propósito</a>
+            <a className="hen" href="#">{usuario.nombre ?? "User"}</a>
           </div>
         </div>
       </nav>
+
+      {/* Offcanvas para móviles */}
+      <div
+        className="offcanvas offcanvas-end"
+        tabIndex="-1"
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="mobileMenuLabel">Menú</h5>
+          <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div className="offcanvas-body d-flex flex-column gap-3">
+          <a className="hen" href="/entrenamiento" data-bs-dismiss="offcanvas"><CgGym size={20} /> Entrenamiento</a>
+          <a className="hen" href="#" data-bs-dismiss="offcanvas"><TbMeat size={20} /> Nutrición</a>
+          <a className="hen" href="#" data-bs-dismiss="offcanvas"><TfiStatsUp size={20} /> Tus Marcas</a>
+          <a className="hen" href="#" data-bs-dismiss="offcanvas"><RiTeamLine size={20} /> Nuestro Propósito</a>
+          <a className="hen" href="#" data-bs-dismiss="offcanvas">{usuario.nombre ?? "User"}</a>
+        </div>
+      </div>
     </header>
   );
 };
