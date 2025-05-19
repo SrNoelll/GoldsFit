@@ -1,10 +1,7 @@
 header {
   z-index: 999;
-  position: fixed;
+  position: relative;
   background-color: #fcc601;
-  width: 100%;
-  top: 0;
-  left: 0;
 }
 
 header img {
@@ -14,10 +11,12 @@ header img {
 .hen {
   text-decoration: none;
   color: #181818;
+  font-weight: 500;
   display: inline-block;
   transition: all 0.3s ease;
 }
 
 .hen:hover {
-  transform: rotate(10deg);
+  transform: rotate(5deg);
+  color: #000;
 }
