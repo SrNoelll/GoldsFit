@@ -95,9 +95,9 @@ const VistaRutinaComponent = () => {
       <HeaderComponent />
       <div id="contenido-rutina" className="contenido container">
         <div className="row">
-          <h1 className="titulo col">{rutina}</h1>
-          <Link className="noEnlace" to={`/EmpezarRutina/${idRV}`}>
-            <div className="rounded serie p-2 text-center d-flex justify-content-center align-items-center">
+          <h1 className="titulo col-12">{rutina}</h1>
+          <Link className="noEnlace col-12" to={`/EmpezarRutina/${idRV}`}>
+            <div className="rounded serie p-2 text-center d-flex justify-content-center noEnlace align-items-center">
               Iniciar Entrenamiento
             </div>
           </Link>
