@@ -97,7 +97,7 @@ const VistaRutinaComponent = () => {
         <div className="row">
           <h1 className="titulo col-12">{rutina}</h1>
           <Link className="noEnlace col-12" to={`/EmpezarRutina/${idRV}`}>
-            <div className="rounded serie p-2 text-center d-flex justify-content-center noEnlace align-items-center">
+            <div className="rounded serie p-2 text-center d-flex justify-content-center t-m align-items-center">
               Iniciar Entrenamiento
             </div>
           </Link>
