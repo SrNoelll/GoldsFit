@@ -101,9 +101,6 @@ useEffect(() => {
                 <h4 className="col-lg-10">{rutina.nombre || `Rutina ${index + 1}`}</h4>
                 <div className="col-lg-2 row">
                   <FaPencilAlt className="col" />
-<<<<<<< HEAD
-                  <RiDeleteBin2Fill className="col"/>
-=======
                   <RiDeleteBin2Fill
                     className="col"
                     onClick={(e) => {
@@ -111,7 +108,6 @@ useEffect(() => {
                       eliminarRutina(rutina.id);
                     }}
                   />
->>>>>>> ef0c91f51d8504ad15c3cc8ddcc3668bbf27ca0b
                 </div>
               </div>
             </Link>
