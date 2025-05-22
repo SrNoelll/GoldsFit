@@ -4,9 +4,15 @@ import './TemporizadorComponent.css';
 const TemporizadorComponent = ({ duracion, trigger }) => {
   const [tiempoRestante, setTiempoRestante] = useState(duracion);
   const intervalRef = useRef(null);
+  const audioRef = useRef(null); // Referencia al audio
 
   useEffect(() => {
-    // Limpiar el temporizador anterior
+    // Cargar el sonido
+    if (!audioRef.current) {
+      audioRef.current = new Audio('/notificacion.mp3');
+    }
+
+    // Limpiar temporizador anterior
     if (intervalRef.current) clearInterval(intervalRef.current);
 
     setTiempoRestante(duracion);
@@ -16,6 +22,14 @@ const TemporizadorComponent = ({ duracion, trigger }) => {
         setTiempoRestante(prev => {
           if (prev <= 1) {
             clearInterval(intervalRef.current);
+
+            // Reproducir sonido al terminar
+            if (audioRef.current) {
+              audioRef.current.play().catch((e) => {
+                console.warn('No se pudo reproducir el sonido:', e);
+              });
+            }
+
             return 0;
           }
           return prev - 1;
@@ -24,7 +38,7 @@ const TemporizadorComponent = ({ duracion, trigger }) => {
     }
 
     return () => clearInterval(intervalRef.current);
-  }, [trigger]);
+  }, [trigger, duracion]);
 
   return (
     <div

@@ -104,7 +104,7 @@ useEffect(() => {
                   <RiDeleteBin2Fill
                     className="col"
                     onClick={(e) => {
-                      e.preventDefault(); // evita navegar por el <Link>
+                      e.preventDefault();
                       eliminarRutina(rutina.id);
                     }}
                   />
