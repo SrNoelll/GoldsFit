@@ -28,6 +28,33 @@ const RutinasComponent = () => {
     fetchEntrenamientos();
   }, []);
 
+  useEffect(() => {
+  const eliminarEntrenamiento = async (entrenamientoId) => {
+    try {
+      const response = await fetch(`https://2daw14.iesalonsocano.org/api/?ruta=rutinas&id=${entrenamientoId}`, {
+        method: 'DELETE',
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("Entrenamiento eliminado correctamente");
+
+        const updatedResponse = await fetch(`https://2daw14.iesalonsocano.org/api/?ruta=rutinas&idUsuario=${usuario.id}`);
+        const updatedData = await updatedResponse.json();
+        if (updatedData.success) {
+          setRutinas(updatedData.rutinas);
+        }
+      } else {
+        console.error("Error al eliminar:", data.message);
+      }
+    } catch (error) {
+      console.error("Error al eliminar entrenamiento:", error);
+    }
+  };
+}, []);
+
+
   return (
     <div className="rutinas container">
       <div className="row">
@@ -48,7 +75,7 @@ const RutinasComponent = () => {
                 <h4 className="col-lg-10">{rutina.nombre || `Rutina ${index + 1}`}</h4>
                 <div className="col-lg-2 row">
                   <FaPencilAlt className="col" />
-                  <RiDeleteBin2Fill className="col" />
+                  <RiDeleteBin2Fill className="col"/>
                 </div>
               </div>
             </Link>

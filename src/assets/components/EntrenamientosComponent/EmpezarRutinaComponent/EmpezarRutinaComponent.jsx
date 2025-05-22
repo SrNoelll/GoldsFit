@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './EmpezarRutinaComponent.css';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import HeaderComponent from '../../HeaderComponent/HeaderComponent';
 import Timer from './TimerComponent/TimerComponent';
 import TemporizadorComponent from './TemporizadorComponent/TemporizadorComponent';
@@ -161,7 +161,17 @@ const EmpezarRutinaComponent = () => {
             </div>
           ))
         )}
+        
       </div>
+        <div className='container pb-5 mb-5'>
+          <div className='row d-flex align-items-center justify-content-center'>
+          <Link className='col-12 text-center border-m p-3 noEnlace rounded t-m' to={'/entrenamiento'}>
+          Terminar entrenamiento
+          </Link>
+        </div>
+        </div>
+        
+
       <TemporizadorComponent duracion={temporizador.duracion} trigger={temporizador.trigger} />
     </div>
   );

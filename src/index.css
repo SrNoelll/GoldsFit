@@ -12,3 +12,7 @@ html,body{
 .t-m{
   color:#fcc601;
 }
+
+.border-m{
+  border: solid 1px #fcc601;
+}

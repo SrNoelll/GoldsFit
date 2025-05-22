@@ -96,11 +96,14 @@ const VistaRutinaComponent = () => {
       <div id="contenido-rutina" className="contenido container">
         <div className="row">
           <h1 className="titulo col-12">{rutina}</h1>
-          <Link className="noEnlace col-12" to={`/EmpezarRutina/${idRV}`}>
-            <div className="rounded serie p-2 text-center d-flex justify-content-center t-m align-items-center">
-              Iniciar Entrenamiento
-            </div>
-          </Link>
+        </div>
+
+        <div className='container-fluid d-flex align-items-center justify-content-center my-3'>
+                  <div className='row container-fluid'>
+                  <Link className='col-12 text-center border-m p-2 noEnlace rounded t-m' to={`/EmpezarRutina/${idRV}`}>
+                  Empezar entrenamiento
+                  </Link>
+                </div>
         </div>
 
         {ejercicios.length === 0 ? (
