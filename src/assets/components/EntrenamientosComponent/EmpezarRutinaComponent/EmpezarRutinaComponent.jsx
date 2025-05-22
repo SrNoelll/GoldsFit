@@ -166,7 +166,7 @@ const EmpezarRutinaComponent = () => {
         <div className='container pb-5 mb-5'>
           <div className='row d-flex align-items-center justify-content-center'>
           <Link className='col-12 text-center border-m p-3 noEnlace rounded t-m' to={'/entrenamiento'}>
-          Terminar entrenamiento
+          Terminar entrenamos
           </Link>
         </div>
         </div>
