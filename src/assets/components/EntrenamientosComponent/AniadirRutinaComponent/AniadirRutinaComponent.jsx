@@ -171,7 +171,7 @@ const AniadirRutinaComponent = () => {
         <div className='container'>{mostrarEjer()}</div>
 
         <a className='noEnlace' href="/seleccionarEjercicio">
-          <div className='container d-flex align-items-center p-2 justify-content-center text-center agregar'>
+          <div className='container d-flex rounded align-items-center p-2 justify-content-center text-center agregar'>
             Agregar ejercicio
           </div>
         </a>

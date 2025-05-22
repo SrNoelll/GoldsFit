@@ -123,14 +123,14 @@ const EmpezarRutinaComponent = () => {
           ejerciciosAgrupados.map((ejercicio, idxEj) => (
             <div className="mb-4 row ejercicioM" key={idxEj}>
               <h4 className="titulo col-12">{ejercicio.nombre}</h4>
-              <div className="col-4">
+              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                 {renderMedia(ejercicio.foto)}
               </div>
-              <div className="col-8">
+              <div className="col-lg-8 col-md-8 col-sm-12 col-12">
                 {ejercicio.series.map((serie, idxSerie) => (
                   <div
                     key={idxSerie}
-                    className="row rounded serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer"
+                    className="row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer"
                     onClick={() =>
                       setTemporizador({
                         duracion: parseInt(serie.descanso),

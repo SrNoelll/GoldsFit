@@ -1,6 +1,6 @@
 .hero{
     height: 100vh;
-    background-image: url('/hero.webp');
+    /* background-image: url('/hero.webp'); */
     background-size: cover;
     background-position: bottom;
 }
@@ -40,4 +40,9 @@ background-color: #ffffff;
 }
 .contenedorTit{
     background-color: #181818;
+}
+
+.imagenHero{
+    height: 500px;
+    width: auto;
 }
