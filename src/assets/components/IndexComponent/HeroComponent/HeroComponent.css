@@ -1,48 +1,57 @@
-.hero{
-    height: 100vh;
-    /* background-image: url('/hero.webp'); */
-    background-size: cover;
-    background-position: bottom;
-}
-.heroPrin{
-    height: 60vh;
-    border-radius: 20px;
-    border: solid 2px #ffffff;
-}
-.heroPrin h1{
-    font-size: 7rem;
-}
-.heroSec{
-    border-radius: 20px;
-    height: 15vh;
-    
-}
-.imagen{
-    background-image: url('/hero.jpg');
-    background-size: cover;
-}
-.eslogan{
-background-color: #ffffff;
-}
-.presen{
-    background-color: #fcc601;
-}
-.logoHero{
-    height: 100%;
-}
-.hombre{
-    height: 100vh;
-    width: auto;
-}
-.titulo{
-    font-family: 'Wallpoet', sans-serif;
-    color: #fcc601;
-}
-.contenedorTit{
-    background-color: #181818;
+.hero {
+  height: 100vh;
+  background-color: #0e0e0e;
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
-.imagenHero{
-    height: 500px;
-    width: auto;
+.titulo {
+  font-family: 'Wallpoet', sans-serif;
+  color: #fcc601;
+  font-size: 2.5rem;
+}
+
+.subtitulo {
+  color: #fcc601;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 0.15em solid #fcc601;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+  width: fit-content;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #fcc601; }
+}
+
+.contenedorTit {
+  background-color: #181818;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.imagenHero {
+  max-height: 250px;
+  width: auto;
+}
+
+.store-btn {
+  height: 50px;
+  transition: transform 0.2s ease;
+}
+
+.store-btn:hover {
+  transform: scale(1.05);
 }

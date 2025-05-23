@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import cultu from '../../../../../public/cultu.webp';
 
 const FormLoginComponent = () => {
   const [message, setMessage] = useState("");
@@ -37,7 +36,7 @@ const FormLoginComponent = () => {
   return (
     <div className="row d-flex align-items-center justify-content-center p-5 fomrLogin">
       <div className="col-6 text-center loginCont text-white">
-        <img className="cultu" src={cultu} alt="" />
+        <img className="cultu" src='/cultu.webp' alt="" />
         <h2 className="titulo">GOLD'S FIT</h2>
         <form className="row text-start" name="login" onSubmit={handleSubmit}>
           <div className="col-12 my-2">

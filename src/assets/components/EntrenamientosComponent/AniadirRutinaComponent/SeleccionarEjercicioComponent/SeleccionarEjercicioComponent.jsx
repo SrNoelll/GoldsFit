@@ -1,11 +1,18 @@
-import React from "react";
-import './SeleccionarEjercicioComponent.css'
+import React, { useState, useEffect } from "react";
+import './SeleccionarEjercicioComponent.css';
 import HeaderComponent from "../../../HeaderComponent/HeaderComponent";
 import { MdOutlineCancel } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
 
 const SeleccionarEjercicioComponent = () => {
-  const ejercicios = JSON.parse(localStorage.getItem("ejercicios")) || [];
+  const [ejercicios, setEjercicios] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
+
+  useEffect(() => {
+    const datos = JSON.parse(localStorage.getItem("ejercicios")) || [];
+    setEjercicios(datos);
+  }, []);
+
   const renderMedia = (src) => {
     const extension = src.split(".").pop().toLowerCase();
     if (extension === "mp4") {
@@ -33,25 +40,43 @@ const SeleccionarEjercicioComponent = () => {
       );
     }
   };
+
+  // Filtrar ejercicios por nombre
+  const ejerciciosFiltrados = ejercicios.filter((ej) =>
+    ej.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  );
+
   return (
     <div>
-        <HeaderComponent></HeaderComponent>
-        
+      <HeaderComponent />
+
       <div className="container contenido">
-        <div className="row">
-          <div className="col d-flex justify-content-center text-center align-items-center agregar m-3 p-3 rounded">
-              <a className="noDec" href="/aniadirRutina">
+        <div className="row mb-3">
+          <a className="noDec col" href="/aniadirRutina">
+            <div className="d-flex justify-content-center text-center align-items-center agregar p-3 rounded">
               Cancelar <MdOutlineCancel />
-            </a>
-          </div>
-          <div className="col d-flex justify-content-center text-center align-items-center agregar m-3 p-3 rounded">
-              <a className="noDec" href="/aniadirRutina">
+            </div>
+          </a>
+          <a className="noDec col" href="/aniadirRutina">
+            <div className="d-flex justify-content-center text-center align-items-center agregar p-3 rounded">
               Guardar <IoIosSave />
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
-      
-        {ejercicios.map((ejercicio) => (
+
+        {/* Buscador */}
+        <div className="row mb-4">
+          <input
+            type="text"
+            className="textoIn"
+            placeholder="Buscar ejercicio por nombre..."
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+          />
+        </div>
+
+        {/* Lista de ejercicios filtrados */}
+        {ejerciciosFiltrados.map((ejercicio) => (
           <div
             key={ejercicio.id}
             id={ejercicio.id}
@@ -67,8 +92,7 @@ const SeleccionarEjercicioComponent = () => {
                 seleccionados.splice(index, 1);
               }
               sessionStorage.setItem('seleccionados', JSON.stringify(seleccionados));
-              console.log(seleccionados);
-            }}            
+            }}
           >
             <div className="col">
               <p>{ejercicio.nombre}</p>

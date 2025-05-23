@@ -1,6 +1,5 @@
 import React from 'react'
 import './LoginComponent.css'
-import logo from '../../../../public/GoldFitEs.webp'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import FormLoginComponent from './FormLoginComponent.jsx/FormLoginComponent';
@@ -24,7 +23,7 @@ const RegisterComponent = () => {
             <div className='col-6'>
                 <div className='fotoLogin row d-flex align-items-end justify-content-end'>
                     <div className='cuadrado col-6 p-5 d-flex aling-items-center justify-content-center'>
-                        <img className='img-fluid' src={logo} alt="" />
+                        <img className='img-fluid' src='/GoldFitEs.webp' alt="" />
                     </div>
                 </div>
             </div>

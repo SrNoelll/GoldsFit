@@ -156,16 +156,16 @@ const AniadirRutinaComponent = () => {
           <div className='col-12'>
             <input id='titulo' type="text" placeholder='Titulo' className='w-50 rounded titulo p-2 tituloR'/>
           </div>
-          <div className="col d-flex justify-content-center text-center align-items-center agregar m-3 p-3 rounded">
-            <a className="noDec" href="/entrenamiento">
+          <a className="noDec col" href="/entrenamiento">
+          <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
               Cancelar <MdOutlineCancel />
-            </a>
           </div>
-          <div className="col d-flex justify-content-center text-center align-items-center agregar m-3 p-3 rounded">
-            <a className="noDec bg-transparent border-0" onClick={handleGuardar}>
+          </a>
+          <a className="noDec col bg-transparent border-0" onClick={handleGuardar}>
+          <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
               Guardar <IoIosSave />
-            </a>
           </div>
+          </a>
         </div>
 
         <div className='container'>{mostrarEjer()}</div>
