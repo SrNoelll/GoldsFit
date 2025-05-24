@@ -8,6 +8,7 @@ import AniadirRutinaComponent from './assets/components/EntrenamientosComponent/
 import SeleccionarEjercicioComponent from './assets/components/EntrenamientosComponent/AniadirRutinaComponent/SeleccionarEjercicioComponent/SeleccionarEjercicioComponent';
 import VistaRutinaComponent from './assets/components/EntrenamientosComponent/VistaRutinaComponent/VistaRutinaComponent';
 import EmpezarRutinaComponent from './assets/components/EntrenamientosComponent/EmpezarRutinaComponent/EmpezarRutinaComponent';
+import AlimentacionComponent from './assets/components/AlimentacionComponent/AlimentacionComponent';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/seleccionarEjercicio" element={<SeleccionarEjercicioComponent/>} />
         <Route path="/rutina/:idRV" element={<VistaRutinaComponent/>} />
         <Route path="/EmpezarRutina/:idRV" element={<EmpezarRutinaComponent/>} />
+        <Route path="/alimentacion" element={<AlimentacionComponent></AlimentacionComponent>} />
       </Routes>
     </Router>
   )

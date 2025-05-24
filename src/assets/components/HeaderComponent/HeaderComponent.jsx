@@ -5,11 +5,11 @@ import { TfiStatsUp } from "react-icons/tfi";
 import { RiTeamLine } from "react-icons/ri";
 import './HeaderComponent.css';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ dieta }) => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
 
   return (
-    <header className="container-fluid">
+    <header className={`${dieta ? 'fonA' : ''} container-fluid`}>
       <nav className="navbar navbar-light bg-warning py-2 fixed-top">
         <div className="container d-flex justify-content-between align-items-center">
           <a className="navbar-brand" href="/">
@@ -29,7 +29,7 @@ const HeaderComponent = () => {
           {/* Menú en pantallas grandes */}
           <div className="d-none d-lg-flex gap-4 align-items-center">
             <a className="hen" href="/entrenamiento"><CgGym size={20} /> Entrenamiento</a>
-            <a className="hen" href="#"><TbMeat size={20} /> Nutrición</a>
+            <a className="hen" href="/alimentacion"><TbMeat size={20} /> Nutrición</a>
             <a className="hen" href="#"><TfiStatsUp size={20} /> Tus Marcas</a>
             <a className="hen" href="#"><RiTeamLine size={20} /> Nuestro Propósito</a>
             <a className="hen" href="#">{usuario.nombre ?? "User"}</a>
@@ -50,7 +50,7 @@ const HeaderComponent = () => {
         </div>
         <div className="offcanvas-body d-flex flex-column gap-3">
           <a className="hen" href="/entrenamiento"><CgGym size={20} /> Entrenamiento</a>
-          <a className="hen" href="#" data-bs-dismiss="offcanvas"><TbMeat size={20} /> Nutrición</a>
+          <a className="hen" href="/alimentacion"><TbMeat size={20} /> Nutrición</a>
           <a className="hen" href="#" data-bs-dismiss="offcanvas"><TfiStatsUp size={20} /> Tus Marcas</a>
           <a className="hen" href="#" data-bs-dismiss="offcanvas"><RiTeamLine size={20} /> Nuestro Propósito</a>
           <a className="hen" href="#" data-bs-dismiss="offcanvas">{usuario.nombre ?? "User"}</a>

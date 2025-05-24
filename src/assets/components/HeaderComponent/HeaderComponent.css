@@ -5,6 +5,10 @@ header {
   height:70px;
 }
 
+header.fonA{
+  background-color: #4FC3F7 !important;
+}
+
 header img {
   height: 70px;
 }

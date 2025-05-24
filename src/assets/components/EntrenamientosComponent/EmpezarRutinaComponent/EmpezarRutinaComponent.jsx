@@ -11,21 +11,15 @@ const EmpezarRutinaComponent = () => {
   const [rutina, setRutina] = useState("Cargando...");
   const [ejercicios, setEjercicios] = useState([]);
   const [temporizador, setTemporizador] = useState({ duracion: 0, trigger: 0 });
+  const [seriesActivas, setSeriesActivas] = useState([]);
 
   const actualizarSerie = async (id_serie, campo, valor) => {
     try {
       const response = await fetch('https://2daw14.iesalonsocano.org/api/?ruta=actualizar_serie', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          id_serie,
-          campo,
-          valor,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_serie, campo, valor }),
       });
-
       const data = await response.json();
       if (!data.success) {
         console.error("Error al actualizar:", data.message, data.error);
@@ -43,7 +37,6 @@ const EmpezarRutinaComponent = () => {
         if (data.success) {
           setEjercicios(data.ejercicios || []);
           setRutina(data.rutina.nombre || "Rutina sin nombre");
-          console.log(data.rutina)
         } else {
           console.error("Error del servidor:", data.message);
         }
@@ -53,6 +46,19 @@ const EmpezarRutinaComponent = () => {
     };
     fetchRutina();
   }, [idRV]);
+
+  const toggleSerieActiva = (id_serie, descanso) => {
+    setSeriesActivas(prev =>
+      prev.includes(id_serie)
+        ? prev.filter(id => id !== id_serie)
+        : [...prev, id_serie]
+    );
+
+    setTemporizador({
+      duracion: parseInt(descanso),
+      trigger: Date.now(),
+    });
+  };
 
   const renderMedia = (src) => {
     if (!src) return null;
@@ -131,7 +137,7 @@ const EmpezarRutinaComponent = () => {
                 {ejercicio.series.map((serie, idxSerie) => (
                   <div
                     key={idxSerie}
-                    className="row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer"
+                    className={`row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer ${seriesActivas.includes(serie.id_serie) ? 'ejercicioSe' : ''}`}
                   >
                     <p className="col"><strong>SERIE:</strong> {idxSerie + 1}</p>
                     <input
@@ -150,12 +156,7 @@ const EmpezarRutinaComponent = () => {
                         actualizarSerie(serie.id_serie, 'peso', e.target.value)
                       }
                     />KG
-                    <div className='col-1' onClick={() =>
-                      setTemporizador({
-                        duracion: parseInt(serie.descanso),
-                        trigger: Date.now(),
-                      })
-                    }>
+                    <div className='col-1' onClick={() => toggleSerieActiva(serie.id_serie, serie.descanso)}>
                       <FaRegCircleCheck />
                     </div>
                   </div>
@@ -164,16 +165,15 @@ const EmpezarRutinaComponent = () => {
             </div>
           ))
         )}
-        
       </div>
-        <div className='container pb-5 mb-5'>
-          <div className='row d-flex align-items-center justify-content-center'>
+
+      <div className='container pb-5 mb-5'>
+        <div className='row d-flex align-items-center justify-content-center'>
           <Link className='col-12 text-center border-m p-3 noEnlace rounded t-m' to={'/entrenamiento'}>
-          Terminar entrenamos
+            Terminar entrenamos
           </Link>
         </div>
-        </div>
-        
+      </div>
 
       <TemporizadorComponent duracion={temporizador.duracion} trigger={temporizador.trigger} />
     </div>
