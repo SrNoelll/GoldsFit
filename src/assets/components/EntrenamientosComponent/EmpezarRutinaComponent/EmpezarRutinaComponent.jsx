@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './EmpezarRutinaComponent.css';
 import { Link, useParams } from "react-router-dom";
+import { FaRegCircleCheck } from "react-icons/fa6";
 import HeaderComponent from '../../HeaderComponent/HeaderComponent';
 import Timer from './TimerComponent/TimerComponent';
 import TemporizadorComponent from './TemporizadorComponent/TemporizadorComponent';
@@ -131,12 +132,6 @@ const EmpezarRutinaComponent = () => {
                   <div
                     key={idxSerie}
                     className="row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer"
-                    onClick={() =>
-                      setTemporizador({
-                        duracion: parseInt(serie.descanso),
-                        trigger: Date.now(),
-                      })
-                    }
                   >
                     <p className="col"><strong>SERIE:</strong> {idxSerie + 1}</p>
                     <input
@@ -155,6 +150,14 @@ const EmpezarRutinaComponent = () => {
                         actualizarSerie(serie.id_serie, 'peso', e.target.value)
                       }
                     />KG
+                    <div className='col-1' onClick={() =>
+                      setTemporizador({
+                        duracion: parseInt(serie.descanso),
+                        trigger: Date.now(),
+                      })
+                    }>
+                      <FaRegCircleCheck />
+                    </div>
                   </div>
                 ))}
               </div>
