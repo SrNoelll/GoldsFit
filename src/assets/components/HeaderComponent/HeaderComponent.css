@@ -1,11 +1,11 @@
-header {
+.headerColor {
   z-index: 999;
   position: relative;
   background-color: #fcc601;
   height:70px;
 }
 
-header.fonA{
+.fonA{
   background-color: #4FC3F7 !important;
 }
 

@@ -9,11 +9,11 @@ const HeaderComponent = ({ dieta }) => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
 
   return (
-    <header className={`${dieta ? 'fonA' : ''} container-fluid`}>
-      <nav className="navbar navbar-light bg-warning py-2 fixed-top">
+    <header className='container-fluid'>
+      <nav className={dieta ? 'fonA navbar navbar-light py-2 fixed-top': 'navbar navbar-light bg-warning py-2 fixed-top'}>
         <div className="container d-flex justify-content-between align-items-center">
           <a className="navbar-brand" href="/">
-            <img src="/GoldFitEs.webp" alt="Logo" />
+            <img src={dieta ? '/logoNutri.webp' : "/GoldFitEs.webp"} alt="Logo" />
           </a>
           {/* Botón hamburguesa solo visible en md hacia abajo */}
           <button

@@ -5,7 +5,7 @@ const AlimentacionComponent = () => {
   return (
     <div>
       <HeaderComponent dieta={true} />
-      <div className='container prueba contenido'>
+      <div className='container contenido'>
         hola
       </div>
     </div>
