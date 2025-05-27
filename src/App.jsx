@@ -9,6 +9,8 @@ import SeleccionarEjercicioComponent from './assets/components/EntrenamientosCom
 import VistaRutinaComponent from './assets/components/EntrenamientosComponent/VistaRutinaComponent/VistaRutinaComponent';
 import EmpezarRutinaComponent from './assets/components/EntrenamientosComponent/EmpezarRutinaComponent/EmpezarRutinaComponent';
 import AlimentacionComponent from './assets/components/AlimentacionComponent/AlimentacionComponent';
+import CalculadoraMacros from './assets/components/AlimentacionComponent/CalculadoraMacros/CalculadoraMacros';
+import PesoComponent from './assets/components/PesoComponent/PesoComponent';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/rutina/:idRV" element={<VistaRutinaComponent/>} />
         <Route path="/EmpezarRutina/:idRV" element={<EmpezarRutinaComponent/>} />
         <Route path="/alimentacion" element={<AlimentacionComponent></AlimentacionComponent>} />
+        <Route path="/calculadora" element={<CalculadoraMacros></CalculadoraMacros>} />
+        <Route path="/peso" element={<PesoComponent></PesoComponent>} />
       </Routes>
     </Router>
   )

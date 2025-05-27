@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const PresentacionCalculadoraMacosComponent = () => {
     return (
@@ -22,15 +23,18 @@ export const PresentacionCalculadoraMacosComponent = () => {
 
                     </p>
                         <div className='container-fluid d-flex justify-content-end'>
-                            <button className='btn bg-n'>
-                                <span> EMPIEZA YA
+                            <Link to={'/calculadora'}>
+                                <button className='bg-n p-2 formNu rounded'>
+                                <span> Calcula Tus Macros
                                 </span>
                             </button>
+                            </Link>
+                            
                         </div>
                     </div>
 
                     <div className='col-md-6 d-flex h-100 justify-content-center'>
-                        <img className='img-fluid ' src='/pareja.webp' alt="" />
+                        <img className='w-50 ' src='/calculadoraMacros.webp' alt="" />
                     </div>
                 </div>
             </div>

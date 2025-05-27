@@ -6,7 +6,7 @@ html,body{
   background-color: #181818 !important;
 }
 .contenido{
-  padding-top: 100px;
+  padding-top: 130px;
 }
 .noEnlace{
     text-decoration: none;
@@ -26,4 +26,8 @@ html,body{
 
 .nutricion{
   background-color: #d6f0ff;
+}
+.formNu{
+  background-color: #4FC3F7;
+  border: 3px #4FC3F7;
 }
