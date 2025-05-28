@@ -3,20 +3,21 @@ import './PesoComponent.css'
 import { GiNextButton } from "react-icons/gi";
 import { FaBackwardStep } from "react-icons/fa6";
 
-
+const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
 
 
 const PesoComponent = () => {
-  const [valor, setValor] = useState(60); // Peso base
+  const [valor, setValor] = useState(60);
 
   const handleChange = (e) => {
     setValor(Number(e.target.value));
   };
 
   const guardarPeso = () =>{
-    localStorage.setItem("peso",valor)
+    usuario.peso = valor
+    localStorage.setItem("usuario",JSON.stringify(usuario))
   }
-  const scale = 1 + (valor - 60) / 100; // Cambios sutiles
+  const scale = 1 + (valor - 60) / 100;
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
