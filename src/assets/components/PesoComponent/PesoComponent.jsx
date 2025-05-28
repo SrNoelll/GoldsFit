@@ -13,6 +13,9 @@ const PesoComponent = () => {
     setValor(Number(e.target.value));
   };
 
+  const guardarPeso = () =>{
+    localStorage.setItem("peso",valor)
+  }
   const scale = 1 + (valor - 60) / 100; // Cambios sutiles
 
   return (
@@ -34,6 +37,7 @@ const PesoComponent = () => {
           />
         </div>
         <input
+        id='pesob'
           type="range"
           className="barraPeso w-100"
           min="0"
@@ -44,12 +48,12 @@ const PesoComponent = () => {
         />
         <p className="mt-3 t-m">Peso seleccionado: <strong>{valor} kg</strong></p>
         <div className='row'>
-            <div className='col-6 '>
+            <div className='col-6'>
                 <p className='enviar d-flex justify-content-center align-items-center p-2'>
                 <FaBackwardStep /> Volver
                 </p>
             </div>
-            <div className='col-6'>
+            <div className='col-6' onClick={guardarPeso}>
                 <p className='enviar p-2'>
                 Siguiente <GiNextButton />
                 </p>
