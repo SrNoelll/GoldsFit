@@ -11,6 +11,9 @@ import EmpezarRutinaComponent from './assets/components/EntrenamientosComponent/
 import AlimentacionComponent from './assets/components/AlimentacionComponent/AlimentacionComponent';
 import CalculadoraMacros from './assets/components/AlimentacionComponent/CalculadoraMacros/CalculadoraMacros';
 import PesoComponent from './assets/components/PesoComponent/PesoComponent';
+import AlturaComponent from './assets/components/AlturaComponent/AlturaComponent';
+import ObjetivoComponent from './assets/components/ObjetivoComponent/ObjetivoComponent';
+import NivelComponent from './assets/components/NivelComponent/NivelComponent';
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
         <Route path="/alimentacion" element={<AlimentacionComponent></AlimentacionComponent>} />
         <Route path="/calculadora" element={<CalculadoraMacros></CalculadoraMacros>} />
         <Route path="/peso" element={<PesoComponent></PesoComponent>} />
+        <Route path="/altura" element={<AlturaComponent></AlturaComponent>} />
+        <Route path="/objetivo" element={<ObjetivoComponent></ObjetivoComponent>} />
+        <Route path="/nivel" element={<NivelComponent></NivelComponent>} />
       </Routes>
     </Router>
   )

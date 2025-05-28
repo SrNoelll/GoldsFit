@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './PesoComponent.css'
-import { GiNextButton } from "react-icons/gi";
-import { FaBackwardStep } from "react-icons/fa6";
+import SiguienteComponent from '../AlimentacionComponent/AtrasSiguienteComponent/SiguienteComponent';
 
-const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+
 
 
 const PesoComponent = () => {
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
   const [valor, setValor] = useState(60);
 
   const handleChange = (e) => {
@@ -48,18 +48,7 @@ const PesoComponent = () => {
           onChange={handleChange}
         />
         <p className="mt-3 t-m">Peso seleccionado: <strong>{valor} kg</strong></p>
-        <div className='row'>
-            <div className='col-6'>
-                <p className='enviar d-flex justify-content-center align-items-center p-2'>
-                <FaBackwardStep /> Volver
-                </p>
-            </div>
-            <div className='col-6' onClick={guardarPeso}>
-                <p className='enviar p-2'>
-                Siguiente <GiNextButton />
-                </p>
-            </div>
-        </div>
+            <SiguienteComponent atras='/' siguiente='/altura' funcion={guardarPeso}></SiguienteComponent>
       </div>
     </div>
   );

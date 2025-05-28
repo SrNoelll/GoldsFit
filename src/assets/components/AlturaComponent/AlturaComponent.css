@@ -1,0 +1,65 @@
+.contenedorBarra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 230px;
+}
+
+.barraAltura {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 230px; /* Esto será el alto visual al girarlo */
+  height: 8px;
+  transform: rotate(270deg);
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+/* Webkit (Chrome, Edge, Safari) */
+.barraAltura::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 100%;
+  background: #fcc601 !important;
+  border-radius: 4px;
+}
+
+.barraAltura::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fcc601;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-top: -6px; /* Ajustar si necesario */
+  cursor: pointer;
+}
+
+/* Firefox */
+.barraAltura::-moz-range-track {
+  background: #fcc601;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.barraAltura::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fcc601;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Interacción */
+.barraAltura::-webkit-slider-thumb:hover,
+.barraAltura::-moz-range-thumb:hover {
+  background: #e6b300;
+}
+.barraAltura:active::-webkit-slider-thumb,
+.barraAltura:active::-moz-range-thumb {
+  background: #d9a800;
+}
