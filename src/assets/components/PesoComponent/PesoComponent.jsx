@@ -48,7 +48,7 @@ const PesoComponent = () => {
           onChange={handleChange}
         />
         <p className="mt-3 t-m">Peso seleccionado: <strong>{valor} kg</strong></p>
-            <SiguienteComponent atras='/' siguiente='/altura' funcion={guardarPeso}></SiguienteComponent>
+            <SiguienteComponent atras='/sexo' siguiente='/altura' funcion={guardarPeso}></SiguienteComponent>
       </div>
     </div>
   );

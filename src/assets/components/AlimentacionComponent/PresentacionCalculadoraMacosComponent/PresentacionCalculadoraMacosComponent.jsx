@@ -7,7 +7,7 @@ export const PresentacionCalculadoraMacosComponent = () => {
             <div className='container py-5'>
                 <div className='row nosotros'>
 
-                    <div className='contenedorTit col-6 p-3 h-100 text-white'><p className=''>
+                    <div data-aos="fade-right" className='contenedorTit col-6 p-3 h-100 text-white'><p className=''>
                         <div><h2 className='tituloN'>Calculadora de Macros Gold's Nutrition</h2></div>
                         Descubre el equilibrio perfecto para alcanzar tus metas
 
@@ -33,7 +33,7 @@ export const PresentacionCalculadoraMacosComponent = () => {
                         </div>
                     </div>
 
-                    <div className='col-md-6 d-flex h-100 justify-content-center'>
+                    <div data-aos="fade-left" className='col-md-6 d-flex h-100 justify-content-center'>
                         <img className='w-50 ' src='/calculadoraMacros.webp' alt="" />
                     </div>
                 </div>

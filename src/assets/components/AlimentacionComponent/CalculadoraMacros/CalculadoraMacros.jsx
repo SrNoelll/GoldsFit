@@ -7,6 +7,27 @@ const CalculadoraMacros = () => {
   const [mensaje, setMensaje] = useState("");
   const usuario = JSON.parse(localStorage.getItem("usuario")) || {};
 
+  const objetivoUsuario = (() => {
+  switch (usuario.objetivo?.toLowerCase()) {
+    case 'ganar musculo':
+      return 'ganar musculo';
+    case 'perder grasa':
+      return 'perder grasa';
+    default:
+      return 'mantener';
+      }
+    })();
+
+    const entrenamientoUsuario = (() => {
+  switch (usuario.nivel_entrenamiento?.toLowerCase()) {
+    case 'bajo':
+      return 'bajo';
+    case 'moderado':
+      return 'moderado';
+    default:
+      return 'alto';
+      }
+    })();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -102,11 +123,16 @@ const CalculadoraMacros = () => {
               </div>
               <div className="col-6 my-2">
                 <h3 className="tituloN">Objetivo</h3>
-                <select className="col-12 rounded p-2 formNu" name="objetivo" required>
-                  <option value="mantener">Mantener</option>
-                  <option value="perder grasa">Perder grasa</option>
-                  <option value="ganar musculo">Ganar músculo</option>
-                </select>
+               <select
+              className="col-12 rounded p-2 formNu"
+              name="objetivo"
+              defaultValue={objetivoUsuario}
+              required
+            >
+              <option value="mantener">Mantener</option>
+              <option value="perder grasa">Perder grasa</option>
+              <option value="ganar musculo">Ganar músculo</option>
+            </select>
               </div>
               <div className="col-6 my-2">
                 <h3 className="tituloN">Nivel de entrenamiento</h3>
@@ -114,6 +140,7 @@ const CalculadoraMacros = () => {
                   className="col-12 rounded p-2 formNu"
                   name="nivel_entrenamiento"
                   required
+                  defaultValue={entrenamientoUsuario}
                 >
                   <option value="bajo">Bajo</option>
                   <option value="moderado">Moderado</option>

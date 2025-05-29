@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CgGym } from "react-icons/cg";
 import { TbMeat } from "react-icons/tb";
 import { TfiStatsUp } from "react-icons/tfi";
 import { RiTeamLine } from "react-icons/ri";
 import './HeaderComponent.css';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderComponent = ({ dieta }) => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+  const navigate = useNavigate();
+  useEffect(() => {
+    const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
 
+    if (usuario.sexo === null) {
+      navigate('/sexo');
+      return;
+    }
+    if (usuario.peso === null) {
+      navigate('/peso');
+      return;
+    }
+    if (usuario.altura === null) {
+      navigate('/altura');
+      return;
+    }
+    if (usuario.objetivo === null) {
+      navigate('/objetivo');
+      return;
+    }
+    if (usuario.nivel_entrenamiento === "") {
+      navigate('/nivel');
+      return;
+    }
+  }, [navigate]);
   return (
     <header className='container-fluid'>
       <nav className={dieta ? 'fonA navbar navbar-light py-2 fixed-top': 'navbar navbar-light bg-warning py-2 fixed-top'}>
