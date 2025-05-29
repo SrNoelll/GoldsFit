@@ -16,6 +16,7 @@ import ObjetivoComponent from './assets/components/ObjetivoComponent/ObjetivoCom
 import NivelComponent from './assets/components/NivelComponent/NivelComponent';
 import SexoComponent from './assets/components/SexoComponent/SexoComponent';
 import { GeneradorDietaComponent } from './assets/components/AlimentacionComponent/GeneradorDietaComponent/GeneradorDietaComponent';
+import BuscadorAlimentosComponent from './assets/components/AlimentacionComponent/BuscadorAlimentosComponent/BuscadorAlimentosComponent';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path="/nivel" element={<NivelComponent></NivelComponent>} />
         <Route path="/sexo" element={<SexoComponent></SexoComponent>} />
         <Route path="/dieta" element={<GeneradorDietaComponent></GeneradorDietaComponent>} />
+        <Route path="/alimentos" element={<BuscadorAlimentosComponent></BuscadorAlimentosComponent>} />
       </Routes>
     </Router>
   )

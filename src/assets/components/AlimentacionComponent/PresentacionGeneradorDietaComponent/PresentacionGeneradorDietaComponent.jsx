@@ -26,7 +26,7 @@ export const PresentacionGeneradorDietaComponent = () => {
 
                     </p>
                         <div className='container-fluid d-flex justify-content-end'>
-                            <Link to={'/calculadora'}>
+                            <Link to={'/dieta'}>
                                 <button className='bg-n p-2 formNu rounded'>
                                 <span>Genera tu dieta
                                 </span>
