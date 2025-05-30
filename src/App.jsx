@@ -17,6 +17,7 @@ import NivelComponent from './assets/components/NivelComponent/NivelComponent';
 import SexoComponent from './assets/components/SexoComponent/SexoComponent';
 import { GeneradorDietaComponent } from './assets/components/AlimentacionComponent/GeneradorDietaComponent/GeneradorDietaComponent';
 import BuscadorAlimentosComponent from './assets/components/AlimentacionComponent/BuscadorAlimentosComponent/BuscadorAlimentosComponent';
+import PerfilComponent from './assets/components/PerfilComponent/PerfilComponent';
 
 function App() {
   return (
@@ -34,11 +35,12 @@ function App() {
         <Route path="/calculadora" element={<CalculadoraMacros></CalculadoraMacros>} />
         <Route path="/peso" element={<PesoComponent></PesoComponent>} />
         <Route path="/altura" element={<AlturaComponent></AlturaComponent>} />
-        <Route path="/objetivo" element={<ObjetivoComponent></ObjetivoComponent>} />
-        <Route path="/nivel" element={<NivelComponent></NivelComponent>} />
+        <Route path="/objetivo" element={<ObjetivoComponent></ObjetivoComponent>}/>
+        <Route path="/nivel" element={<NivelComponent></NivelComponent>}/>
         <Route path="/sexo" element={<SexoComponent></SexoComponent>} />
-        <Route path="/dieta" element={<GeneradorDietaComponent></GeneradorDietaComponent>} />
-        <Route path="/alimentos" element={<BuscadorAlimentosComponent></BuscadorAlimentosComponent>} />
+        <Route path="/dieta" element={<GeneradorDietaComponent></GeneradorDietaComponent>}/>
+        <Route path="/alimentos" element={<BuscadorAlimentosComponent></BuscadorAlimentosComponent>}/>
+        <Route path="/perfil" element={<PerfilComponent></PerfilComponent>}/>
       </Routes>
     </Router>
   )

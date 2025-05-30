@@ -3,6 +3,7 @@ import HeaderComponent from '../../HeaderComponent/HeaderComponent';
 import './AniadirRutinaComponent.css';
 import { MdOutlineCancel } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const usuario = JSON.parse(localStorage.getItem('usuario'));
 const AniadirRutinaComponent = () => {
@@ -156,25 +157,25 @@ const AniadirRutinaComponent = () => {
           <div className='col-12'>
             <input id='titulo' type="text" placeholder='Titulo' className='w-50 rounded titulo p-2 tituloR'/>
           </div>
-          <a className="noDec col" href="/entrenamiento">
+          <Link className="noDec col" href="/entrenamiento">
           <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
               Cancelar <MdOutlineCancel />
           </div>
-          </a>
-          <a className="noDec col bg-transparent border-0" onClick={handleGuardar}>
+          </Link>
+          <Link className="noDec col bg-transparent border-0" onClick={handleGuardar}>
           <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
               Guardar <IoIosSave />
           </div>
-          </a>
+          </Link>
         </div>
 
         <div className='container'>{mostrarEjer()}</div>
 
-        <a className='noEnlace' href="/seleccionarEjercicio">
+        <Link className='noEnlace' to="/seleccionarEjercicio">
           <div className='container d-flex rounded align-items-center p-2 justify-content-center text-center agregar'>
             Agregar ejercicio
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

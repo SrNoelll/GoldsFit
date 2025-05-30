@@ -35,3 +35,7 @@ html,body{
 .border-n{
    border: 2px solid #4FC3F7;
 }
+
+.bg-a{
+  background-color: #fcc601;
+}

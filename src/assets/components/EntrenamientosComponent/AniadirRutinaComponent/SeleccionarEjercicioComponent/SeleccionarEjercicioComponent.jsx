@@ -3,6 +3,7 @@ import './SeleccionarEjercicioComponent.css';
 import HeaderComponent from "../../../HeaderComponent/HeaderComponent";
 import { MdOutlineCancel } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const SeleccionarEjercicioComponent = () => {
   const [ejercicios, setEjercicios] = useState([]);
@@ -63,16 +64,16 @@ const SeleccionarEjercicioComponent = () => {
 
         {/* Botones Cancelar/Guardar */}
         <div className="row mb-3">
-          <a className="noDec col" href="/aniadirRutina">
+          <Link className="noDec col" to="/aniadirRutina">
             <div className="d-flex justify-content-center text-center align-items-center agregar p-3 rounded">
               Cancelar <MdOutlineCancel />
             </div>
-          </a>
-          <a className="noDec col" href="/aniadirRutina">
+          </Link>
+          <Link className="noDec col" to="/aniadirRutina">
             <div className="d-flex justify-content-center text-center align-items-center agregar p-3 rounded">
               Guardar <IoIosSave />
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* Buscador */}
