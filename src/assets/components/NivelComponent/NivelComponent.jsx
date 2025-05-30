@@ -9,9 +9,28 @@ const NivelComponent = () => {
     setNivel(nuevoObjetivo);
   };
 
-  const guardarObjetivo = () => {
+  const guardarObjetivo = async () => {
     usuario.nivel_entrenamiento = nivel;
     localStorage.setItem("usuario", JSON.stringify(usuario));
+     try {
+      const respuesta = await fetch("https://2daw14.iesalonsocano.org/api/?ruta=actualizarUser", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ usuario })
+      });
+
+      const resultado = await respuesta.json();
+
+      if (respuesta.ok && resultado.success) {
+        console.log("Usuario actualizado y peso guardado en histórico correctamente");
+      } else {
+        console.error("Error al actualizar usuario:", resultado.message || resultado.error);
+      }
+    } catch (error) {
+      console.error("Error de red o servidor:", error);
+    }
   };
 
   return (

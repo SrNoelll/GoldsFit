@@ -42,7 +42,7 @@ const [busqueda, setBusqueda] = useState("");
             <input
               type="text"
               className="buscador border-n p-3 rounded"
-              placeholder="Buscar ejercicio por nombre..."
+              placeholder="Buscar alimento por nombre..."
               value={busqueda}
               onChange={(e) => setBusqueda(e.target.value)}
             />

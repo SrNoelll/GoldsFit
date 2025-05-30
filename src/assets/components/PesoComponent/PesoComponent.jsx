@@ -13,10 +13,31 @@ const PesoComponent = () => {
     setValor(Number(e.target.value));
   };
 
-  const guardarPeso = () =>{
-    usuario.peso = valor
-    localStorage.setItem("usuario",JSON.stringify(usuario))
-  }
+  const guardarPeso = async () => {
+  usuario.peso = valor;
+  localStorage.setItem("usuario", JSON.stringify(usuario));
+
+    try {
+      const respuesta = await fetch("https://2daw14.iesalonsocano.org/api/?ruta=actualizarUser", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ usuario })
+      });
+
+      const resultado = await respuesta.json();
+
+      if (respuesta.ok && resultado.success) {
+        console.log("Usuario actualizado y peso guardado en histórico correctamente");
+      } else {
+        console.error("Error al actualizar usuario:", resultado.message || resultado.error);
+      }
+    } catch (error) {
+      console.error("Error de red o servidor:", error);
+    }
+  };
+
   const scale = 1 + (valor - 60) / 100;
 
   return (
