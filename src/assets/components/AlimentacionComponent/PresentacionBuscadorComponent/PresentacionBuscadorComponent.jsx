@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 
 const PresentacionBuscadorComponent = () => {
   return (
-    <div>
+    <div className="mx-1">
       <div className="container py-5">
         <div className="row">
           <div
-            data-aos="fade-right"
             className="contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white"
           >
             <div>
@@ -35,7 +34,6 @@ const PresentacionBuscadorComponent = () => {
           </div>
 
           <div
-            data-aos="fade-left"
             className="col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center"
           >
             <img className="w-50" src="/alimentos.webp" alt="" />

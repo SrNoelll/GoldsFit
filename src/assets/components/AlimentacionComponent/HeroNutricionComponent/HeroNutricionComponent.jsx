@@ -10,18 +10,18 @@ const HeroNutricionComponent = () => {
     }, []);
 
   return (
-    <div className='contenido heroN d-flex align-items-center justify-content-center'>
+  <div className='contenido mx-1 heroN d-flex align-items-center justify-content-center'>
   <div className="container">
     <div className="row align-items-center">
       
       {/* Image section */}
-      <div className="col-lg-6 d-none d-lg-flex justify-content-center" data-aos="fade-left">
+      <div className="col-lg-6 d-none d-lg-flex justify-content-center">
         <img src="/herN.webp" alt="App Preview" className="img-fluid imgHN" />
       </div>
 
 
       {/* Text section */}
-      <div className="col-lg-6 col-md-12 col-sm-12 col-12 contenedorTit" data-aos="fade-right">
+      <div className="col-lg-6 col-md-12 col-sm-12 col-12 contenedorTit">
         <h1 className="tituloN mb-2">Gold's Nutrition</h1>
         <h2 className="tituloN mb-3">¡Transforma tu bienestar desde la raíz!</h2>
         <p className="text-light fs-5">

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 export const PresentacionCalculadoraMacosComponent = () => {
     return (
-        <div>
+        <div className='mx-1'>
             <div className='container py-5'>
                 <div className='row'>
 
-                    <div data-aos="fade-right" className='contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white'>
+                    <div className='contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white'>
                          <div><h2 className='tituloN'>Calculadora de Macros Gold's Nutrition</h2></div>
                         <p className=''>
                        
@@ -35,7 +35,7 @@ export const PresentacionCalculadoraMacosComponent = () => {
                         </div>
                     </div>
 
-                    <div data-aos="fade-left" className='col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center'>
+                    <div className='col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center'>
                         <img className='w-50 ' src='/calculadoraMacros.webp' alt="" />
                     </div>
                 </div>

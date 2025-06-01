@@ -20,8 +20,8 @@
     position: relative;
     height: 50px;
     padding: 0 30px;
-    border: 2px solid #000;
-    background: #fcc601;
+    border: 2px solid #fcc601;
+    background: #181818;
     user-select: none;
     white-space: nowrap;
     transition: all .05s linear;
@@ -31,7 +31,7 @@
    .x:before, .x:after {
     content: "";
     position: absolute;
-    background: #fcc601;
+    background: #181818;
     transition: all .2s linear;
    }
    

@@ -3,16 +3,14 @@ import { Link } from 'react-router-dom'
 
 export const PresentacionGeneradorDietaComponent = () => {
     return (
-        <div>
+        <div className='mx-1'>
             <div className='container py-5'>
                 <div className='row'>
 
-                    
-
-                    <div data-aos="fade-right" className='col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center'>
+                    <div className='col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center'>
                         <img className='w-50 ' src='/dieta.webp' alt="" />
                     </div>
-                    <div className='contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white'  data-aos="fade-left">
+                    <div className='contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white'>
                         <div><h2 className='tituloN'>Generador de dieta inteligente Gold's Nutrition</h2></div>
                         <p className='' >
                         

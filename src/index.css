@@ -39,7 +39,3 @@ html,body{
 .bg-a{
   background-color: #fcc601;
 }
-
-* {
-  outline: 1px solid red !important;
-}
