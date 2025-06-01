@@ -8,8 +8,6 @@ const IndexComponent = () => {
     <div>
       <HeaderComponent />
       <HeroComponent /> 
-      <SobreNosotrosComponent/>
-      <TecnologiasComponent/>
     </div>
   );
 };

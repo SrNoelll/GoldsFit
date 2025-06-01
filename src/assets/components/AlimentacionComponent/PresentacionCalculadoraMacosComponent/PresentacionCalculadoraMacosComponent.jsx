@@ -5,10 +5,12 @@ export const PresentacionCalculadoraMacosComponent = () => {
     return (
         <div>
             <div className='container py-5'>
-                <div className='row nosotros'>
+                <div className='row'>
 
-                    <div data-aos="fade-right" className='contenedorTit col-6 p-3 h-100 text-white'><p className=''>
-                        <div><h2 className='tituloN'>Calculadora de Macros Gold's Nutrition</h2></div>
+                    <div data-aos="fade-right" className='contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white'>
+                         <div><h2 className='tituloN'>Calculadora de Macros Gold's Nutrition</h2></div>
+                        <p className=''>
+                       
                         Descubre el equilibrio perfecto para alcanzar tus metas
 
                         Con nuestra calculadora inteligente de macronutrientes, obtendrás una guía 100% personalizada basada en tus objetivos, tipo de cuerpo, nivel de actividad y preferencias alimenticias. Ya sea que busques ganar músculo, perder grasa o mantenerte en forma, esta herramienta te ofrece la distribución exacta de proteínas, carbohidratos y grasas que tu cuerpo necesita.
@@ -22,7 +24,7 @@ export const PresentacionCalculadoraMacosComponent = () => {
                         Empieza ahora y transforma tu nutrición con la ciencia detrás de Gold’s Nutrition.
 
                     </p>
-                        <div className='container-fluid d-flex justify-content-end'>
+                        <div className='d-flex justify-content-end'>
                             <Link to={'/calculadora'}>
                                 <button className='bg-n p-2 formNu rounded'>
                                 <span> Calcula Tus Macros
@@ -33,7 +35,7 @@ export const PresentacionCalculadoraMacosComponent = () => {
                         </div>
                     </div>
 
-                    <div data-aos="fade-left" className='col-md-6 d-flex h-100 justify-content-center'>
+                    <div data-aos="fade-left" className='col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center'>
                         <img className='w-50 ' src='/calculadoraMacros.webp' alt="" />
                     </div>
                 </div>

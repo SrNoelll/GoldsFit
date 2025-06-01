@@ -9,12 +9,12 @@ const HeroComponent = () => {
   }, []);
 
   return (
-    <div className="hero d-flex align-items-center">
+    <div className="hero contenido d-flex align-items-center">
       <div className="container">
         <div className="row align-items-center">
           
           {/* Text section */}
-          <div className="col-md-6 contenedorTit" data-aos="fade-right">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-12 contenedorTit" data-aos="fade-right">
             <h1 className="titulo mb-2">Gold's Fit</h1>
             <h2 className="subtitulo mb-3 titulo">¡Toma el control de tu evolución!</h2>
             <p className="text-light fs-5">
@@ -37,8 +37,8 @@ const HeroComponent = () => {
           </div>
 
           {/* Image section */}
-          <div className="col-md-6 d-flex justify-content-center" data-aos="fade-left">
-            <img src="/ecosistema.png.webp" alt="App Preview" className="imagenHero" />
+          <div className="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-center" data-aos="fade-left">
+            <img src="/ecosistema.png.webp" alt="App Preview" className="img-fluid" />
           </div>
 
         </div>

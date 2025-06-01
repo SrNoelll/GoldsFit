@@ -15,11 +15,13 @@ const HeroNutricionComponent = () => {
     <div className="row align-items-center">
       
       {/* Image section */}
-      <div className="col-md-6 d-flex justify-content-center" data-aos="fade-left">
-         <img src="/herN.webp" alt="App Preview" className="imgHN" />
+      <div className="col-lg-6 d-none d-lg-flex justify-content-center" data-aos="fade-left">
+        <img src="/herN.webp" alt="App Preview" className="img-fluid imgHN" />
       </div>
+
+
       {/* Text section */}
-      <div className="col-md-6 contenedorTit" data-aos="fade-right">
+      <div className="col-lg-6 col-md-12 col-sm-12 col-12 contenedorTit" data-aos="fade-right">
         <h1 className="tituloN mb-2">Gold's Nutrition</h1>
         <h2 className="tituloN mb-3">¡Transforma tu bienestar desde la raíz!</h2>
         <p className="text-light fs-5">
