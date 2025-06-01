@@ -54,39 +54,40 @@ useEffect(() => {
 };
 
   return (
-    <div className="rutinas container">
-      <div className="row">
-        <h3 className="col-12 titulo">Mis Rutinas</h3>
-        <div className="col-4 row">
-          <div className="col-12 rounded">
-            <a className="noEnlace" href="aniadirRutina">
-              <div className="col-12 rounded my-2 p-4 rutina">
-                <h4>Añadir rutina <FaPlusCircle /></h4>
-              </div>
-            </a>
-          </div>
+    <div className="contenido container">
+  <div className="row">
+    <h3 className="col-12 titulo">Mis Rutinas</h3>
+
+    <div className="col-12 col-lg-4">
+      <Link className="noEnlace" to="/aniadirRutina">
+        <div className="rounded m-2 p-4 rutina">
+          <h4>Añadir rutina <FaPlusCircle /></h4>
         </div>
-        <div className="col-8 row">
-          {rutinas.map((rutina, index) => (
-            <Link className="noEnlace" to={`/rutina/${rutina.id}`} key={rutina.id}>
-              <div className="col-12 rounded row m-2 p-4 rutina display-flex">
-                <h4 className="col-lg-10">{rutina.nombre || `Rutina ${index + 1}`}</h4>
-                <div className="col-lg-2 row">
-                  <FaPencilAlt className="col" />
-                  <RiDeleteBin2Fill
-                    className="col"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      eliminarRutina(rutina.id);
-                    }}
-                  />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+      </Link>
     </div>
+
+    <div className="col-12 col-lg-8">
+      {rutinas.map((rutina, index) => (
+        <Link className="noEnlace" to={`/rutina/${rutina.id}`} key={rutina.id}>
+          <div className="rounded row m-2 p-4 rutina">
+            <h4 className="col-8 col-sm-8 col-md-8 col-lg-10">
+              {rutina.nombre || `Rutina ${index + 1}`}
+            </h4>
+            <FaPencilAlt className="col-2 col-sm-2 col-md-2 col-lg-1" />
+            <RiDeleteBin2Fill
+              className="col-2 col-sm-2 col-md-2 col-lg-1"
+              onClick={(e) => {
+                e.preventDefault();
+                eliminarRutina(rutina.id);
+              }}
+            />
+          </div>
+        </Link>
+      ))}
+    </div>
+  </div>
+</div>
+
   );
 };
 

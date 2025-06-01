@@ -3,6 +3,7 @@ import HeaderComponent from '../HeaderComponent/HeaderComponent'
 import HeroComponent from './HeroComponent/HeroComponent'
 import SobreNosotrosComponent from './SobreNosotrosComponent/SobreNosotrosComponent';
 import TecnologiasComponent from './TecnologiasComponent/TecnologiasComponent';
+import SeguimientoComponent from './SeguimientoComponent/SeguimientoComponent';
 const IndexComponent = () => {
   return (
     <div>
@@ -10,6 +11,7 @@ const IndexComponent = () => {
       <HeroComponent /> 
       <SobreNosotrosComponent></SobreNosotrosComponent>
       <TecnologiasComponent></TecnologiasComponent>
+      <SeguimientoComponent></SeguimientoComponent>
     </div>
   );
 };
