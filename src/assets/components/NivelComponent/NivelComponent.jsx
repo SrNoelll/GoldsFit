@@ -3,7 +3,7 @@ import SiguienteComponent from '../AlimentacionComponent/AtrasSiguienteComponent
 
 const NivelComponent = () => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
-  const [nivel, setNivel] = useState(usuario.nivel_entrenamiento);
+  const [nivel, setNivel] = useState(usuario.nivel_entrenamiento || 'moderado');
 
   const seleccionarNivel = (nuevoObjetivo) => {
     setNivel(nuevoObjetivo);
@@ -60,7 +60,7 @@ const NivelComponent = () => {
             Nivel alto 5 o mas veces por semana
           </div>
         </div>
-        <SiguienteComponent atras='/objetivo' siguiente='/calculadora' funcion={guardarObjetivo} />
+        <SiguienteComponent atras='/objetivo' siguiente='/descripcion' funcion={guardarObjetivo} />
       </div>
     </div>
   );

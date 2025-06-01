@@ -57,7 +57,7 @@ const HeaderComponent = ({ dieta }) => {
             <a className="hen" href="/alimentacion"><TbMeat size={20} /> Nutrición</a>
             <a className="hen" href="#"><TfiStatsUp size={20} /> Tus Marcas</a>
             <a className="hen" href="#"><RiTeamLine size={20} /> Nuestro Propósito</a>
-            <a className="hen" href="#">{usuario.nombre ?? "User"}</a>
+            <a className="hen" href="/perfil">{usuario.nombre ?? "User"}</a>
           </div>
         </div>
       </nav>

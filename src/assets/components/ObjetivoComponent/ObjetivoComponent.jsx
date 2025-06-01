@@ -4,7 +4,7 @@ import './ObjetivoComponent.css'
 
 const ObjetivoComponent = () => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
-  const [objetivo, setObjetivo] = useState(usuario.objetivo);
+  const [objetivo, setObjetivo] = useState(usuario.objetivo || 'mantenimiento');
 
   const seleccionarObjetivo = (nuevoObjetivo) => {
     setObjetivo(nuevoObjetivo);

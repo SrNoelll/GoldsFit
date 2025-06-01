@@ -22,12 +22,12 @@ ChartJS.register(
   Title
 );
 
-export default function GraficoComponent() {
+export default function GraficoComponent({usuarioId}) {
   const [labels, setLabels] = useState([]);
   const [datos, setDatos] = useState([]);
 
   useEffect(() => {
-    fetch('https://2daw14.iesalonsocano.org/api/?ruta=historico_peso&usuario_id=5')
+    fetch('https://2daw14.iesalonsocano.org/api/?ruta=historico_peso&usuario_id='+usuarioId)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -46,12 +46,12 @@ export default function GraficoComponent() {
       {
         label: 'Peso (kg)',
         data: datos,
-        borderColor: '#fcc601',
+        borderColor: '#4FC3F7',
         backgroundColor: 'rgba(63, 81, 181, 0.2)',
         tension: 0.3,
         fill: false,
         pointRadius: 5,
-        pointBackgroundColor: '#fcc601',
+        pointBackgroundColor: '#4FC3F7',
       }
     ]
   };
@@ -85,8 +85,9 @@ export default function GraficoComponent() {
   };
 
   return (
-    <div style={{ width: '100%', maxWidth: '700px', margin: 'auto' }}>
+    <div className='col-12'>
       <Line data={data} options={options} />
     </div>
+      
   );
 }

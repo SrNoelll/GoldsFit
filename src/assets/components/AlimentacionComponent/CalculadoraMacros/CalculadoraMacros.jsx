@@ -66,6 +66,20 @@ const CalculadoraMacros = () => {
         setResultado(null);
       });
   };
+  const calcularEdad = (fechaNacimiento) => {
+  const hoy = new Date();
+  const nacimiento = new Date(fechaNacimiento);
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const mes = hoy.getMonth() - nacimiento.getMonth();
+
+  if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+  }
+
+  return edad;
+};
+
+const edadCalculada = usuario.edad ? calcularEdad(usuario.edad) : '';
 
   return (
     <div className="calculadora nutricion">
@@ -101,7 +115,7 @@ const CalculadoraMacros = () => {
                 <h3 className="tituloN">Edad</h3>
                 <input
                   className="col-12 rounded p-2 formNu"
-                  defaultValue={usuario.edad}
+                  defaultValue={edadCalculada}
                   type="number"
                   name="edad"
                   required

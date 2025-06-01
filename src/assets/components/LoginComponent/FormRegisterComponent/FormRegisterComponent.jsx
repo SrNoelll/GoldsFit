@@ -10,6 +10,7 @@ const handleSubmit = (event) => {
     nombre: form.nombre.value,
     userName: form.userName.value,
     email: form.email.value,
+    edad: form.edad.value,
     password: form.password.value,
     confirmPassword: form.confirmPassword.value,
   };
@@ -47,17 +48,21 @@ const handleSubmit = (event) => {
         <h2 className="titulo">GOLD'S FIT</h2>
         <form className="row text-start" name="registro" onSubmit={handleSubmit}>
           <input type="hidden" name="registro" />
-          <div className="col-12 my-2">
+          <div className="col-6 my-2">
             Nombre
             <input className="col-12 textoIn" type="text" name="nombre" required />
           </div>
-          <div className="col-12 my-2">
+          <div className="col-6 my-2">
             Nombre de usuario
             <input className="col-12 textoIn" type="text" name="userName" required />
           </div>
           <div className="col-12 my-2">
             E-mail
             <input className="col-12 textoIn" type="email" name="email" required />
+          </div>
+          <div className="col-12 my-2">
+            Nacimiento
+            <input className="col-12 textoIn" type="date" name="edad" required />
           </div>
           <div className="col-12 my-2">
             Contraseña

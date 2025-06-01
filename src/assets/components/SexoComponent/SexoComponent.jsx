@@ -4,10 +4,12 @@ import './SexoComponent.css'
 
 const SexoComponent = () => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
-  const [sexo, setSexo] = useState(usuario.objetivo);
+  const [sexo, setSexo] = useState(usuario.sexo || 'hombre') ;
 
-  const seleccionarSexo = (nuevoObjetivo) => {
-    setSexo(nuevoObjetivo);
+  const seleccionarSexo = (nuevoSexo) => {
+    setSexo(nuevoSexo
+
+    );
   };
 
   const guardarSexo = () => {
@@ -32,7 +34,7 @@ const SexoComponent = () => {
             onClick={() => seleccionarSexo('mujer')}
           >
             <img className={`img-fluid imgSexo obj ${sexo === 'mujer' ? 'seleccionImg' : ''}`} src="/femenino.png" alt="" />
- 
+
           </div>
         </div>
         <SiguienteComponent atras='/' siguiente='/peso' funcion={guardarSexo} />
