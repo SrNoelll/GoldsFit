@@ -77,7 +77,7 @@ const SeleccionarEjercicioComponent = () => {
         </div>
 
         {/* Buscador */}
-        <div className="row mb-4">
+        <div className="row mx-1 mb-4">
           <input
             type="text"
             className="textoIn"
@@ -92,7 +92,7 @@ const SeleccionarEjercicioComponent = () => {
           <div
             key={ejercicio.id}
             id={ejercicio.id}
-            className={`row d-flex justify-content-center text-center align-items-center agregar my-4 p-3 rounded ${seleccionados.includes(ejercicio.id) ? 'ejercicioSe' : ''}`}
+            className={`row mx-1 d-flex justify-content-center text-center align-items-center agregar my-4 p-3 rounded ${seleccionados.includes(ejercicio.id) ? 'ejercicioSe' : ''}`}
             onClick={() => toggleSeleccion(ejercicio.id)}
           >
             <div className="col">
