@@ -15,21 +15,21 @@ const RegisterComponent = () => {
     }
   return (
     <div>
-      <div className='container-fluid'>
-        <div className='row login-page'>
-            <div className='col-6'>
-                {loginRegister()}
-            </div>
-            <div className='col-6'>
-                <div className='fotoLogin row d-flex align-items-end justify-content-end'>
-                    <div className='cuadrado col-6 p-5 d-flex aling-items-center justify-content-center'>
-                        <img className='img-fluid' src='/GoldFitEs.webp' alt="" />
-                    </div>
-                </div>
-            </div>
+  <div className='container-fluid'>
+    <div className='row login-page'>
+      <div className='col-lg-6 col-md-8 col-sm-12 col-12'>
+        {loginRegister()}
+      </div>
+      <div className='col-lg-6 col-md-4 d-none d-md-block'>
+        <div className='fotoLogin row d-flex align-items-end justify-content-end'>
+          <div className='cuadrado col-lg-6 col-md-12 col-sm-12 col-12 p-5 d-flex aling-items-center justify-content-center'>
+            <img className='img-fluid' src='/GoldFitEs.webp' alt="" />
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
   )
 }
 

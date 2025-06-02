@@ -35,8 +35,8 @@ export const PresentacionCalculadoraMacosComponent = () => {
                         </div>
                     </div>
 
-                    <div className='col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center'>
-                        <img className='w-50 ' src='/calculadoraMacros.webp' alt="" />
+                    <div className="col-lg-6 col-md-5 col-sm-12 col-12 d-md-flex mt-3 row h-100 justify-content-center">
+                        <img className="col-lg-8 col-md-12 col-sm-6 col-6" src="/calculadoraMacros.webp" alt="" />
                     </div>
                 </div>
             </div>

@@ -43,8 +43,8 @@ const handleSubmit = (event) => {
 
   return (
     <div className="row d-flex align-items-center justify-content-center p-5 fomrLogin">
-      <div className="col-6 text-center loginCont text-white">
-        <img className="cultu" src='/cultu.webp' alt="" />
+      <div className="col-xl-6 col-lg-8 col-md-8 col-sm-12 col-12 text-center loginCont text-white">
+        <img className="cultu d-none d-xl-block" src='/cultu.webp' alt="" />
         <h2 className="titulo">GOLD'S FIT</h2>
         <form className="row text-start" name="registro" onSubmit={handleSubmit}>
           <input type="hidden" name="registro" />
@@ -53,7 +53,7 @@ const handleSubmit = (event) => {
             <input className="col-12 textoIn" type="text" name="nombre" required />
           </div>
           <div className="col-6 my-2">
-            Nombre de usuario
+            User Name
             <input className="col-12 textoIn" type="text" name="userName" required />
           </div>
           <div className="col-12 my-2">

@@ -141,7 +141,7 @@ const EmpezarRutinaComponent = () => {
                   >
                     <p className="col"><strong>SERIE:</strong> {idxSerie + 1}</p>
                     <input
-                      className='col-1 p-1 rounded mx-1 carac'
+                      className='col-lg-2 col-md-2 col-sm-3 col-3 p-1 rounded mx-1 carac'
                       type="number"
                       defaultValue={serie.reps}
                       onBlur={(e) =>
@@ -149,7 +149,7 @@ const EmpezarRutinaComponent = () => {
                       }
                     />REPS
                     <input
-                      className='col-1 p-1 rounded mx-1 carac'
+                      className='col-lg-2 col-md-2 col-sm-3 col-3 p-1 rounded mx-1 carac'
                       type="number"
                       defaultValue={serie.peso}
                       onBlur={(e) =>

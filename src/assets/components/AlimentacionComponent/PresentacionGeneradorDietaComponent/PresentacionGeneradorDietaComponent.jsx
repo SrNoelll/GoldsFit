@@ -7,8 +7,8 @@ export const PresentacionGeneradorDietaComponent = () => {
             <div className='container py-5'>
                 <div className='row'>
 
-                    <div className='col-lg-6 col-md-5 d-none d-md-flex h-100 justify-content-center'>
-                        <img className='w-50 ' src='/dieta.webp' alt="" />
+                    <div className="col-lg-6 col-md-5 d-none d-md-flex row h-100 justify-content-center">
+                        <img className="col-lg-8 col-md-12" src="/dieta.webp" alt="" />
                     </div>
                     <div className='contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white'>
                         <div><h2 className='tituloN'>Generador de dieta inteligente Gold's Nutrition</h2></div>

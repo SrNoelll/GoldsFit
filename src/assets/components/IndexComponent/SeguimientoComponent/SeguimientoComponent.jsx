@@ -29,7 +29,7 @@ const SeguimientoComponent = () => {
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-5 d-none d-md-flex row h-100 justify-content-center">
+          <div className="col-lg-6 col-md-5 col-sm-12 col-12 d-md-flex mt-3 row h-100 justify-content-center">
             <img className="col-lg-8 col-md-12" src="/perfil.webp" alt="" />
           </div>
         </div>

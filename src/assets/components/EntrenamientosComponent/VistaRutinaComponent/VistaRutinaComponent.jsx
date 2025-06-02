@@ -112,12 +112,12 @@ const VistaRutinaComponent = () => {
           ejerciciosAgrupados.map((ejercicio) => (
             <div key={ejercicio.id} className="mb-4 row ejercicioM">
               <h4 className="titulo col-12">{ejercicio?.nombre}</h4>
-              <div className="col-4">
+              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
                 {renderMedia(ejercicio?.foto)}
               </div>
-              <div className="col-8">
+              <div className="col-lg-8 col-md-8 col-sm-12 col-12">
                 {ejercicio.series.map((serie, idx) => (
-                  <div key={idx} className="row rounded serie p-2 text-center d-flex justify-content-center align-items-center mb-2">
+                  <div key={idx} className="row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer">
                     <p className="col"><strong>SERIE:</strong> {idx + 1}</p>
                     <p className="col"><strong>REPS:</strong> {serie.reps}</p>
                     <p className="col"><strong>KG:</strong> {serie.peso || '--'}</p>
