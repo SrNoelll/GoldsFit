@@ -73,7 +73,6 @@ useEffect(() => {
             <h4 className="col-8 col-sm-8 col-md-8 col-lg-10">
               {rutina.nombre || `Rutina ${index + 1}`}
             </h4>
-            <FaPencilAlt className="col-2 col-sm-2 col-md-2 col-lg-1" />
             <RiDeleteBin2Fill
               className="col-2 col-sm-2 col-md-2 col-lg-1"
               onClick={(e) => {

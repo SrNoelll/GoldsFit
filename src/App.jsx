@@ -25,16 +25,13 @@ import { BuscadorEjerciciosComponent } from './assets/components/EntrenamientosC
 import EjercicioComponent from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/EjercicioComponent';
 import { NosotrosComponent } from './assets/components/nosotrosComponent/NosotrosComponent';
 
-// 🔁 ScrollFixer para resolver el problema de scroll en móviles
+// crollFixer para resolver el problema de scroll en móviles
 const ScrollFixer = () => {
   const location = useLocation();
-
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.overflow = 'auto';
     document.documentElement.style.overflow = 'auto';
-
-    // Eliminar posibles restos del menú offcanvas de Bootstrap
     const backdrop = document.querySelector('.offcanvas-backdrop');
     if (backdrop) backdrop.remove();
 
@@ -52,8 +49,7 @@ const PrivateRoute = ({ children }) => {
 function App() {
   return (
     <Router>
-      <ScrollFixer /> {/* ⬅️ Importante: soluciona el bug de scroll en móvil */}
-
+      <ScrollFixer /> 
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<IndexComponent />} />

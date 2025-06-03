@@ -41,7 +41,6 @@ export const GeneradorDietaComponent = () => {
   const descargarDietaPDF = () => {
     expandirTodosLosAlimentos();
 
-    // Esperamos brevemente para que React actualice el estado
     setTimeout(() => {
       const element = document.getElementById('contenido-dieta');
       const boton = document.getElementById('boton-descarga');
@@ -68,9 +67,13 @@ export const GeneradorDietaComponent = () => {
         <h1 className="tituloN text-center mb-4">Generador de dieta Gold's Nutrition</h1>
         <div className="row d-flex align-items-center justify-content-center">
           <div className='col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12 my-4 row'>
+            <div className='col-12 py-3'>
+              <h3 className='tituloN'>Introduce un número de calorias para generar la dieta</h3>
+            </div>
             <div className='col-6'>
               <input
-                type="text"
+                type="number"
+                placeholder='Calorias'
                 className='w-100 rounded p-2 formNu'
                 value={calorias}
                 onChange={(e) => setCalorias(e.target.value)}

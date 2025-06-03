@@ -39,7 +39,7 @@ const DescripcionConponent = () => {
       <div className="text-center container">
         <h1 className="titulo">Cuéntanos sobre ti</h1>
         <textarea
-          className="textoIn w-100"
+          className="textoIn my-3 w-100"
           name="Texto"
           value={descripcion}
           onChange={handleChange}

@@ -39,21 +39,21 @@ const NivelComponent = () => {
         <h1 className='titulo'>Selecciona tu nivel de entrenamiento</h1>
         <div className='row w-100'>
           <div
-            className={`col-4 p-4 t-m`}
+            className={`col-lg-4 col-md-4 col-sm-6 col-6 p-4 t-m`}
             onClick={() => seleccionarNivel('bajo')}
           >
             <img className={`img-fluid obj ${nivel === 'bajo' ? 'seleccionImg' : ''}`} src="/bajo.png" alt="" />
             Nivel bajo 1 a 2 veces por semana
           </div>
           <div
-            className={`col-4 p-4 t-m`}
+            className={`col-lg-4 col-md-4 col-sm-6 col-6 p-4 t-m`}
             onClick={() => seleccionarNivel('moderado')}
           >
             <img className={`img-fluid obj ${nivel === 'moderado' ? 'seleccionImg' : ''}`} src="/moderado.png" alt="" />
             Nivel moderado 3 a 4 veces por semana
           </div>
           <div
-            className={`col-4 p-4 t-m `}
+            className={`col-lg-4 col-md-4 col-sm-6 col-6 p-4 t-m `}
             onClick={() => seleccionarNivel('alto')}
           >
             <img className={`img-fluid obj ${nivel === 'alto' ? 'seleccionImg' : ''}`} src="/alto.webp" alt="" />

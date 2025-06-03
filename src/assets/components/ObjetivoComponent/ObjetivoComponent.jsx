@@ -40,21 +40,21 @@ const ObjetivoComponent = () => {
         <h1 className='titulo'>Selecciona tu objetivo</h1>
         <div className='row w-100'>
           <div
-            className={`col-4 p-4 t-m`}
+            className={`col-lg-4 col-md-4 col-sm-6 col-6 p-4 t-m`}
             onClick={() => seleccionarObjetivo('mantenimiento')}
           >
             <img className={`img-fluid obj ${objetivo === 'mantenimiento' ? 'seleccionImg' : ''}`} src="/Mantenimiento.png" alt="" />
             Mantenimiento
           </div>
           <div
-            className={`col-4 p-4 t-m`}
+            className={`col-lg-4 col-md-4 col-sm-6 col-6 p-4 t-m`}
             onClick={() => seleccionarObjetivo('ganar musculo')}
           >
             <img className={`img-fluid obj ${objetivo === 'ganar musculo' ? 'seleccionImg' : ''}`} src="/gananrMusculo.png" alt="" />
             Ganar masa muscular
           </div>
           <div
-            className={`col-4 p-4 t-m `}
+            className={`col-lg-4 col-md-4 col-sm-6 col-6 p-4 t-m `}
             onClick={() => seleccionarObjetivo('perder grasa')}
           >
             <img className={`img-fluid obj ${objetivo === 'perder grasa' ? 'seleccionImg' : ''}`} src="/PerderGrasapng.png" alt="" />

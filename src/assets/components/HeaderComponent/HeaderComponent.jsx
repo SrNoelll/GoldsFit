@@ -49,7 +49,6 @@ const HeaderComponent = ({ dieta }) => {
             <div className="d-none d-lg-flex gap-4 align-items-center">
             <Link className="hen" to={"/entrenamiento"}><CgGym size={20} /> Entrenamiento</Link>
             <Link className="hen" to={"/alimentacion"}><TbMeat size={20} /> Nutrición</Link>
-            <Link className="hen" to="#"><TfiStatsUp size={20} /> Tus Marcas</Link>
             <Link className="hen" to={"/nosotros"}><RiTeamLine size={20} /> Nuestro Propósito</Link>
 
               {/* Dropdown del usuario */}
@@ -61,6 +60,7 @@ const HeaderComponent = ({ dieta }) => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
+                  <img className='me-1' src={usuario?.sexo === 'mujer' ? '/iconoMujer.webp': '/iconoHombre.webp'} alt="" />
                   {usuario ? usuario.nombre : "User"}
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
@@ -92,7 +92,6 @@ const HeaderComponent = ({ dieta }) => {
           <div className="offcanvas-body d-flex flex-column gap-3">
             <Link className="hen" to={"/entrenamiento"}><CgGym size={20} /> Entrenamiento</Link>
             <Link className="hen" to={"/alimentacion"}><TbMeat size={20} /> Nutrición</Link>
-            <Link className="hen" to="#"><TfiStatsUp size={20} /> Tus Marcas</Link>
             <Link className="hen" to={"/nosotros"}><RiTeamLine size={20} /> Nuestro Propósito</Link>
 
             {/* Dropdown en móviles como lista normal */}
@@ -104,11 +103,18 @@ const HeaderComponent = ({ dieta }) => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {usuario ? usuario.nombre : "User"}
+                <img className='me-1' src={usuario?.sexo === 'mujer' ? '/iconoMujer.webp': '/iconoHombre.webp'} alt="" />
+                  {usuario ? usuario.nombre : "User"}
               </button>
               <ul className="dropdown-menu" aria-labelledby="userDropdownMobile">
-                <li><a className="dropdown-item" href="/perfil">Perfil</a></li>
-                <li><button className="dropdown-item" onClick={handleLogout}>Cerrar sesión</button></li>
+                {!usuario ? (
+                    <li><a className="dropdown-item" href="/login">Iniciar sesión</a></li>
+                  ) : (
+                    <>
+                      <li><a className="dropdown-item" href="/perfil">Perfil</a></li>
+                      <li><button className="dropdown-item" onClick={handleLogout}>Cerrar sesión</button></li>
+                    </>
+                  )}
               </ul>
             </div>
           </div>

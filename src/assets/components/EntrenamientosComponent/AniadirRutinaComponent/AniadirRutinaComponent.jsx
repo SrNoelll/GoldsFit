@@ -5,8 +5,8 @@ import { MdOutlineCancel } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
 import { Link } from 'react-router-dom';
 
-const usuario = JSON.parse(localStorage.getItem('usuario'));
 const AniadirRutinaComponent = () => {
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
   const seleccionados = JSON.parse(sessionStorage.getItem('seleccionados')) || [];
   const ejercicios = JSON.parse(localStorage.getItem("ejercicios")) || [];
 
@@ -114,7 +114,7 @@ const AniadirRutinaComponent = () => {
             <p>{ejercicio.nombre}</p>
           </div>
           <div className="col">{renderMedia(ejercicio.foto)}</div>
-          <div className="col row">
+          <div className="col-lg-3 text-start col-md-3 col-sm-12 col-12 row">
             <div className='col'>Repeticiones:</div>
             <input
               type="number"
@@ -124,7 +124,7 @@ const AniadirRutinaComponent = () => {
               className="form-control col"
             />
           </div>
-          <div className="col row">
+          <div className="col-lg-3 text-start col-md-3 col-sm-12 col-12 row">
             <div className='col'>Series:</div>
             <input
               type="number"
@@ -134,7 +134,7 @@ const AniadirRutinaComponent = () => {
               className="form-control col"
             />
           </div>
-          <div className="col row">
+          <div className="col-lg-3 text-start col-md-3 col-sm-12 col-12 row row">
             <div className='col'>Descanso:</div>
             <input
               type="number"
@@ -155,8 +155,11 @@ const AniadirRutinaComponent = () => {
       <div className='contenido container'>
         <div className="row">
           <div className='col-12'>
-            <input id='titulo' type="text" placeholder='Titulo' className='w-50 rounded titulo p-2 tituloR'/>
+            <div className='col-lg-6 col-md-8 col-sm-12 col-12'>
+            <input id='titulo' type="text" placeholder='Titulo' className='rounded w-100 titulo p-2 tituloR'/>
           </div>
+          </div>
+          
           <Link className="noDec col" href="/entrenamiento">
           <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
               Cancelar <MdOutlineCancel />
@@ -172,8 +175,8 @@ const AniadirRutinaComponent = () => {
         <div className='container'>{mostrarEjer()}</div>
 
         <Link className='noEnlace' to="/seleccionarEjercicio">
-          <div className='container d-flex rounded align-items-center p-2 justify-content-center text-center agregar'>
-            Agregar ejercicio
+          <div className='container mb-4 d-flex rounded align-items-center p-2 justify-content-center text-center agregar'>
+            Editar lista de ejercicios
           </div>
         </Link>
       </div>
