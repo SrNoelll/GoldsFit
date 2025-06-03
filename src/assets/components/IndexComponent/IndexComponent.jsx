@@ -4,6 +4,7 @@ import HeroComponent from './HeroComponent/HeroComponent'
 import SobreNosotrosComponent from './SobreNosotrosComponent/SobreNosotrosComponent';
 import TecnologiasComponent from './TecnologiasComponent/TecnologiasComponent';
 import SeguimientoComponent from './SeguimientoComponent/SeguimientoComponent';
+import { PresentacionBuscadorEj } from './PresentacionBuscadorEj/PresentacionBuscadorEj';
 const IndexComponent = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const IndexComponent = () => {
       <SobreNosotrosComponent></SobreNosotrosComponent>
       <TecnologiasComponent></TecnologiasComponent>
       <SeguimientoComponent></SeguimientoComponent>
+      <PresentacionBuscadorEj></PresentacionBuscadorEj>
     </div>
   );
 };

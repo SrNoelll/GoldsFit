@@ -19,6 +19,8 @@ import { GeneradorDietaComponent } from './assets/components/AlimentacionCompone
 import BuscadorAlimentosComponent from './assets/components/AlimentacionComponent/BuscadorAlimentosComponent/BuscadorAlimentosComponent';
 import PerfilComponent from './assets/components/PerfilComponent/PerfilComponent';
 import DescripcionConponent from './assets/components/DescripcionConponent/DescripcionConponent';
+import { BuscadorEjerciciosComponent } from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/BuscadorEjerciciosComponent';
+import EjercicioComponent from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/EjercicioComponent';
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
         <Route path="/alimentos" element={<BuscadorAlimentosComponent></BuscadorAlimentosComponent>}/>
         <Route path="/perfil" element={<PerfilComponent></PerfilComponent>}/>
         <Route path="/descripcion" element={<DescripcionConponent></DescripcionConponent>}/>
+        <Route path="/ejercicios" element={<BuscadorEjerciciosComponent></BuscadorEjerciciosComponent>}/>
+        <Route path="/ejercicio/:idEj" element={<EjercicioComponent></EjercicioComponent>}/>
       </Routes>
     </Router>
   )
