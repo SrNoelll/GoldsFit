@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HeaderComponent from '../HeaderComponent/HeaderComponent'
 import SobreNosotrosComponent from '../IndexComponent/SobreNosotrosComponent/SobreNosotrosComponent'
 import { PresentacionGeneradorDietaComponent } from '../AlimentacionComponent/PresentacionGeneradorDietaComponent/PresentacionGeneradorDietaComponent'
@@ -9,6 +9,9 @@ import { PresentacionBuscadorEj } from '../IndexComponent/PresentacionBuscadorEj
 import PresentacionBuscadorComponent from '../AlimentacionComponent/PresentacionBuscadorComponent/PresentacionBuscadorComponent'
 
 export const NosotrosComponent = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        }, []);
     return (
         <div>
             <HeaderComponent></HeaderComponent>

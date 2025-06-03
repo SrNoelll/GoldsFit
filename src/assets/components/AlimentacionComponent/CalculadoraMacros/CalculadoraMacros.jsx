@@ -88,7 +88,7 @@ const edadCalculada = usuario.edad ? calcularEdad(usuario.edad) : '';
         <h1 className="tituloN text-center mb-4">Calculadora de Macros</h1>
         <div className="row">
           {/* Formulario */}
-          <div className="col-6 text-white">
+          <div className="col-lg-6 col-md-12 col-sm-12 col-12 text-white">
             <form className="row text-start" onSubmit={handleSubmit}>
               <div className="col-6 my-2">
                 <h3 className="tituloN">Peso (kg)</h3>
@@ -173,9 +173,9 @@ const edadCalculada = usuario.edad ? calcularEdad(usuario.edad) : '';
           </div>
 
           {/* Resultado */}
-          <div className="col-6 p-4">
+          <div className="col-lg-6 col-md-12 col-sm-12 col-12 p-4">
             <div className="text-start row text-black h-100 bg-n p-4 rounded">
-                <div className="col-6">
+                <div className="col-lg-6 col-md-6 col-sm-8 col-8">
                 <h2 className="tituloN text-white mb-3">Resultado</h2>
               {resultado ? (
                 <>
@@ -198,7 +198,7 @@ const edadCalculada = usuario.edad ? calcularEdad(usuario.edad) : '';
                 </p>
               )}
                 </div>
-                <div className="col-6">
+                <div className="col-lg-6 col-md-6 col-sm-4 col-4">
                     <img src="/calculadoraMacros.webp" className="img-fluid " alt="" />
                 </div>
               

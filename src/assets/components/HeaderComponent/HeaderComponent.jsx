@@ -4,23 +4,26 @@ import { TbMeat } from "react-icons/tb";
 import { TfiStatsUp } from "react-icons/tfi";
 import { RiTeamLine } from "react-icons/ri";
 import './HeaderComponent.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HeaderComponent = ({ dieta }) => {
-  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (usuario.sexo === null) navigate('/sexo');
+    if (usuario) {
+      if (usuario.sexo === null) navigate('/sexo');
     else if (usuario.peso === null) navigate('/peso');
     else if (usuario.altura === null) navigate('/altura');
     else if (usuario.objetivo === null) navigate('/objetivo');
     else if (usuario.nivel_entrenamiento === "") navigate('/nivel');
+    }
+    
   }, [navigate, usuario]);
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate('/login')
+    navigate('/')
   };
 
   return (
@@ -44,10 +47,10 @@ const HeaderComponent = ({ dieta }) => {
 
             {/* Menú en pantallas grandes */}
             <div className="d-none d-lg-flex gap-4 align-items-center">
-              <a className="hen" href="/entrenamiento"><CgGym size={20} /> Entrenamiento</a>
-              <a className="hen" href="/alimentacion"><TbMeat size={20} /> Nutrición</a>
-              <a className="hen" href="#"><TfiStatsUp size={20} /> Tus Marcas</a>
-              <a className="hen" href="#"><RiTeamLine size={20} /> Nuestro Propósito</a>
+              <Link className="hen" to="/entrenamiento"><CgGym size={20} /> Entrenamiento</Link>
+            <Link className="hen" to="/alimentacion"><TbMeat size={20} /> Nutrición</Link>
+            <Link className="hen" to="#"><TfiStatsUp size={20} /> Tus Marcas</Link>
+            <Link className="hen" to="/nosotros"><RiTeamLine size={20} /> Nuestro Propósito</Link>
 
               {/* Dropdown del usuario */}
               <div className="dropdown">
@@ -58,11 +61,17 @@ const HeaderComponent = ({ dieta }) => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {usuario.nombre ?? "User"}
+                  {usuario ? usuario.nombre : "User"}
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                  <li><a className="dropdown-item" href="/perfil">Perfil</a></li>
-                  <li><button className="dropdown-item" onClick={handleLogout}>Cerrar sesión</button></li>
+                  {!usuario ? (
+                    <li><a className="dropdown-item" href="/login">Iniciar sesión</a></li>
+                  ) : (
+                    <>
+                      <li><a className="dropdown-item" href="/perfil">Perfil</a></li>
+                      <li><button className="dropdown-item" onClick={handleLogout}>Cerrar sesión</button></li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -81,10 +90,10 @@ const HeaderComponent = ({ dieta }) => {
             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div className="offcanvas-body d-flex flex-column gap-3">
-            <a className="hen" href="/entrenamiento"><CgGym size={20} /> Entrenamiento</a>
-            <a className="hen" href="/alimentacion"><TbMeat size={20} /> Nutrición</a>
-            <a className="hen" href="#" data-bs-dismiss="offcanvas"><TfiStatsUp size={20} /> Tus Marcas</a>
-            <a className="hen" href="#" data-bs-dismiss="offcanvas"><RiTeamLine size={20} /> Nuestro Propósito</a>
+            <Link className="hen" to="/entrenamiento"><CgGym size={20} /> Entrenamiento</Link>
+            <Link className="hen" to="/alimentacion"><TbMeat size={20} /> Nutrición</Link>
+            <Link className="hen" to="#"><TfiStatsUp size={20} /> Tus Marcas</Link>
+            <Link className="hen" to="/nosotros"><RiTeamLine size={20} /> Nuestro Propósito</Link>
 
             {/* Dropdown en móviles como lista normal */}
             <div className="dropdown">
@@ -95,7 +104,7 @@ const HeaderComponent = ({ dieta }) => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {usuario.nombre ?? "User"}
+                {usuario ? usuario.nombre : "User"}
               </button>
               <ul className="dropdown-menu" aria-labelledby="userDropdownMobile">
                 <li><a className="dropdown-item" href="/perfil">Perfil</a></li>

@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginComponent from './assets/components/LoginComponent/LoginComponent';
 import RegisterComponent from './assets/components/LoginComponent/RegisterComponent';
 import IndexComponent from './assets/components/IndexComponent/IndexComponent';
@@ -23,35 +23,77 @@ import { BuscadorEjerciciosComponent } from './assets/components/EntrenamientosC
 import EjercicioComponent from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/EjercicioComponent';
 import { NosotrosComponent } from './assets/components/nosotrosComponent/nosotrosComponent';
 
+const PrivateRoute = ({ children }) => {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  return usuario ? children : <Navigate to="/login" />;
+};
+
 function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<IndexComponent></IndexComponent>} />
-        <Route path="/login" element={<LoginComponent></LoginComponent>} />
-        <Route path="/register" element={<RegisterComponent></RegisterComponent>} />
-        <Route path="/entrenamiento" element={<EntrenamientoComponent></EntrenamientoComponent>} />
-        <Route path="/aniadirRutina" element={<AniadirRutinaComponent></AniadirRutinaComponent>} />
-        <Route path="/seleccionarEjercicio" element={<SeleccionarEjercicioComponent/>} />
-        <Route path="/rutina/:idRV" element={<VistaRutinaComponent/>} />
-        <Route path="/EmpezarRutina/:idRV" element={<EmpezarRutinaComponent/>} />
-        <Route path="/alimentacion" element={<AlimentacionComponent></AlimentacionComponent>} />
-        <Route path="/calculadora" element={<CalculadoraMacros></CalculadoraMacros>} />
-        <Route path="/peso" element={<PesoComponent></PesoComponent>} />
-        <Route path="/altura" element={<AlturaComponent></AlturaComponent>} />
-        <Route path="/objetivo" element={<ObjetivoComponent></ObjetivoComponent>}/>
-        <Route path="/nivel" element={<NivelComponent></NivelComponent>}/>
-        <Route path="/sexo" element={<SexoComponent></SexoComponent>} />
-        <Route path="/dieta" element={<GeneradorDietaComponent></GeneradorDietaComponent>}/>
-        <Route path="/alimentos" element={<BuscadorAlimentosComponent></BuscadorAlimentosComponent>}/>
-        <Route path="/perfil" element={<PerfilComponent></PerfilComponent>}/>
-        <Route path="/descripcion" element={<DescripcionConponent></DescripcionConponent>}/>
-        <Route path="/ejercicios" element={<BuscadorEjerciciosComponent></BuscadorEjerciciosComponent>}/>
-        <Route path="/ejercicio/:idEj" element={<EjercicioComponent></EjercicioComponent>}/>
-        <Route path="/nosotros" element={<NosotrosComponent></NosotrosComponent>}/>
+        {/* Rutas públicas */}
+        <Route path="/" element={<IndexComponent />} />
+        <Route path="/login" element={<LoginComponent />} />
+        <Route path="/register" element={<RegisterComponent />} />
+        <Route path="/nosotros" element={<NosotrosComponent />} />
+        <Route path="/alimentacion" element={<AlimentacionComponent />} />
+
+        {/* Rutas protegidas */}
+        <Route path="/entrenamiento" element={
+          <PrivateRoute><EntrenamientoComponent /></PrivateRoute>
+        } />
+        <Route path="/aniadirRutina" element={
+          <PrivateRoute><AniadirRutinaComponent /></PrivateRoute>
+        } />
+        <Route path="/seleccionarEjercicio" element={
+          <PrivateRoute><SeleccionarEjercicioComponent /></PrivateRoute>
+        } />
+        <Route path="/rutina/:idRV" element={
+          <PrivateRoute><VistaRutinaComponent /></PrivateRoute>
+        } />
+        <Route path="/EmpezarRutina/:idRV" element={
+          <PrivateRoute><EmpezarRutinaComponent /></PrivateRoute>
+        } />
+        <Route path="/calculadora" element={
+          <PrivateRoute><CalculadoraMacros /></PrivateRoute>
+        } />
+        <Route path="/peso" element={
+          <PrivateRoute><PesoComponent /></PrivateRoute>
+        } />
+        <Route path="/altura" element={
+          <PrivateRoute><AlturaComponent /></PrivateRoute>
+        } />
+        <Route path="/objetivo" element={
+          <PrivateRoute><ObjetivoComponent /></PrivateRoute>
+        } />
+        <Route path="/nivel" element={
+          <PrivateRoute><NivelComponent /></PrivateRoute>
+        } />
+        <Route path="/sexo" element={
+          <PrivateRoute><SexoComponent /></PrivateRoute>
+        } />
+        <Route path="/alimentos" element={
+          <PrivateRoute><BuscadorAlimentosComponent /></PrivateRoute>
+        } />
+        <Route path="/perfil" element={
+          <PrivateRoute><PerfilComponent /></PrivateRoute>
+        } />
+        <Route path="/descripcion" element={
+          <PrivateRoute><DescripcionConponent /></PrivateRoute>
+        } />
+        <Route path="/ejercicios" element={
+          <PrivateRoute><BuscadorEjerciciosComponent /></PrivateRoute>
+        } />
+        <Route path="/dieta" element={
+          <PrivateRoute><GeneradorDietaComponent></GeneradorDietaComponent></PrivateRoute>
+        } />
+        <Route path="/ejercicio/:idEj" element={
+          <PrivateRoute><EjercicioComponent /></PrivateRoute>
+        } />
       </Routes>
     </Router>
-  )
+  );
 }
 
 export default App
