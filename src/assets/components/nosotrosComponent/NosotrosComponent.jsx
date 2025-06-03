@@ -9,9 +9,6 @@ import { PresentacionBuscadorEj } from '../IndexComponent/PresentacionBuscadorEj
 import PresentacionBuscadorComponent from '../AlimentacionComponent/PresentacionBuscadorComponent/PresentacionBuscadorComponent'
 
 export const NosotrosComponent = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        }, []);
     return (
         <div>
             <HeaderComponent></HeaderComponent>

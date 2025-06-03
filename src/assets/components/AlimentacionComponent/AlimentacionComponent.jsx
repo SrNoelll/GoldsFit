@@ -6,7 +6,6 @@ import { PresentacionCalculadoraMacosComponent } from './PresentacionCalculadora
 import { PresentacionGeneradorDietaComponent } from './PresentacionGeneradorDietaComponent/PresentacionGeneradorDietaComponent'
 import PresentacionBuscadorComponent from './PresentacionBuscadorComponent/PresentacionBuscadorComponent'
 const AlimentacionComponent = () => {
-  
   return (
     <div className='nutricion'>
       <HeaderComponent dieta={true} />
