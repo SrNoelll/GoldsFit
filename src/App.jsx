@@ -21,7 +21,7 @@ import PerfilComponent from './assets/components/PerfilComponent/PerfilComponent
 import DescripcionConponent from './assets/components/DescripcionConponent/DescripcionConponent';
 import { BuscadorEjerciciosComponent } from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/BuscadorEjerciciosComponent';
 import EjercicioComponent from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/EjercicioComponent';
-import { NosotrosComponent } from './assets/components/nosotrosComponent/nosotrosComponent';
+import { NosotrosComponent } from './assets/components/nosotrosComponent/NosotrosComponent';
 
 const PrivateRoute = ({ children }) => {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
