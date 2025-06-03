@@ -47,10 +47,10 @@ const HeaderComponent = ({ dieta }) => {
 
             {/* Menú en pantallas grandes */}
             <div className="d-none d-lg-flex gap-4 align-items-center">
-              <Link className="hen" to="/entrenamiento"><CgGym size={20} /> Entrenamiento</Link>
-            <Link className="hen" to="/alimentacion"><TbMeat size={20} /> Nutrición</Link>
+            <Link className="hen" to={"/entrenamiento"}><CgGym size={20} /> Entrenamiento</Link>
+            <Link className="hen" to={"/alimentacion"}><TbMeat size={20} /> Nutrición</Link>
             <Link className="hen" to="#"><TfiStatsUp size={20} /> Tus Marcas</Link>
-            <Link className="hen" to="/nosotros"><RiTeamLine size={20} /> Nuestro Propósito</Link>
+            <Link className="hen" to={"/nosotros"}><RiTeamLine size={20} /> Nuestro Propósito</Link>
 
               {/* Dropdown del usuario */}
               <div className="dropdown">
@@ -90,10 +90,10 @@ const HeaderComponent = ({ dieta }) => {
             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div className="offcanvas-body d-flex flex-column gap-3">
-            <Link className="hen" to="/entrenamiento"><CgGym size={20} /> Entrenamiento</Link>
-            <Link className="hen" to="/alimentacion"><TbMeat size={20} /> Nutrición</Link>
+            <Link className="hen" to={"/entrenamiento"}><CgGym size={20} /> Entrenamiento</Link>
+            <Link className="hen" to={"/alimentacion"}><TbMeat size={20} /> Nutrición</Link>
             <Link className="hen" to="#"><TfiStatsUp size={20} /> Tus Marcas</Link>
-            <Link className="hen" to="/nosotros"><RiTeamLine size={20} /> Nuestro Propósito</Link>
+            <Link className="hen" to={"/nosotros"}><RiTeamLine size={20} /> Nuestro Propósito</Link>
 
             {/* Dropdown en móviles como lista normal */}
             <div className="dropdown">
