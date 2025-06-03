@@ -21,6 +21,7 @@ import PerfilComponent from './assets/components/PerfilComponent/PerfilComponent
 import DescripcionConponent from './assets/components/DescripcionConponent/DescripcionConponent';
 import { BuscadorEjerciciosComponent } from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/BuscadorEjerciciosComponent';
 import EjercicioComponent from './assets/components/EntrenamientosComponent/BuscadorEjerciciosComponent/EjercicioComponent';
+import { NosotrosComponent } from './assets/components/nosotrosComponent/nosotrosComponent';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/descripcion" element={<DescripcionConponent></DescripcionConponent>}/>
         <Route path="/ejercicios" element={<BuscadorEjerciciosComponent></BuscadorEjerciciosComponent>}/>
         <Route path="/ejercicio/:idEj" element={<EjercicioComponent></EjercicioComponent>}/>
+        <Route path="/nosotros" element={<NosotrosComponent></NosotrosComponent>}/>
       </Routes>
     </Router>
   )

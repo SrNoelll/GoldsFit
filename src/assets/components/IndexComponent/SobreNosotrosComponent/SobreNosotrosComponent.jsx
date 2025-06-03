@@ -8,7 +8,7 @@ const SobreNosotrosComponent = () => {
         <div className="row">
           <div className="contenedorTit col-lg-6 col-md-7 col-sm-12 col-12 p-3 h-100 text-white">
             <div>
-              <h2 className="titulo">Porque Gold's Fit?</h2>
+              <h2 className="titulo">¿Por qué Gold's Fit?</h2>
             </div>
             <p className="">
               En un mundo lleno de apps de gimnasio, la nuestra destaca por
