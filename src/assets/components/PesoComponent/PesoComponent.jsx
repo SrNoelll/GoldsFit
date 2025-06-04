@@ -7,7 +7,7 @@ import SiguienteComponent from '../AlimentacionComponent/AtrasSiguienteComponent
 
 const PesoComponent = () => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
-  const [valor, setValor] = useState(60);
+  const [valor, setValor] = useState(usuario.peso || 70);
 
   const handleChange = (e) => {
     setValor(Number(e.target.value));

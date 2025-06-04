@@ -34,7 +34,7 @@ const PresentacionBuscadorComponent = () => {
           </div>
 
           <div className="col-lg-6 col-md-5 col-sm-12 col-12 d-md-flex mt-3 row h-100 justify-content-center">
-            <img className="col-lg-8 col-md-12" src="/alimentos.webp" alt="" />
+            <img className="col-lg-6 col-md-8 col-sm-8 col-8" src="/alimentos.webp" alt="" />
           </div>
 
         </div>

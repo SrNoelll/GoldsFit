@@ -5,8 +5,10 @@ import './VistaRutinaComponent.css';
 import HeaderComponent from "../../HeaderComponent/HeaderComponent";
 
 const VistaRutinaComponent = () => {
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
   const { idRV } = useParams();
   const [rutina, setRutina] = useState("Cargando...");
+  const [rutinaUser, setRutinaUser] = useState("Cargando...");
   const [ejercicios, setEjercicios] = useState([]);
 
   useEffect(() => {
@@ -18,6 +20,7 @@ const VistaRutinaComponent = () => {
         if (data.success) {
           setRutina(data.rutina.nombre || "Rutina sin nombre");
           setEjercicios(data.ejercicios || []);
+          setRutinaUser(data.rutina.usuario_id || 0)
         } else {
           console.error("Error del servidor:", data.message);
         }
@@ -98,13 +101,16 @@ const VistaRutinaComponent = () => {
           <h1 className="titulo col-12">{rutina}</h1>
         </div>
 
-        <div className='container-fluid d-flex align-items-center justify-content-center my-3'>
-                  <div className='row container-fluid'>
-                  <Link className='col-12 text-center border-m p-2 noEnlace rounded t-m' to={`/EmpezarRutina/${idRV}`}>
-                  Empezar entrenamiento
-                  </Link>
-                </div>
-        </div>
+        {usuario.id === rutinaUser && (
+  <div className='container-fluid d-flex align-items-center justify-content-center my-3'>
+    <div className='row container-fluid'>
+      <Link className='col-12 text-center border-m p-2 noEnlace rounded t-m' to={`/EmpezarRutina/${idRV}`}>
+        Empezar entrenamiento
+      </Link>
+    </div>
+  </div>
+)}
+
 
         {ejercicios.length === 0 ? (
           <p className="text-center">No hay ejercicios cargados.</p>

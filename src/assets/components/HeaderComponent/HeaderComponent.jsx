@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { CgGym } from "react-icons/cg";
 import { TbMeat } from "react-icons/tb";
-import { TfiStatsUp } from "react-icons/tfi";
-import { RiTeamLine } from "react-icons/ri";
 import './HeaderComponent.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { LuDna } from 'react-icons/lu';

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const RutinasComponent = () => {
   const [rutinas, setRutinas] = useState([]);
+  const [rutinasP, setRutinasP] = useState([]);
   const usuario = JSON.parse(localStorage.getItem('usuario'));
 
 const fetchEntrenamientos = async () => {
@@ -24,8 +25,26 @@ const fetchEntrenamientos = async () => {
   }
 };
 
+const fetchEntrenamientosRecomendados = async () => {
+  try {
+    const response = await fetch(`https://2daw14.iesalonsocano.org/api/?ruta=rutinas&idUsuario=5`);
+    const data = await response.json();
+
+    if (data.success) {
+      setRutinasP(data.rutinas);
+    } else {
+      console.error("Error del servidor:", data.message);
+    }
+  } catch (error) {
+    console.error("Error al obtener entrenamientos:", error);
+  }
+};
+
 useEffect(() => {
   fetchEntrenamientos();
+}, []);
+useEffect(() => {
+  fetchEntrenamientosRecomendados();
 }, []);
 
 
@@ -83,10 +102,23 @@ useEffect(() => {
           </div>
         </Link>
       ))}
+      <div className="col-12 my-4">
+      <h4 className="titulo">Rutinas Predefinidas</h4>
+      {rutinasP.map((rutina, index) => (
+        <Link className="noEnlace" to={`/rutina/${rutina.id}`} key={rutina.id}>
+          <div className="rounded row m-2 p-4 rutina">
+            <h4 className="col-12">
+              {rutina.nombre || `Rutina ${index + 1}`}
+            </h4>
+            
+          </div>
+        </Link>
+      ))}
     </div>
+    </div>
+    
   </div>
 </div>
-
   );
 };
 

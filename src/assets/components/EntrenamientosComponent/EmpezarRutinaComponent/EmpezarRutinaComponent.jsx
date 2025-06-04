@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './EmpezarRutinaComponent.css';
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import HeaderComponent from '../../HeaderComponent/HeaderComponent';
 import Timer from './TimerComponent/TimerComponent';
 import TemporizadorComponent from './TemporizadorComponent/TemporizadorComponent';
 
 const EmpezarRutinaComponent = () => {
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
   const { idRV } = useParams();
   const [rutina, setRutina] = useState("Cargando...");
+  const [idUser, setIdUser] = useState(0);
   const [ejercicios, setEjercicios] = useState([]);
   const [temporizador, setTemporizador] = useState({ duracion: 0, trigger: 0 });
   const [seriesActivas, setSeriesActivas] = useState([]);
@@ -37,6 +39,8 @@ const EmpezarRutinaComponent = () => {
         if (data.success) {
           setEjercicios(data.ejercicios || []);
           setRutina(data.rutina.nombre || "Rutina sin nombre");
+          setIdUser(data.rutina.usuario_id || 0);
+          
         } else {
           console.error("Error del servidor:", data.message);
         }
@@ -112,6 +116,11 @@ const EmpezarRutinaComponent = () => {
   };
 
   const ejerciciosAgrupados = agruparEjercicios();
+ 
+  if (idUser !== 0 && usuario.id !== idUser) {
+  return <Navigate to="/" />;
+}
+
 
   return (
     <div>

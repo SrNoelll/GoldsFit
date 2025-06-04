@@ -4,7 +4,7 @@ import SiguienteComponent from '../AlimentacionComponent/AtrasSiguienteComponent
 
 const AlturaComponent = () => {
   const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
-  const [valor, setValor] = useState(170);
+  const [valor, setValor] = useState(usuario.altura || 170);
 
   const handleChange = (e) => {
     setValor(Number(e.target.value));
@@ -37,7 +37,7 @@ const AlturaComponent = () => {
   const scaleY = valor / 170;
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="altura d-flex justify-content-center align-items-center vh-100">
       <div className="text-center" style={{ width: '80%' }}>
         <h1 className='titulo'>Selecciona tu altura</h1>
         
