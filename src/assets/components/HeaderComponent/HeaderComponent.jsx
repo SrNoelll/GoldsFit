@@ -5,6 +5,7 @@ import { TfiStatsUp } from "react-icons/tfi";
 import { RiTeamLine } from "react-icons/ri";
 import './HeaderComponent.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { LuDna } from 'react-icons/lu';
 
 const HeaderComponent = ({ dieta }) => {
   const usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -49,7 +50,7 @@ const HeaderComponent = ({ dieta }) => {
             <div className="d-none d-lg-flex gap-4 align-items-center">
             <Link className="hen" to={"/entrenamiento"}><CgGym size={20} /> Entrenamiento</Link>
             <Link className="hen" to={"/alimentacion"}><TbMeat size={20} /> Nutrición</Link>
-            <Link className="hen" to={"/nosotros"}><RiTeamLine size={20} /> Nuestro Propósito</Link>
+            <Link className="hen" to={"/nosotros"}><LuDna size={20} /> Método Gold’s</Link>
 
               {/* Dropdown del usuario */}
               <div className="dropdown">
@@ -92,7 +93,7 @@ const HeaderComponent = ({ dieta }) => {
           <div className="offcanvas-body d-flex flex-column gap-3">
             <Link className="hen" to={"/entrenamiento"}><CgGym size={20} /> Entrenamiento</Link>
             <Link className="hen" to={"/alimentacion"}><TbMeat size={20} /> Nutrición</Link>
-            <Link className="hen" to={"/nosotros"}><RiTeamLine size={20} /> Nuestro Propósito</Link>
+            <Link className="hen" to={"/nosotros"}><LuDna size={20} /> Método Gold’s</Link>
 
             {/* Dropdown en móviles como lista normal */}
             <div className="dropdown">

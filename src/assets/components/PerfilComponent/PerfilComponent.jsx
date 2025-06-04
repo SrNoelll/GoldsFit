@@ -4,6 +4,7 @@ import HeaderComponent from "../HeaderComponent/HeaderComponent";
 import { Link } from "react-router-dom";
 import GraficoComponent from "./GraficoComponent/GraficoComponent";
 import GraficoVolumenComponent from "./GraficoVolumenComponent/GraficoVolumenComponent";
+import { MdEdit } from "react-icons/md";
 
 const PerfilComponent = () => {
   const usuario = JSON.parse(localStorage.getItem("usuario")) || {};
@@ -53,7 +54,7 @@ const PerfilComponent = () => {
             <img className='img-fluid' src={usuario?.sexo === 'mujer' ? '/iconoMujer.webp': '/iconoHombre.webp'} alt="" />
           </div>
           <div className="col-lg-11 col-md-9 col-sm-8 col-8 row">
-            <h2 className="col-12 titulo">{usuario.nombre}</h2>
+            <h2 className="col-12 titulo">{usuario.nombre} <Link className="t-m" to={'/sexo'}><MdEdit /></Link></h2>
             <div className="col-12 row d-flex align-items-baseline">
               <h3 className="titulo col-lg-2 col-md-4 col-sm-12 pe-4">
                 {usuario.userName}
