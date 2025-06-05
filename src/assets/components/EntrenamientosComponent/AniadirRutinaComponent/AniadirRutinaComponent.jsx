@@ -114,7 +114,7 @@ const AniadirRutinaComponent = () => {
             <p>{ejercicio.nombre}</p>
           </div>
           <div className="col">{renderMedia(ejercicio.foto)}</div>
-          <div className="col-lg-3 text-start col-md-3 col-sm-12 col-12 row">
+          <div className="col-lg-3 text-start col-md-12 col-sm-12 col-12 row">
             <div className='col'>Repeticiones:</div>
             <input
               type="number"
@@ -124,7 +124,7 @@ const AniadirRutinaComponent = () => {
               className="form-control col"
             />
           </div>
-          <div className="col-lg-3 text-start col-md-3 col-sm-12 col-12 row">
+          <div className="col-lg-3 text-start col-md-12 col-sm-12 col-12 row">
             <div className='col'>Series:</div>
             <input
               type="number"
@@ -134,7 +134,7 @@ const AniadirRutinaComponent = () => {
               className="form-control col"
             />
           </div>
-          <div className="col-lg-3 text-start col-md-3 col-sm-12 col-12 row row">
+          <div className="col-lg-3 text-start col-md-12 col-sm-12 col-12 row row">
             <div className='col'>Descanso:</div>
             <input
               type="number"
