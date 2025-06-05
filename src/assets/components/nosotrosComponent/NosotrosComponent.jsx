@@ -7,6 +7,7 @@ import SeguimientoComponent from '../IndexComponent/SeguimientoComponent/Seguimi
 import { PresentacionCalculadoraMacosComponent } from '../AlimentacionComponent/PresentacionCalculadoraMacosComponent/PresentacionCalculadoraMacosComponent'
 import { PresentacionBuscadorEj } from '../IndexComponent/PresentacionBuscadorEj/PresentacionBuscadorEj'
 import PresentacionBuscadorComponent from '../AlimentacionComponent/PresentacionBuscadorComponent/PresentacionBuscadorComponent'
+import { FootherComponent } from '../FootherComponent/FootherComponent'
 
 export const NosotrosComponent = () => {
     return (
@@ -46,6 +47,7 @@ export const NosotrosComponent = () => {
                     </div>
                 </div>
             </div>
+            <FootherComponent></FootherComponent>
         </div>
     )
 }

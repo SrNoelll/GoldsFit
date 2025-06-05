@@ -1,6 +1,7 @@
 import React from "react";
 import "./SobreNosotrosComponent.css";
 import { Link } from "react-router-dom";
+import { FootherComponent } from "../../FootherComponent/FootherComponent";
 const SobreNosotrosComponent = () => {
   return (
     <div className="mx-1">

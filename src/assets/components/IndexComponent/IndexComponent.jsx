@@ -5,6 +5,7 @@ import SobreNosotrosComponent from './SobreNosotrosComponent/SobreNosotrosCompon
 import TecnologiasComponent from './TecnologiasComponent/TecnologiasComponent';
 import SeguimientoComponent from './SeguimientoComponent/SeguimientoComponent';
 import { PresentacionBuscadorEj } from './PresentacionBuscadorEj/PresentacionBuscadorEj';
+import { FootherComponent } from '../FootherComponent/FootherComponent';
 const IndexComponent = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const IndexComponent = () => {
       <TecnologiasComponent></TecnologiasComponent>
       <SeguimientoComponent></SeguimientoComponent>
       <PresentacionBuscadorEj></PresentacionBuscadorEj>
+      <FootherComponent></FootherComponent>
     </div>
   );
 };

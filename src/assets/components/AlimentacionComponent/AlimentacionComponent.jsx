@@ -5,6 +5,7 @@ import HeroNutricionComponent from './HeroNutricionComponent/HeroNutricionCompon
 import { PresentacionCalculadoraMacosComponent } from './PresentacionCalculadoraMacosComponent/PresentacionCalculadoraMacosComponent'
 import { PresentacionGeneradorDietaComponent } from './PresentacionGeneradorDietaComponent/PresentacionGeneradorDietaComponent'
 import PresentacionBuscadorComponent from './PresentacionBuscadorComponent/PresentacionBuscadorComponent'
+import { FootherComponent } from '../FootherComponent/FootherComponent'
 const AlimentacionComponent = () => {
   return (
     <div className='nutricion'>
@@ -13,6 +14,7 @@ const AlimentacionComponent = () => {
       <PresentacionCalculadoraMacosComponent></PresentacionCalculadoraMacosComponent>
       <PresentacionGeneradorDietaComponent></PresentacionGeneradorDietaComponent>
       <PresentacionBuscadorComponent></PresentacionBuscadorComponent>
+      <FootherComponent nutricion></FootherComponent>
     </div>
   )
 }
