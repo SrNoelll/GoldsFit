@@ -6,7 +6,7 @@ import html2pdf from 'html2pdf.js';
 export const GeneradorDietaComponent = () => {
   const [calorias, setCalorias] = useState('');
   const [dieta, setDieta] = useState(null)
-  const [desplegados, setDesplegados] = useState({});s
+  const [desplegados, setDesplegados] = useState({});
 
   const toggleAlimentos = (id) => {
     setDesplegados(prev => ({ ...prev, [id]: !prev[id] }));
