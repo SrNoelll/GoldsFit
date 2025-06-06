@@ -38,7 +38,10 @@ const [busqueda, setBusqueda] = useState("");
         <HeaderComponent dieta/>
         <div className="container contenido pantalla pb-4">
           {/* Buscador */}
-          <div className="row mb-4">
+          <div className="row mx-1 mb-4">
+            <div className='col-12'>
+              <h2 className='tituloN'>Buscador de alimentos</h2>
+            </div>
             <input
               type="text"
               className="buscador border-n p-3 rounded"
@@ -53,16 +56,16 @@ const [busqueda, setBusqueda] = useState("");
             <div
               key={alimento.id}
               id={alimento.id}
-              className={`row d-flex justify-content-center text-center border-n align-items-center my-4 p-3 rounded`}
+              className={`row d-flex justify-content-center text-center border-n align-items-center mx-1 my-4 p-3 rounded`}
               data-aos="fade-left"
             >
-              <div className="col">
+              <div className="col-lg col-md-12 col-sm-12 col-12">
                 <h3 className='tituloN'>{alimento.nombre}</h3>
               </div>
-              <div className="col">Calorias: {alimento.calorias}g</div>
-              <div className="col">Proteina: {alimento.proteinas}g</div>
-              <div className="col">Grasas: {alimento.grasas}g</div>
-              <div className="col">Carbohidratos: {alimento.carbohidratos}g</div>
+              <div className="col-lg col-md col-sm-6 col-6">Calorias: {alimento.calorias}g</div>
+              <div className="col-lg col-md col-sm-6 col-6">Proteina: {alimento.proteinas}g</div>
+              <div className="col-lg col-md col-sm-6 col-6">Grasas: {alimento.grasas}g</div>
+              <div className="col-lg col-md col-sm-6 col-6">Carbohidratos: {alimento.carbohidratos}g</div>
             </div>
           ))}
         </div>

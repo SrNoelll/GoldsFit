@@ -21,7 +21,7 @@ const SeguimientoComponent = () => {
               un control nunca había sido tan fácil y accesible.
             </p>
             <div className="d-flex justify-content-end">
-              <Link to={"/login"}>
+              <Link to={"/perfil"}>
                 <button className="x t-m">
                   <span> Empieza ahora</span>
                 </button>

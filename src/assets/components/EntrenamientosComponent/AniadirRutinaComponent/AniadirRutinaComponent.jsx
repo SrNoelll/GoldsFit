@@ -3,12 +3,13 @@ import HeaderComponent from '../../HeaderComponent/HeaderComponent';
 import './AniadirRutinaComponent.css';
 import { MdOutlineCancel } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AniadirRutinaComponent = () => {
   const usuario = JSON.parse(localStorage.getItem('usuario'));
   const seleccionados = JSON.parse(sessionStorage.getItem('seleccionados')) || [];
   const ejercicios = JSON.parse(localStorage.getItem("ejercicios")) || [];
+  const navigate = useNavigate();
 
   const renderMedia = (src) => {
     const extension = src.split(".").pop().toLowerCase();
@@ -86,7 +87,7 @@ const AniadirRutinaComponent = () => {
 
     if (data.success) {
       sessionStorage.clear();
-      window.location.href = "/entrenamiento";
+      navigate("/entrenamiento");
     } else {
       console.error("Error en la respuesta del servidor:", data);
       alert("Hubo un error al guardar la rutina.");
@@ -160,8 +161,8 @@ const AniadirRutinaComponent = () => {
           </div>
           </div>
           
-          <Link className="noDec col" href="/entrenamiento">
-          <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
+          <Link className="noDec col" to="/entrenamiento">
+          <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded" onClick={()=>{sessionStorage.clear()}}>
               Cancelar <MdOutlineCancel />
           </div>
           </Link>

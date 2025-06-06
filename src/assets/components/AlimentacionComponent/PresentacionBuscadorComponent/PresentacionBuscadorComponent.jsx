@@ -13,7 +13,6 @@ const PresentacionBuscadorComponent = () => {
                 <h2 className="tituloN">Buscador de alimentos</h2>
               </div>
             <p className="">
-              
               Con nuestro buscador inteligente de alimentos, descubre al momento
               las calorías y macronutrientes (proteínas, carbohidratos y grasas)
               de una gran variedad de productos. Ya no tendrás que adivinar:
@@ -34,7 +33,7 @@ const PresentacionBuscadorComponent = () => {
           </div>
 
           <div className="col-lg-6 col-md-5 col-sm-12 col-12 d-md-flex mt-3 row h-100 justify-content-center">
-            <img className="col-lg-6 col-md-8 col-sm-8 col-8" src="/alimentos.webp" alt="" />
+            <img className="col-lg-5 col-md-8 col-sm-8 col-8" src="/alimentos.webp" alt="" />
           </div>
 
         </div>

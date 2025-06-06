@@ -65,7 +65,7 @@ const SeleccionarEjercicioComponent = () => {
         {/* Botones Cancelar/Guardar */}
         <div className="row mb-3">
           <Link className="noDec col" to="/aniadirRutina">
-            <div className="d-flex justify-content-center text-center align-items-center agregar p-3 rounded">
+            <div className="d-flex justify-content-center text-center align-items-center agregar p-3 rounded" onClick={()=>{sessionStorage.clear()}}>
               Cancelar <MdOutlineCancel />
             </div>
           </Link>
