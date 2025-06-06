@@ -50,8 +50,6 @@ const [busqueda, setBusqueda] = useState("");
               onChange={(e) => setBusqueda(e.target.value)}
             />
           </div>
-  
-          {/* Lista de ejercicios */}
           {alimentosFiltrados.map((alimento) => (
             <div
               key={alimento.id}

@@ -61,8 +61,6 @@ const SeleccionarEjercicioComponent = () => {
     <div>
       <HeaderComponent />
       <div className="container contenido">
-
-        {/* Botones Cancelar/Guardar */}
         <div className="row mb-3">
           <Link className="noDec col" to="/aniadirRutina">
             <div className="d-flex justify-content-center text-center align-items-center agregar p-3 rounded" onClick={()=>{sessionStorage.clear()}}>
@@ -75,8 +73,6 @@ const SeleccionarEjercicioComponent = () => {
             </div>
           </Link>
         </div>
-
-        {/* Buscador */}
         <div className="row mx-1 mb-4">
           <input
             type="text"
@@ -86,8 +82,6 @@ const SeleccionarEjercicioComponent = () => {
             onChange={(e) => setBusqueda(e.target.value)}
           />
         </div>
-
-        {/* Lista de ejercicios */}
         {ejerciciosFiltrados.map((ejercicio) => (
           <div
             key={ejercicio.id}

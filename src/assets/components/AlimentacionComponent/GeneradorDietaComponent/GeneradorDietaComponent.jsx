@@ -5,8 +5,8 @@ import html2pdf from 'html2pdf.js';
 
 export const GeneradorDietaComponent = () => {
   const [calorias, setCalorias] = useState('');
-  const [dieta, setDieta] = useState(null);
-  const [desplegados, setDesplegados] = useState({});
+  const [dieta, setDieta] = useState(null)
+  const [desplegados, setDesplegados] = useState({});s
 
   const toggleAlimentos = (id) => {
     setDesplegados(prev => ({ ...prev, [id]: !prev[id] }));
@@ -92,14 +92,10 @@ export const GeneradorDietaComponent = () => {
             <div id='contenido-dieta' className='rounded p-4 w-100 bg-n'>
               {dieta ? (
                 <>
-                  {/* Título que se incluirá en el PDF */}
                   <h1 className="tituloN text-white text-center">Gold's Nutrition</h1>
-
-                  {/* Botón que se oculta al descargar */}
                   <button id="boton-descarga" className='btn btn-light mb-3' onClick={descargarDietaPDF}>
                     Descargar dieta
                   </button>
-
                   <p><strong>Calorías objetivo:</strong> {dieta.caloriasObjetivo}</p>
                   <p><strong>Calorías totales de la dieta:</strong> {dieta.caloriasTotales}</p>
                   <table className="table table-bordered table-striped mt-3">

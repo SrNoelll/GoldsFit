@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import html2pdf from "html2pdf.js";
-import './VistaRutinaComponent.css';
+import "./VistaRutinaComponent.css";
 import HeaderComponent from "../../HeaderComponent/HeaderComponent";
 
 const VistaRutinaComponent = () => {
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
   const { idRV } = useParams();
   const [rutina, setRutina] = useState("Cargando...");
   const [rutinaUser, setRutinaUser] = useState("Cargando...");
@@ -14,13 +14,15 @@ const VistaRutinaComponent = () => {
   useEffect(() => {
     const fetchRutina = async () => {
       try {
-        const response = await fetch(`https://2daw14.iesalonsocano.org/api/?ruta=rutina&id=${idRV}`);
+        const response = await fetch(
+          `https://2daw14.iesalonsocano.org/api/?ruta=rutina&id=${idRV}`
+        );
         const data = await response.json();
 
         if (data.success) {
           setRutina(data.rutina.nombre || "Rutina sin nombre");
           setEjercicios(data.ejercicios || []);
-          setRutinaUser(data.rutina.usuario_id || 0)
+          setRutinaUser(data.rutina.usuario_id || 0);
         } else {
           console.error("Error del servidor:", data.message);
         }
@@ -33,13 +35,13 @@ const VistaRutinaComponent = () => {
   }, [idRV]);
 
   const descargarRutinaPDF = () => {
-    const element = document.getElementById('contenido-rutina');
+    const element = document.getElementById("contenido-rutina");
     const opciones = {
       margin: 10,
       filename: `${rutina}.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
+      image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
     html2pdf().set(opciones).from(element).save();
   };
@@ -53,18 +55,23 @@ const VistaRutinaComponent = () => {
       height: "auto",
       objectFit: "cover",
     };
-    const publicPath = src.replace('./src/assets/img/ejercicios/', '/ejercicios/');
+    const publicPath = src.replace(
+      "./src/assets/img/ejercicios/",
+      "/ejercicios/"
+    );
     if (extension === "mp4") {
-      return <video autoPlay loop muted playsInline style={commonStyles}>
-        <source src={publicPath} type="video/mp4" />
-        Tu navegador no soporta el video.
-      </video>;
+      return (
+        <video autoPlay loop muted playsInline style={commonStyles}>
+          <source src={publicPath} type="video/mp4" />
+          Tu navegador no soporta el video.
+        </video>
+      );
     } else {
       return <img src={publicPath} alt="ejercicio" style={commonStyles} />;
     }
   };
 
-   const agruparEjercicios = () => {
+  const agruparEjercicios = () => {
     const resultado = [];
     let mapa = {};
 
@@ -102,16 +109,17 @@ const VistaRutinaComponent = () => {
         </div>
 
         {usuario.id === rutinaUser && (
-  <div className='container-fluid d-flex align-items-center justify-content-center my-3'>
-    <div className='row container-fluid'>
-      <Link className='col-12 text-center border-m p-2 noEnlace rounded t-m' to={`/EmpezarRutina/${idRV}`}>
-        Empezar entrenamiento
-      </Link>
-    </div>
-  </div>
-)}
-
-
+          <div className="container-fluid d-flex align-items-center justify-content-center my-3">
+            <div className="row container-fluid">
+              <Link
+                className="col-12 text-center border-m p-2 noEnlace rounded t-m"
+                to={`/EmpezarRutina/${idRV}`}
+              >
+                Empezar entrenamiento
+              </Link>
+            </div>
+          </div>
+        )}
         {ejercicios.length === 0 ? (
           <p className="text-center">No hay ejercicios cargados.</p>
         ) : (
@@ -123,10 +131,19 @@ const VistaRutinaComponent = () => {
               </div>
               <div className="col-lg-8 col-md-8 col-sm-12 col-12">
                 {ejercicio.series.map((serie, idx) => (
-                  <div key={idx} className="row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer">
-                    <p className="col"><strong>SERIE:</strong> {idx + 1}</p>
-                    <p className="col"><strong>REPS:</strong> {serie.reps}</p>
-                    <p className="col"><strong>KG:</strong> {serie.peso || '--'}</p>
+                  <div
+                    key={idx}
+                    className="row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer"
+                  >
+                    <p className="col">
+                      <strong>SERIE:</strong> {idx + 1}
+                    </p>
+                    <p className="col">
+                      <strong>REPS:</strong> {serie.reps}
+                    </p>
+                    <p className="col">
+                      <strong>KG:</strong> {serie.peso || "--"}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -134,7 +151,6 @@ const VistaRutinaComponent = () => {
           ))
         )}
       </div>
-      {/* Botón de descarga PDF opcional */}
       {/* <div className="text-center mt-3">
         <button className="btn btn-primary" onClick={descargarRutinaPDF}>Descargar PDF</button>
       </div> */}

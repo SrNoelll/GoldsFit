@@ -6,7 +6,6 @@ const EntrenamientoComponent = () => {
   if (localStorage.getItem("usuario") === null) {
     window.location.href = "/login";
   }
-  
   return (
     <div>
       <HeaderComponent/>
@@ -14,5 +13,4 @@ const EntrenamientoComponent = () => {
     </div>
   )
 }
-
 export default EntrenamientoComponent

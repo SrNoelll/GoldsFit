@@ -2,75 +2,108 @@ import React, { useState } from "react";
 
 const FormRegisterComponent = () => {
   const [message, setMessage] = useState("");
-const handleSubmit = (event) => {
-  event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  const form = event.target;
-  const data = {
-    nombre: form.nombre.value,
-    userName: form.userName.value,
-    email: form.email.value,
-    edad: form.edad.value,
-    password: form.password.value,
-    confirmPassword: form.confirmPassword.value,
+    const form = event.target;
+    const data = {
+      nombre: form.nombre.value,
+      userName: form.userName.value,
+      email: form.email.value,
+      edad: form.edad.value,
+      password: form.password.value,
+      confirmPassword: form.confirmPassword.value,
+    };
+
+    if (data.password !== data.confirmPassword) {
+      setMessage("Las contraseñas no coinciden");
+      return;
+    }
+
+    fetch("https://2daw14.iesalonsocano.org/api/?ruta=registro", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+        return response.json();
+      })
+      .then((data) => {
+        setMessage(data.message || "Registro exitoso");
+        if (data.success) {
+          window.location.href = "/login";
+        }
+      })
+      .catch(() => setMessage("Hubo un error al registrar el usuario"));
   };
-
-  if (data.password !== data.confirmPassword) {
-    setMessage("Las contraseñas no coinciden");
-    return;
-  }
-
-  fetch("https://2daw14.iesalonsocano.org/api/?ruta=registro", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-    .then((response) => {
-      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-      return response.json();
-    })
-    .then((data) => {
-      setMessage(data.message || "Registro exitoso");
-      if (data.success) {
-        window.location.href = "/login";
-      }
-    })
-    .catch(() => setMessage("Hubo un error al registrar el usuario"));
-};
-
 
   return (
     <div className="row d-flex align-items-center justify-content-center p-5 fomrLogin">
       <div className="col-xl-6 col-lg-8 col-md-8 col-sm-12 col-12 text-center loginCont text-white">
-        <img className="cultu d-none d-xl-block" src='/cultu.webp' alt="" />
+        <img className="cultu d-none d-xl-block" src="/cultu.webp" alt="" />
         <h2 className="titulo">GOLD'S FIT</h2>
-        <form className="row text-start" name="registro" onSubmit={handleSubmit}>
+        <form
+          className="row text-start"
+          name="registro"
+          onSubmit={handleSubmit}
+        >
           <input type="hidden" name="registro" />
           <div className="col-6 my-2">
             Nombre
-            <input className="col-12 textoIn" type="text" name="nombre" required />
+            <input
+              className="col-12 textoIn"
+              type="text"
+              name="nombre"
+              required
+            />
           </div>
           <div className="col-6 my-2">
             User Name
-            <input className="col-12 textoIn" type="text" name="userName" required />
+            <input
+              className="col-12 textoIn"
+              type="text"
+              name="userName"
+              required
+            />
           </div>
           <div className="col-12 my-2">
             E-mail
-            <input className="col-12 textoIn" type="email" name="email" required />
+            <input
+              className="col-12 textoIn"
+              type="email"
+              name="email"
+              required
+            />
           </div>
           <div className="col-12 my-2">
             Nacimiento
-            <input className="col-12 textoIn" type="date" name="edad" required />
+            <input
+              className="col-12 textoIn"
+              type="date"
+              name="edad"
+              required
+            />
           </div>
           <div className="col-12 my-2">
             Contraseña
-            <input className="col-12 textoIn" type="password" name="password" required />
+            <input
+              className="col-12 textoIn"
+              type="password"
+              name="password"
+              required
+            />
           </div>
           <div className="col-12 my-2">
             Confirmar contraseña
-            <input className="col-12 textoIn" type="password" name="confirmPassword" required />
+            <input
+              className="col-12 textoIn"
+              type="password"
+              name="confirmPassword"
+              required
+            />
           </div>
           <div className="col-12 my-2">
             <div className="advanced-checkbox">
@@ -96,9 +129,10 @@ const handleSubmit = (event) => {
           </div>
         </form>
         {message && <p className="mt-3">{message}</p>}
-        <a className="enlace" href="/login">Ya tienes una cuenta? Inicia sesion</a>
+        <a className="enlace" href="/login">
+          Ya tienes una cuenta? Inicia sesion
+        </a>
       </div>
-      
     </div>
   );
 };

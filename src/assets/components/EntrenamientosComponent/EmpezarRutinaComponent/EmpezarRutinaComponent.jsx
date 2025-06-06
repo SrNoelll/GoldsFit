@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import './EmpezarRutinaComponent.css';
+import React, { useEffect, useState } from "react";
+import "./EmpezarRutinaComponent.css";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { FaRegCircleCheck } from "react-icons/fa6";
-import HeaderComponent from '../../HeaderComponent/HeaderComponent';
-import Timer from './TimerComponent/TimerComponent';
-import TemporizadorComponent from './TemporizadorComponent/TemporizadorComponent';
+import HeaderComponent from "../../HeaderComponent/HeaderComponent";
+import Timer from "./TimerComponent/TimerComponent";
+import TemporizadorComponent from "./TemporizadorComponent/TemporizadorComponent";
 
 const EmpezarRutinaComponent = () => {
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
   const { idRV } = useParams();
   const [rutina, setRutina] = useState("Cargando...");
   const [idUser, setIdUser] = useState(0);
@@ -17,11 +17,14 @@ const EmpezarRutinaComponent = () => {
 
   const actualizarSerie = async (id_serie, campo, valor) => {
     try {
-      const response = await fetch('https://2daw14.iesalonsocano.org/api/?ruta=actualizar_serie', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id_serie, campo, valor }),
-      });
+      const response = await fetch(
+        "https://2daw14.iesalonsocano.org/api/?ruta=actualizar_serie",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id_serie, campo, valor }),
+        }
+      );
       const data = await response.json();
       if (!data.success) {
         console.error("Error al actualizar:", data.message, data.error);
@@ -34,13 +37,14 @@ const EmpezarRutinaComponent = () => {
   useEffect(() => {
     const fetchRutina = async () => {
       try {
-        const response = await fetch(`https://2daw14.iesalonsocano.org/api/?ruta=rutina&id=${idRV}`);
+        const response = await fetch(
+          `https://2daw14.iesalonsocano.org/api/?ruta=rutina&id=${idRV}`
+        );
         const data = await response.json();
         if (data.success) {
           setEjercicios(data.ejercicios || []);
           setRutina(data.rutina.nombre || "Rutina sin nombre");
           setIdUser(data.rutina.usuario_id || 0);
-          
         } else {
           console.error("Error del servidor:", data.message);
         }
@@ -52,9 +56,9 @@ const EmpezarRutinaComponent = () => {
   }, [idRV]);
 
   const toggleSerieActiva = (id_serie, descanso) => {
-    setSeriesActivas(prev =>
+    setSeriesActivas((prev) =>
       prev.includes(id_serie)
-        ? prev.filter(id => id !== id_serie)
+        ? prev.filter((id) => id !== id_serie)
         : [...prev, id_serie]
     );
 
@@ -74,7 +78,10 @@ const EmpezarRutinaComponent = () => {
       objectFit: "cover",
     };
 
-    let publicPath = src.replace('./src/assets/img/ejercicios/', '/ejercicios/');
+    let publicPath = src.replace(
+      "./src/assets/img/ejercicios/",
+      "/ejercicios/"
+    );
 
     if (extension === "mp4") {
       return (
@@ -116,18 +123,17 @@ const EmpezarRutinaComponent = () => {
   };
 
   const ejerciciosAgrupados = agruparEjercicios();
- 
-  if (idUser !== 0 && usuario.id !== idUser) {
-  return <Navigate to="/" />;
-}
 
+  if (idUser !== 0 && usuario.id !== idUser) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div>
       <HeaderComponent />
       <div id="contenido-rutina" className="contenido container">
         <div className="row">
-          <div className='col-12'>
+          <div className="col-12">
             <Timer />
           </div>
           <h1 className="titulo col">{rutina}</h1>
@@ -146,26 +152,43 @@ const EmpezarRutinaComponent = () => {
                 {ejercicio.series.map((serie, idxSerie) => (
                   <div
                     key={idxSerie}
-                    className={`row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer ${seriesActivas.includes(serie.id_serie) ? 'ejercicioSe' : ''}`}
+                    className={`row rounded mx-1 serie p-2 text-center d-flex justify-content-center align-items-center mb-2 cursor-pointer ${
+                      seriesActivas.includes(serie.id_serie)
+                        ? "ejercicioSe"
+                        : ""
+                    }`}
                   >
-                    <p className="col"><strong>SERIE:</strong> {idxSerie + 1}</p>
+                    <p className="col">
+                      <strong>SERIE:</strong> {idxSerie + 1}
+                    </p>
                     <input
-                      className='col-lg-2 col-md-2 col-sm-3 col-3 p-1 rounded mx-1 carac'
+                      className="col-lg-2 col-md-2 col-sm-3 col-3 p-1 rounded mx-1 carac"
                       type="number"
                       defaultValue={serie.reps}
                       onBlur={(e) =>
-                        actualizarSerie(serie.id_serie, 'repeticiones', e.target.value)
+                        actualizarSerie(
+                          serie.id_serie,
+                          "repeticiones",
+                          e.target.value
+                        )
                       }
-                    />REPS
+                    />
+                    REPS
                     <input
-                      className='col-lg-2 col-md-2 col-sm-3 col-3 p-1 rounded mx-1 carac'
+                      className="col-lg-2 col-md-2 col-sm-3 col-3 p-1 rounded mx-1 carac"
                       type="number"
                       defaultValue={serie.peso}
                       onBlur={(e) =>
-                        actualizarSerie(serie.id_serie, 'peso', e.target.value)
+                        actualizarSerie(serie.id_serie, "peso", e.target.value)
                       }
-                    />KG
-                    <div className='col-1' onClick={() => toggleSerieActiva(serie.id_serie, serie.descanso)}>
+                    />
+                    KG
+                    <div
+                      className="col-1"
+                      onClick={() =>
+                        toggleSerieActiva(serie.id_serie, serie.descanso)
+                      }
+                    >
                       <FaRegCircleCheck />
                     </div>
                   </div>
@@ -176,15 +199,20 @@ const EmpezarRutinaComponent = () => {
         )}
       </div>
 
-      <div className='container pb-5 mb-5'>
-        <div className='row d-flex align-items-center justify-content-center'>
-          <Link className='col-12 text-center border-m p-3 noEnlace rounded t-m' to={'/entrenamiento'}>
+      <div className="container pb-5 mb-5">
+        <div className="row d-flex align-items-center justify-content-center">
+          <Link
+            className="col-12 text-center border-m p-3 noEnlace rounded t-m"
+            to={"/entrenamiento"}
+          >
             Terminar entrenamos
           </Link>
         </div>
       </div>
-
-      <TemporizadorComponent duracion={temporizador.duracion} trigger={temporizador.trigger} />
+      <TemporizadorComponent
+        duracion={temporizador.duracion}
+        trigger={temporizador.trigger}
+      />
     </div>
   );
 };

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import './HeroComponent.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import "./HeroComponent.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HeroComponent = () => {
   useEffect(() => {
@@ -12,35 +12,42 @@ const HeroComponent = () => {
     <div className="hero contenido d-flex align-items-center">
       <div className="container">
         <div className="row align-items-center">
-          
-          {/* Text section */}
           <div className="col-lg-6 col-md-6 col-sm-12 col-12 contenedorTit">
             <h1 className="titulo mb-2">Gold's Fit</h1>
-            <h2 className="subtitulo mb-3 titulo">¡Toma el control de tu evolución!</h2>
+            <h2 className="subtitulo mb-3 titulo">
+              ¡Toma el control de tu evolución!
+            </h2>
             <p className="text-light fs-5">
               Sigue tu progreso. Mantente motivado. Entrena con disciplina.
             </p>
             <p className="text-light">
-              Gold's Fit es un rastreador de entrenamientos gratuito. Crea rutinas, haz seguimiento y evoluciona.
+              Gold's Fit es un rastreador de entrenamientos gratuito. Crea
+              rutinas, haz seguimiento y evoluciona.
             </p>
-
-            {/* Store buttons */}
             <div className="mt-3">
-              <img src="/appstore.png" alt="App Store" className="store-btn me-2" />
-              <img src="/googleplay.png" alt="Google Play" className="store-btn" />
+              <img
+                src="/appstore.png"
+                alt="App Store"
+                className="store-btn me-2"
+              />
+              <img
+                src="/googleplay.png"
+                alt="Google Play"
+                className="store-btn"
+              />
             </div>
-
-            {/* Rating */}
             <div className="mt-3 text-light">
-              ⭐⭐⭐⭐⭐ 4.9 App Store & Google Play — Usado por miles de atletas
+              ⭐⭐⭐⭐⭐ 4.9 App Store & Google Play — Usado por miles de
+              atletas
             </div>
           </div>
-
-          {/* Image section */}
           <div className="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-center">
-            <img src="/ecosistema.png.webp" alt="App Preview" className="img-fluid" />
+            <img
+              src="/ecosistema.png.webp"
+              alt="App Preview"
+              className="img-fluid"
+            />
           </div>
-
         </div>
       </div>
     </div>

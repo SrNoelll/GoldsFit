@@ -39,8 +39,6 @@ export const BuscadorEjerciciosComponent = () => {
     <div>
       <HeaderComponent />
       <div className="container contenido">
-
-        {/* Buscador */}
         <div className="row mx-1 mb-4">
           <input
             type="text"
@@ -50,8 +48,6 @@ export const BuscadorEjerciciosComponent = () => {
             onChange={(e) => setBusqueda(e.target.value)}
           />
         </div>
-
-        {/* Lista de ejercicios */}
         {ejerciciosFiltrados.map((ejercicio) => (
             <Link className='noEnlace' to={'/ejercicio/'+ejercicio.id}>
                 <div

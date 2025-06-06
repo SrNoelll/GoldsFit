@@ -1,13 +1,14 @@
-import React from 'react';
-import HeaderComponent from '../../HeaderComponent/HeaderComponent';
-import './AniadirRutinaComponent.css';
+import React from "react";
+import HeaderComponent from "../../HeaderComponent/HeaderComponent";
+import "./AniadirRutinaComponent.css";
 import { MdOutlineCancel } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 const AniadirRutinaComponent = () => {
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
-  const seleccionados = JSON.parse(sessionStorage.getItem('seleccionados')) || [];
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const seleccionados =
+    JSON.parse(sessionStorage.getItem("seleccionados")) || [];
   const ejercicios = JSON.parse(localStorage.getItem("ejercicios")) || [];
   const navigate = useNavigate();
 
@@ -39,67 +40,73 @@ const AniadirRutinaComponent = () => {
     }
   };
 
- const handleGuardar = async () => {
-  const tituloInput = document.getElementById("titulo");
-  const titulo = tituloInput?.value.trim();
+  const handleGuardar = async () => {
+    const tituloInput = document.getElementById("titulo");
+    const titulo = tituloInput?.value.trim();
 
-  if (!titulo) {
-    alert("Por favor, introduce un título para la rutina.");
-    return;
-  }
-
-  const datos = seleccionados.map((id) => {
-    const ejercicio = ejercicios.find((e) => e.id === id);
-    const repeticiones = parseInt(document.getElementById(`reps-${id}`)?.value) || 0;
-    const series = parseInt(document.getElementById(`series-${id}`)?.value) || 0;
-    const time = parseInt(document.getElementById(`time-${id}`)?.value) || 0;
-
-    return {
-      id: ejercicio.id,
-      nombre: ejercicio.nombre,
-      repeticiones,
-      series,
-      time,
-    };
-  });
-
-  try {
-    const response = await fetch("https://2daw14.iesalonsocano.org/api/?ruta=rutina", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nombreRut: titulo,
-        id: usuario.id,
-        rutina: datos,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Error al guardar la rutina:", errorData);
-      alert("Hubo un error al guardar la rutina: " + (errorData.message || response.statusText));
+    if (!titulo) {
+      alert("Por favor, introduce un título para la rutina.");
       return;
     }
 
-    const data = await response.json();
+    const datos = seleccionados.map((id) => {
+      const ejercicio = ejercicios.find((e) => e.id === id);
+      const repeticiones =
+        parseInt(document.getElementById(`reps-${id}`)?.value) || 0;
+      const series =
+        parseInt(document.getElementById(`series-${id}`)?.value) || 0;
+      const time = parseInt(document.getElementById(`time-${id}`)?.value) || 0;
 
-    if (data.success) {
-      sessionStorage.clear();
-      navigate("/entrenamiento");
-    } else {
-      console.error("Error en la respuesta del servidor:", data);
+      return {
+        id: ejercicio.id,
+        nombre: ejercicio.nombre,
+        repeticiones,
+        series,
+        time,
+      };
+    });
+
+    try {
+      const response = await fetch(
+        "https://2daw14.iesalonsocano.org/api/?ruta=rutina",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nombreRut: titulo,
+            id: usuario.id,
+            rutina: datos,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error al guardar la rutina:", errorData);
+        alert(
+          "Hubo un error al guardar la rutina: " +
+            (errorData.message || response.statusText)
+        );
+        return;
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        sessionStorage.clear();
+        navigate("/entrenamiento");
+      } else {
+        console.error("Error en la respuesta del servidor:", data);
+        alert("Hubo un error al guardar la rutina.");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud fetch:", error);
       alert("Hubo un error al guardar la rutina.");
     }
-  } catch (error) {
-    console.error("Error en la solicitud fetch:", error);
-    alert("Hubo un error al guardar la rutina.");
-  }
-};
+  };
 
-
-  
   const mostrarEjer = () => {
     return seleccionados.map((id, index) => {
       const ejercicio = ejercicios.find((e) => e.id === id);
@@ -116,7 +123,7 @@ const AniadirRutinaComponent = () => {
           </div>
           <div className="col">{renderMedia(ejercicio.foto)}</div>
           <div className="col-lg-3 text-start col-md-12 col-sm-12 col-12 row">
-            <div className='col'>Repeticiones:</div>
+            <div className="col">Repeticiones:</div>
             <input
               type="number"
               defaultValue="12"
@@ -126,7 +133,7 @@ const AniadirRutinaComponent = () => {
             />
           </div>
           <div className="col-lg-3 text-start col-md-12 col-sm-12 col-12 row">
-            <div className='col'>Series:</div>
+            <div className="col">Series:</div>
             <input
               type="number"
               defaultValue="3"
@@ -136,7 +143,7 @@ const AniadirRutinaComponent = () => {
             />
           </div>
           <div className="col-lg-3 text-start col-md-12 col-sm-12 col-12 row row">
-            <div className='col'>Descanso:</div>
+            <div className="col">Descanso:</div>
             <input
               type="number"
               defaultValue="120"
@@ -153,30 +160,43 @@ const AniadirRutinaComponent = () => {
   return (
     <div>
       <HeaderComponent />
-      <div className='contenido container'>
+      <div className="contenido container">
         <div className="row">
-          <div className='col-12'>
-            <div className='col-lg-6 col-md-8 col-sm-12 col-12'>
-            <input id='titulo' type="text" placeholder='Titulo' className='rounded w-100 titulo p-2 tituloR'/>
+          <div className="col-12">
+            <div className="col-lg-6 col-md-8 col-sm-12 col-12">
+              <input
+                id="titulo"
+                type="text"
+                placeholder="Titulo"
+                className="rounded w-100 titulo p-2 tituloR"
+              />
+            </div>
           </div>
-          </div>
-          
+
           <Link className="noDec col" to="/entrenamiento">
-          <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded" onClick={()=>{sessionStorage.clear()}}>
+            <div
+              className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded"
+              onClick={() => {
+                sessionStorage.clear();
+              }}
+            >
               Cancelar <MdOutlineCancel />
-          </div>
+            </div>
           </Link>
-          <Link className="noDec col bg-transparent border-0" onClick={handleGuardar}>
-          <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
+          <Link
+            className="noDec col bg-transparent border-0"
+            onClick={handleGuardar}
+          >
+            <div className=" d-flex justify-content-center text-center align-items-center agregar my-3 p-3 rounded">
               Guardar <IoIosSave />
-          </div>
+            </div>
           </Link>
         </div>
 
-        <div className='container'>{mostrarEjer()}</div>
+        <div className="container">{mostrarEjer()}</div>
 
-        <Link className='noEnlace' to="/seleccionarEjercicio">
-          <div className='container mb-4 d-flex rounded align-items-center p-2 justify-content-center text-center agregar'>
+        <Link className="noEnlace" to="/seleccionarEjercicio">
+          <div className="container mb-4 d-flex rounded align-items-center p-2 justify-content-center text-center agregar">
             Editar lista de ejercicios
           </div>
         </Link>
