@@ -127,29 +127,14 @@ const EmpezarRutinaComponent = () => {
   if (idUser !== 0 && usuario.id !== idUser) {
     return <Navigate to="/" />;
   }
-  function compartir() {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Mi sitio web',
-        text: '¡Mira esto!',
-        url: window.location.href
-      })
-      .then(() => console.log('Compartido con éxito'))
-      .catch((error) => console.log('Error al compartir', error));
-    } else {
-      alert('La función de compartir no está soportada en este navegador.');
-    }
-  }
+  
   return (
     <div>
       <HeaderComponent />
       <div id="contenido-rutina" className="contenido container">
         <div className="row">
-          <div className="col-6">
+          <div className="col-12">
             <Timer />
-          </div>
-          <div className="col-6">
-            <button onclick="compartir()">Compartir</button>
           </div>
           <h1 className="titulo col">{rutina}</h1>
         </div>

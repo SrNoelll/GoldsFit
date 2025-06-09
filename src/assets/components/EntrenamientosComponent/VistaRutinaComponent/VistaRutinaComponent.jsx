@@ -99,6 +99,19 @@ const VistaRutinaComponent = () => {
   };
 
   const ejerciciosAgrupados = agruparEjercicios();
+   function compartir() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Golds Fit',
+        text: '¡Mira esta rutina!',
+        url: window.location.href
+      })
+      .then(() => console.log('Compartido con éxito'))
+      .catch((error) => console.log('Error al compartir', error));
+    } else {
+      alert('La función de compartir no está soportada en este navegador.');
+    }
+  }
 
   return (
     <div>
@@ -106,11 +119,12 @@ const VistaRutinaComponent = () => {
       <div id="contenido-rutina" className="contenido container">
         <div className="row">
           <h1 className="titulo col-12">{rutina}</h1>
+          
         </div>
 
         {usuario.id === rutinaUser && (
-          <div className="container-fluid d-flex align-items-center justify-content-center my-3">
-            <div className="row container-fluid">
+          <div className="container-fluid ">
+            <div className="row d-flex align-items-center justify-content-center my-3">
               <Link
                 className="col-12 text-center border-m p-2 noEnlace rounded t-m"
                 to={`/EmpezarRutina/${idRV}`}
@@ -120,6 +134,13 @@ const VistaRutinaComponent = () => {
             </div>
           </div>
         )}
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12 text-center border-m p-2 noEnlace rounded t-m" onClick={compartir}>
+            Compartir
+          </div>
+          </div>
+        </div>
         {ejercicios.length === 0 ? (
           <p className="text-center">No hay ejercicios cargados.</p>
         ) : (
