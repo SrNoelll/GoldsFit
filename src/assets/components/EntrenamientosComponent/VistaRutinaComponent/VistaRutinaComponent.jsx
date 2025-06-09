@@ -136,9 +136,9 @@ const VistaRutinaComponent = () => {
         )}
         <div className="container-fluid">
           <div className="row my-3">
-            <div className="col-12 text-center border-m p-2 noEnlace rounded t-m" onClick={compartir}>
+            <button className="col-12 text-center border-m p-2 noEnlace rounded t-m bg-transparent" onClick={compartir}>
             Compartir
-          </div>
+          </button>
           </div>
         </div>
         {ejercicios.length === 0 ? (
