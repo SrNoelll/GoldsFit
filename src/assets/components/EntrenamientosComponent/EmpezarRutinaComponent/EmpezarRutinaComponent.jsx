@@ -205,7 +205,7 @@ const EmpezarRutinaComponent = () => {
             className="col-12 text-center border-m p-3 noEnlace rounded t-m"
             to={"/entrenamiento"}
           >
-            Terminar entrenamos
+            Terminar entrenamiento
           </Link>
         </div>
       </div>
