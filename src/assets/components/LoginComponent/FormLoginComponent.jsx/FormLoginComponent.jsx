@@ -59,7 +59,7 @@ const FormLoginComponent = () => {
           </div>
           <div className="col-12 my-2">
             <div className="advanced-checkbox">
-              <input type="checkbox" id="advancedCheckbox" />
+              <input type="checkbox" id="advancedCheckbox" required/>
               <label htmlFor="advancedCheckbox">
                 <div className="box">
                   <div className="front"></div>
