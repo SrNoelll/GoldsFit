@@ -139,10 +139,10 @@ const VistaRutinaComponent = () => {
                       <strong>SERIE:</strong> {idx + 1}
                     </p>
                     <p className="col">
-                      <strong>REPS:</strong> {serie.reps}
+                      <strong>REPS:</strong> {usuario.id === rutinaUser ? serie.reps : '12 recomendadas'}
                     </p>
                     <p className="col">
-                      <strong>KG:</strong> {serie.peso || "--"}
+                      <strong>KG:</strong> {usuario.id === rutinaUser ? serie.peso || "--" : '--'} {}
                     </p>
                   </div>
                 ))}
