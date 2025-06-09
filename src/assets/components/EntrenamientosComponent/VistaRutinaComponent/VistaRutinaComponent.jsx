@@ -103,7 +103,7 @@ const VistaRutinaComponent = () => {
     if (navigator.share) {
       navigator.share({
         title: 'Golds Fit',
-        text: '¡Mira esta rutina!',
+        text: '¡Mira esta rutina!, '+rutina,
         url: window.location.href
       })
       .then(() => console.log('Compartido con éxito'))
@@ -135,7 +135,7 @@ const VistaRutinaComponent = () => {
           </div>
         )}
         <div className="container-fluid">
-          <div className="row">
+          <div className="row my-3">
             <div className="col-12 text-center border-m p-2 noEnlace rounded t-m" onClick={compartir}>
             Compartir
           </div>
