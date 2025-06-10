@@ -6,7 +6,7 @@ const DescripcionConponent = () => {
   const [descripcion, setDescripcion] = useState(usuario.descripcion || "");
 
   const handleChange = (e) => {
-    setDescripcion(e.target.value); // <- corregido aquí
+    setDescripcion(e.target.value);
   };
 
   const guardarDescripcion = async () => {

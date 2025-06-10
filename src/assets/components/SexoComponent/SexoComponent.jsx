@@ -10,10 +10,38 @@ const SexoComponent = () => {
     setSexo(nuevoSexo);
   };
 
-  const guardarSexo = () => {
+  const guardarSexo = async () => {
     usuario.sexo = sexo;
     localStorage.setItem("usuario", JSON.stringify(usuario));
+    try {
+      const respuesta = await fetch(
+        "https://2daw14.iesalonsocano.org/api/?ruta=actualizarUser",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ usuario }),
+        }
+      );
+
+      const resultado = await respuesta.json();
+
+      if (respuesta.ok && resultado.success) {
+        console.log(
+          "Usuario actualizado correctamente"
+        );
+      } else {
+        console.error(
+          "Error al actualizar usuario:",
+          resultado.message || resultado.error
+        );
+      }
+    } catch (error) {
+      console.error("Error de red o servidor:", error);
+    }
   };
+  
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">

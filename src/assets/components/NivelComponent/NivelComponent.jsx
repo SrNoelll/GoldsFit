@@ -24,7 +24,7 @@ const NivelComponent = () => {
       const resultado = await respuesta.json();
 
       if (respuesta.ok && resultado.success) {
-        console.log("Usuario actualizado y peso guardado en histórico correctamente");
+        console.log("Usuario actualizado correctamente");
       } else {
         console.error("Error al actualizar usuario:", resultado.message || resultado.error);
       }

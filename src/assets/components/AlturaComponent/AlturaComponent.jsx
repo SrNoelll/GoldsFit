@@ -29,7 +29,7 @@ const AlturaComponent = () => {
 
       if (respuesta.ok && resultado.success) {
         console.log(
-          "Usuario actualizado y peso guardado en histórico correctamente"
+          "Usuario actualizado correctamente"
         );
       } else {
         console.error(
