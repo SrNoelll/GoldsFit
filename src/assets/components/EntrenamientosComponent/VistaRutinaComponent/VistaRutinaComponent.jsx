@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import html2pdf from "html2pdf.js";
 import "./VistaRutinaComponent.css";
 import HeaderComponent from "../../HeaderComponent/HeaderComponent";
+import { FaShareAlt } from "react-icons/fa";
+import { IoShareSocialOutline } from "react-icons/io5";
 
 const VistaRutinaComponent = () => {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
@@ -137,7 +139,7 @@ const VistaRutinaComponent = () => {
         <div className="container-fluid">
           <div className="row my-3">
             <button className="col-12 text-center border-m p-2 noEnlace rounded t-m bg-transparent" onClick={compartir}>
-            Compartir
+            Compartir <IoShareSocialOutline />
           </button>
           </div>
         </div>
